@@ -1,187 +1,186 @@
-$(document).ready(function(){
-  $('.slick-slider-depoimentos').slick({
-    autoplay:true,
-    autoplaySpeed:2000,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    speed: 500,
-    dots: false,
-    customPaging : function(slider, i) { var thumb = $(slider.$slides[i]).data(); return '<div class="btn-slick"></div>'; },
-    centerMode: false,
-    focusOnSelect: true,
-    slide: 'div',
-    arrows: true,
-    responsive: [{
-      breakpoint: 640,
-      settings: {
-        slidesToShow: 1,
-      }
-    }]
-  });
-  $('.slick-slider-instituidoras').slick({
-    autoplay:true,
-    autoplaySpeed:2000,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    speed: 500,
-    dots: false,
-    centerMode: false,
-    focusOnSelect: true,
-    slide: 'div',
-    arrows: true,
-    responsive: [{
-      breakpoint: 640,
-      settings: {
-        slidesToShow: 1,
-      }
-    }]
-  });
+var webdoor = {
+	webdoor: function() {
+		$('.webdoor_footer .arrow').click(function (e) { 
+			e.preventDefault();
+			target = $('.gallery_featured');
+			$('html, body').animate({
+				scrollTop: target.offset().top
+			}, 1000);			
+		});
+		//webdoor
+		$('.webdoor .slider').slick({
+			arrows: false,
+			autoplay: true,
+			autoplaySpeed: 2500,
+			dots:true,
+			appendDots: $('.webdoor_pager')
+		});
+		$('.webdoor .wrapper').height(($(window).height() - $('#header').outerHeight()));
+		$('.webdoor_footer .image_description').text($('.slick-current').find('img').attr('title'));
+		
+		$('.webdoor .slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+			var title = $('.webdoor .slider .slick-current').find('img').attr('title');
+			$('.webdoor_footer .image_description').text(title);
+		});
+		$('.brand_layer').css('width', $('.webdoor .wrapper').width());
+		(function hl() {
+			var li = $('.brand_layer img').not('.active'),
+			r  = Math.floor(Math.random() * li.length),
+			h  = li.eq(r).hasClass('active');
+			
+			if (h == true) {
+				r  = Math.floor(Math.random() * li.length);
+				h  = li.eq(r).hasClass('active');
+			}
+			var w  = li.filter('.active').length;
+			
+			li.eq(r).addClass('active');
+			
+			if (w < li.length) setTimeout(hl, 0);
+		})();		
+	},
+	init: function() {
+		webdoor.webdoor();
+	}
+};
+var header = {
+	search: function() {
+		$('.form_area.search_header .action').click(function (e) { 
+			if(!$(this).parents('.search_header').hasClass('active')) {
+				e.preventDefault();
+				$(this).parents('.search_header').addClass('active');
+			}			
+		});
+	},
+	init: function() {
+		header.search();
+	}
+};
+var clubnews = {
+	slider: function() {
+		$('.featured_news .media .slider').slick({
+			arrows: false,
+			dots: false,
+			asNavFor: '.featured_news .slider_news',
+			draggable: false,
+			fade: true
+		});
+		$('.featured_news .slider_news').slick({
+			arrows: false,
+			dots: true,
+			asNavFor: '.featured_news .media .slider',
+			autoplay: true,
+			autoplaySpeed: 2500
+		});
+		if($('.featured_news .info_news').length >0){
+			$('.featured_news .info_news').css('padding-left', $('.logo').offset().left)
+		}
+	},
+	init: function() {
+		clubnews.slider();
+	}
+};
+var gallery_featured = {
+	click_item: function() {
+		$('.gallery_featured .gallery_item, .gallery_featured .close_gallery').click(function (e) { 
+			e.preventDefault();
+			if($(this).hasClass('close_gallery')) {
+				$('.gallery_featured').removeClass('focus');
+				$('.gallery_featured .gallery_item').removeClass('active');
+			}
+			else {
+				$('.gallery_featured').addClass('focus');
+				$(this).addClass('active');
+			}
+		});
+		$(window).on('scroll', function(){
+			if ($(".gallery_featured").is(':visible')){
+				$(".gallery_featured").addClass('show');
+			}
+		});
+	},
+	init: function() {
+		gallery_featured.click_item();
+	}
+};
+var gallery = {
+	slider: function() {
+		$('.main_gallery .media .slider').slick({
+			arrows: false,
+			dots: false,
+			asNavFor: '.main_gallery .slider_news',
+			draggable: false,
+			fade: true
+		});
+		$('.main_gallery .slider_news').slick({
+			arrows: false,
+			dots: true,
+			asNavFor: '.main_gallery .media .slider',
+			autoplay: true,
+			autoplaySpeed: 2500
+		});
+		
+		$('.main_slider').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			draggable: false,
+			fade: false,
+			variableWidth: true,
+			asNavFor: '.slider-nav-thumbnails',
+		});
+		
+		$('.slider-nav-thumbnails').slick({
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			asNavFor: '.main_slider',
+			dots: false,
+			focusOnSelect: true
+		});
+		
+		// Remove active class from all thumbnail slides
+		$('.slider-nav-thumbnails .slick-slide').removeClass('slick-active');
+		
+		// Set active class to first thumbnail slides
+		$('.slider-nav-thumbnails .slick-slide').eq(0).addClass('slick-active');
+		
+		// On before slide change match active thumbnail to current slide
+		$('.main_slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+			var mySlideNumber = nextSlide;
+			$('.slider-nav-thumbnails .slick-slide').removeClass('slick-active');
+			$('.slider-nav-thumbnails .slick-slide').eq(mySlideNumber).addClass('slick-active');
+		});
+	},
+	init: function() {
+		gallery.slider();
+	}
+};
+var envie_peca = {
+	send: function() {
+		$('body').on('change', '.file-upload', function (e) {
+			e.preventDefault();
+			$(this).parents('.form_item').find('.file_text').text($(this).val());
+		});
+		$('.row_action .add_file').click(function (e) { 
+			e.preventDefault();
+			var clone = $('<div class="row_send_file"> <div class="form_item file"> <label class="custom-file-upload"><img src="images/doc.png" alt=""><span class="file_text">Envie seu arquivo</span> <input class="file-upload" type="file"> </label><span class="hint">O arquivo deve ter no máximo XXMB e estar no formato jpeg.</span> </div><span class="separator">Ou</span> <div class="form_item"> <input class="input_link" type="text" placeholder="Link do Youtube ou Vimeo"> </div> </div>');
+			clone.appendTo('.form_area .wrap');
+		});
+	},
+	init: function() {
+		envie_peca.send();
+	}
+};
+jQuery(document).ready(function($) {
+	header.init();
+	webdoor.init();
+	gallery_featured.init();
+	clubnews.init();
+	gallery.init();
+	envie_peca.init();
+});
 
-  $('.navbar-hamburg').click(function(){
-		$('.navbar-mobile ul').toggleClass("show-r-menu");
-  });
-
-/* mapa */
-  $('a.item-estado').click(function(){
-    var uid = $(this).attr('data-href');
-    //alert(uid);
-    $('.box-estado').removeClass("show-estado");
-    $('.box-estado[data-id=gbox-'+uid+']').addClass("show-estado");
-    $('.box-selecione').addClass("hide-selecione");
-
-  });
-
-  $('g.gbox').click(function(){
-    var uid = $(this).attr('id');
-    //alert(uid);
-    $('.box-estado').removeClass("show-estado");
-    $('.box-estado[data-id='+uid+']').addClass("show-estado");
-    $('.box-selecione').addClass("hide-selecione");
-  });
-
-  $('.estadosSelect li').click(function(){
-    var uid = $(this).attr('id');
-    // alert(uid);
-    $('.box-estado').removeClass("show-estado");
-    $('.box-estado[data-id='+uid+']').addClass("show-estado");
-    $('.box-selecione').addClass("hide-selecione");
-  });
-
-  $('li.item').click(function(){
-    var id = $(this).attr('data-id');
-		$('li.item[data-id='+id+'] .item-dropdown').toggleClass("show-dropdown");
-    $('li.item[data-id='+id+'] i').toggleClass("i-transform");
-  });
-/* end mapa */
-  $('.relatorio').click(function(){
-    var childs = $(this).find('.relatorio-dropdown a').length;
-        console.log(childs);
-
-    if($(this).find('.relatorio-dropdown').attr('style')) {
-      $(this).find('.relatorio-dropdown').attr('style', '');
-    }
-    else {
-      $(this).find('.relatorio-dropdown').css('max-height', childs * 35 + 'px');
-    }
-  });
-
-  $("#associacao-search").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#associacao-list li").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-  $()
-  $('#associacao-list li').click(function(){
-    var targetText = $(this).text();
-    var targetID = $(this).attr('id');
-    $('#associacao-search').val(targetText);
-    $('#id_value').val(targetID);
-  });
-
-  $('.field-select i').click(function(){
-    $('.field-select ul').addClass("show-associacao");
-  });
-
-  $('.field-select').click(function(){
-		$('.field-select ul').addClass("show-associacao");
-  });
-
-  $('body').click(function(event){
-    if (($(event.target).attr('id') != 'associacao-search') && ($(event.target).attr('id') != 'associacao-search-i')) {
-      $('.field-select ul').removeClass("show-associacao");
-    }
-  });
-
-
-
-  window.displayBoxIndex = -1;
-
-  $("#associacao-search").keyup(function(e)  {
-    var target = e.keyCode;
-    if (e.keyCode == 40)
-    {
-        Navigate(1);
-    }
-    else if(e.keyCode==38)
-    {
-        Navigate(-1);
-    }
-    else if(e.keyCode==13)
-    {
-        $("#associacao-search").val($('#associacao-list li.field-select_ul_li_hover').text());
-    }
-  });
-
-  var Navigate = function(diff) {
-      displayBoxIndex += diff;
-      var oBoxCollection = $("#associacao-list li");
-      if (displayBoxIndex >= oBoxCollection.length)
-           displayBoxIndex = 0;
-      if (displayBoxIndex < 0)
-           displayBoxIndex = oBoxCollection.length - 1;
-      var cssClass = "field-select_ul_li_hover";
-      oBoxCollection.removeClass(cssClass).eq(displayBoxIndex).addClass(cssClass);
-  }
-
-  $('.boxOpcoes .box .btn, .modal-clube .close-btn ').click( function(e) {
-    e.preventDefault();
-    let id = $(this).attr('id'),
-        target = $('[data-target="'+id+'"]');
-    $('body').css('overflow', 'hidden');
-    target.addClass('active');
-    if ($(this).hasClass('close-btn')) {
-      $('.modal-clube').removeClass('active');
-      $('body').attr('style', '');
-    }
-  });
-
-  $('.filtro input[type="checkbox"]').click(function (){
-    let status = $(this).is(':checked'),
-        target = $('[data-object="'+ $(this).attr('id') +'"]');
-
-        if (status) {
-          $(this).parents('.filtro').addClass('active');
-          target.addClass('show');
-        }
-        else if ($(this).parents('form').find('input').is(':checked')) {
-            target.removeClass('show');
-        }
-        else {
-          $(this).parents('.filtro').removeClass('active');
-          $('.filtro .box').removeClass('show');
-        }
-
-  });
-
-  $('.btn-search-clube').click(function(e){
-    e.preventDefault();
-    var search = $('.input-search-clube').val();
-    //var item_search = location.href.split("/").slice(-1);
-
-    //window.location.href = window.location.href+"/"+search;
-    //console.log(window.location.href.indexOf('clubelogado'));
-    console.log(window.location);
-  });
-
+$(window).bind("load", function() {
+	$('.preloader').fadeOut();
+	$('body').addClass('page_start');    
 });

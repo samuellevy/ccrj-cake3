@@ -1,0 +1,35 @@
+#header {
+	background: $color1;
+	&.interna {
+		.wrapper{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 10px 10px;
+			max-width: 1200px;
+		}
+		.logo{
+			position: static;
+			padding: 0;
+		}
+	}
+	.wrapper {
+		max-width: 1920px;
+		margin: 0 auto;
+		position: relative;
+		padding-top: 35px;
+		padding-bottom: 30px;
+	}
+	.logo {
+		position: absolute;
+		top: 45px;
+		left: 60px;
+		z-index: 1;
+		padding-bottom: 85px;
+		padding-right: 136px;
+		background: $color1;
+		@include break-max(1440px) {
+			top: 90px;
+		}
+	}
+}

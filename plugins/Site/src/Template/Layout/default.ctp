@@ -1,192 +1,140 @@
-<?php $site_name = "JUSPREV"; ?>
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <base href="<?=$this->request->webroot;?>">
-
-  <meta charset="UTF-8">
-  <title>
-      <?=$site_name?>
-  </title>
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="">
-  <meta property="og:description" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8">
-
-  <!-- Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "WebPage",
-    "name": "",
-    "description": "",
-    "url": "",
-    "image": ""
-  }
-  </script>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-
-  <!-- Viewport -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Favicon -->
-  <link rel="icon" href="<?=$this->Url->image('Site.../images/favicon.png');?>">
-
-  <!-- CSS -->
-  <?= $this->Html->css('Site.main.css?build='.uniqid()) ?>
-
-  <!-- JS -->
-  <?= $this->Html->script('Site.slick.js?build='.uniqid()) ?>
-  <?= $this->Html->script('Site.main.js?build='.uniqid()) ?>
-
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P464FQ');</script>
-<!-- End Google Tag Manager -->
-</head>
-
-<body id="topo">
-
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P464FQ"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.9&appId=657296890979116";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
-    <!-- Start Turn the device div -->
-    <div class="turnDeviceNotification"></div>
-    <!-- End Turn the device div -->
-    <div class="container navbar-container">
-      <header scroll>
-        <?php echo $this->Element('Site.nav') ?>
-      </header>
-    </div>
-
-    <!-- Start Dinanmical content -->
-    <div ui-view>
-      <?= $this->Flash->render() ?>
-      <?= $this->fetch('content') ?>
-    </div>
-    <!-- End Dinanmical content -->
-
-    <footer>
-      <div class="container">
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <ul class="no-padding">
-              <div class="container no-padding">
-                <li>
-                  <div class="yamm-content">
-                    <div class="row no-padding">
-                      <ul class="col-sm-3 col-xs-12 no-padding list-unstyled">
-                        <li>
-                          <h4>NOSSOS SERVIÇOS</h4>
-                          <hr>
-                        </li>
-                        <li><?php echo $this->Html->link(
-                          'Plano exclusivo - PLANJUS',
-                          ['controller' => 'Pages', 'action' => 'planjus', '_full' => true]
-                        ); ?></li>
-                        <li><?php echo $this->Html->link(
-                          'Portabilidade',
-                          ['controller' => 'Pages', 'action' => 'portabilidade', '_full' => true]
-                        ); ?></li>
-                        <li><?php echo $this->Html->link(
-                          'Benefícios',
-                          ['controller' => 'Pages', 'action' => 'beneficios', '_full' => true]
-                        ); ?></li>
-                        <li><?php echo $this->Html->link(
-                          'FALE CONOSCO',
-                          ['controller' => 'Pages', 'action' => 'contato', '_full' => true],
-                          ['class' => 'btn btn-primary', 'role' => 'button']
-                        ); ?></li>
-                        <!-- <li><img src="images/logo-previc.jpg" class="img-responsive" alt=""/></li> -->
-                      </ul>
-                      <ul class="col-sm-2 col-xs-12 list-unstyled menuBg">
-                        <li><?php echo $this->Html->link(
-                          'Institucional',
-                          ['controller' => 'Pages', 'action' => 'institucional', '_full' => true]
-                        ); ?></li>
-                        <li><?php echo $this->Html->link(
-                          'Nossos Números',
-                          ['controller' => 'Pages', 'action' => 'numeros', '_full' => true]
-                        ); ?></li>
-                        <li><?php echo $this->Html->link(
-                          'Clube de Vantagens',
-                          ['controller' => 'Pages', 'action' => 'clube', '_full' => true]
-                        ); ?></li>
-                        <li><?php echo $this->Html->link(
-                          'Instituidoras',
-                          ['controller' => 'Pages', 'action' => 'instituidoras', '_full' => true]
-                        ); ?></li>
-                        <li><?php echo $this->Html->link(
-                          'Comunicação',
-                          ['controller' => 'Posts', 'action' => 'index', '_full' => true]
-                        ); ?></li>
-                        <li><?php echo $this->Html->link(
-                          'Contato',
-                          ['controller' => 'Pages', 'action' => 'contato', '_full' => true]
-                        ); ?></li>
-                      </ul>
-                      <ul class="col-sm-3 list-unstyled">
-                        <!-- <li ng-init="getLastReport()">
-                          <h4>{{report.title}}</h4>
-                          <hr>
-                        </li>
-                        <li><a ng-bind="formatMonthYear(report.created_at)"></a></li>
-                        <li><a href="{{report.file_name}}" target="_blank" class="btn btn-primary" role="button">FAÇA O DOWNLOAD</a></li> -->
-
-                        <li>
-                          <h4>OUTROS</h4>
-                          <hr>
-                        </li>
-                        <li><a href="https://www.meufuturo.net.br/jusprev/simulador/renda/" target="_blank">Simulador de aposentadoria</a></li>
-                        <li><a href="https://www.meufuturo.net.br/jusprev/simulador/educacional/" target="_blank">Simulador de renda educacional</a></li>
-                        <li><a href="http://www4.planalto.gov.br/legislacao" target="_blank">Legislação</a></li>
-                      </ul>
-                      <ul class="col-sm-3 col-xs-12 list-unstyled facebook">
-                        <div class="fb-page" data-href="https://www.facebook.com/jusprev/?ref=br_rs" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/jusprev/?ref=br_rs" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/jusprev/?ref=br_rs">Jusprev Previdência Complementar Associativa</a></blockquote></div>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-              </div>
-            </ul>
-          </li>
-        </ul>
-
-        <div class="container copyright no-padding">
-          <div class="col-md-11 no-padding">
-            <p>Copyright 2017 - JUSPREV</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <?= $this->Html->css('Site.main.css'); ?>
+    <title>Home</title>
+  </head>
+  <body>
+    <header id="header">
+      <div class="wrapper">
+        <div class="logo"><a href="#"><li><?=$this->Html->image('Site.../images/logo.png');?></a></div>
+        <nav id="main_nav">
+          <ul class="list">
+            <li class="list-item"><a class="link active" href="#"><span>O clube</span></a></li>
+            <li class="list-item"><a class="link" href="#"><span>Galeria</span></a></li>
+            <li class="list-item"><a class="link" href="#"><span>Novidades</span></a></li>
+            <li class="list-item"><a class="link" href="#"><span>OPINIÃO</span></a></li>
+            <li class="list-item"><a class="link" href="#"><span>Envie sua peça</span></a></li>
+            <li class="list-item"><a class="link" href="#"><span>Contato</span></a></li>
+          </ul>
+          <form class="form_area search_header">
+            <div class="form_item">
+              <label class="label">
+                <input class="input_text" type="text" placeholder="pesquisar">
+                <button class="action" type="submit"></button>
+              </label>
+            </div>
+          </form>
+        </nav>
+      </div>
+    </header>
+    <div class="webdoor">
+      <div class="wrapper">
+        <div class="item"><img src="images/home_webdoor.jpg" title="Destaque 1"></div>
+        <div class="webdoor_pager"></div>
+        <div class="brand_layer">
+          <div class="row right"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png">
           </div>
-          <div class="col-md-11 col-xs-12">
-            <p class="text">Rua: Mateus Leme, nº 2018, Térreo, Centro Cívico, Curitiba – PR CEP. 80530-010 Fone: (41) 3252-3400 / Fax: (41) 3252-8910 / Email: jusprev@jusprev.org.br
-            <br/>CENTRAL DE RELACIONAMENTO COM O PARTICIPANTE: 0800 052 34 34</p>
-            </p>
+          <div class="row left"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png">
           </div>
-          <div class="col-md-1">
-            <a href="http://www.3aworldwide.com.br/" target="_blank">
-              <!-- <img src="images/logo-3aww.jpg" class="img-responsive" alt=""/> -->
-            </a>
+          <div class="row right"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png">
+          </div>
+          <div class="row left"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png">
+          </div>
+          <div class="row right"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png">
+          </div>
+          <div class="row left"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png">
+          </div>
+          <div class="row right"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png">
+          </div>
+          <div class="row left"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png">
+          </div>
+          <div class="row right"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png">
+          </div>
+          <div class="row left"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png">
+          </div>
+        </div>
+        <div class="webdoor_footer"><a class="arrow" href="#"><img src="images/arrow_wd.png"></a></div>
+      </div>
+    </div>
+    <section class="gallery_featured">
+      <div class="wrapper"><a class="close_gallery" href="#"></a>
+        <div class="section_title">
+          <h2 class="title"> <span>Galeria</span></h2><a class="view_more" href="#">VEJA MAIS <span>[+]</span></a>
+        </div>
+        <div class="gallery_item item-1">
+          <div class="media"><img src="images/gallery_3.jpg"></div>
+          <div class="text">
+            <p class="name">AGENCY XXXXX</p>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus fringilla sodales. Maecenas varius urn…</p>
+          </div>
+        </div>
+        <div class="gallery_item item-2">
+          <div class="media"><img src="images/gallery_2.jpg"></div>
+          <div class="text">
+            <p class="name">AGENCY XXXXX</p>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus fringilla sodales. Maecenas varius urn…</p>
+          </div>
+        </div>
+        <div class="gallery_item item-3">
+          <div class="media"><img src="images/gallery_3.jpg"></div>
+          <div class="text">
+            <p class="name">AGENCY XXXXX</p>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus fringilla sodales. Maecenas varius urn…</p>
           </div>
         </div>
       </div>
+    </section>
+    <section class="new_publications">
+      <div class="wrapper">
+        <div class="section_title">
+          <h2 class="title"> <span>novi <br> dades</span></h2><a class="view_more" href="#">VEJA MAIS <span>[+]</span></a>
+        </div>
+        <div class="main_post">
+          <div class="media"><img src="images/image_2.jpg" alt=""></div>
+        </div>
+        <div class="publications">
+          <div class="wrapper">
+            <div class="featured_new">
+              <h4 class="title">TÍTULO DA NOTÍCIA</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus fringilla sodales. Maecenas varius urn…</p>
+            </div>
+            <ul class="list">
+              <li class="item"> 
+                <p> <strong>DESTAQUE // </strong><span> 6 diretores de criação comentam as mudanças no Cannes Lions</span></p><a class="view_more" href="#">VEJA MAIS [+]</a>
+              </li>
+              <li class="item"> 
+                <p> <strong>DESTAQUE // </strong><span> 6 diretores de criação comentam as mudanças no Cannes Lions</span></p><a class="view_more" href="#">VEJA MAIS [+]</a>
+              </li>
+              <li class="item"> 
+                <p> <strong>DESTAQUE // </strong><span> 6 diretores de criação comentam as mudanças no Cannes Lions</span></p><a class="view_more" href="#">VEJA MAIS [+]</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="opinion_featured">
+      <div class="media">
+        <div class="writer"><img src="images/home_writer.jpg" alt=""></div>
+      </div>
+      <div class="wrapper">
+        <div class="section_title">
+          <h2 class="title"> <span>opinião</span></h2><a class="view_more" href="#">VEJA MAIS <span>[+]</span></a>
+          <p class="name"><strong class="name">BRUNO OPPIDO</strong><small class="info">EM ARTIGO EXCLUSIVO PARA O CCRJ</small></p>
+          <p class="desc">“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus de fringilla sodales. Maecenas varius urnar…”</p>
+        </div>
+      </div>
+    </section>
+    <footer id="footer">
+      <div class="wrapper">
+        <p>Todos os direitos reservados © CCRJ</p>
+        <div class="wrap"><a href="#"><img src="images/f_fb.png" alt=""></a><a href="#"><img src="images/f_tw.png" alt=""></a><a href="#"><img src="images/ins.png" alt=""></a><a class="link" href="">ASSOCIE-SE</a></div>
+      </div>
     </footer>
+    <?= $this->Html->script('Site.main.js'); ?>
   </body>
-
-  </html>
+</html>
