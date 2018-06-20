@@ -13,6 +13,12 @@ class PagesController extends AppController
     parent::beforeFilter($event);
   }
 
+  /* paginas ccrj */
+  public function send(){
+    
+  }
+  /* */
+
   public function view($slug=null){
     $page = $this->Pages->find('all', [
       'conditions'=>[
