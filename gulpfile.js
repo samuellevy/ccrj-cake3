@@ -39,7 +39,7 @@ gulp.task('watch', function() {
 
 gulp.task('browserSync',[], function() {
   browserSync({
-    proxy: 'http://localhost/jusprev-cake3',
+    proxy: 'http://localhost/ccrj-cake3',
   });
 });
 

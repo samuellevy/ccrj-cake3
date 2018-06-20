@@ -1,30 +1,25 @@
 <div class="webdoor">
 	<div class="wrapper">
-	<div class="item"><img src="images/home_webdoor.jpg" title="Destaque 1"></div>
+	<div class="item"><?=$this->Html->image('Site.../images/home_webdoor.jpg');?></div>
 	<div class="webdoor_pager"></div>
 	<div class="brand_layer">
-		<div class="row right"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png">
-		</div>
-		<div class="row left"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png">
-		</div>
-		<div class="row right"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png">
-		</div>
-		<div class="row left"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png">
-		</div>
-		<div class="row right"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png">
-		</div>
-		<div class="row left"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png">
-		</div>
-		<div class="row right"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png">
-		</div>
-		<div class="row left"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png">
-		</div>
-		<div class="row right"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png"><img src="images/bandeira_b.png">
-		</div>
-		<div class="row left"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png"><img src="images/bandeira_a.png">
-		</div>
+		
+		<?php for ($i = 0; $i < 5; $i++):?>	
+			<div class="row right">
+				<?php for ($j = 0; $j < 5; $j++):?>
+					<?=$this->Html->image('Site.../images/bandeira_b.png');?>
+				<?php endfor; ?>
+			</div>
+
+			<div class="row left">
+				<?php for ($j = 0; $j < 5; $j++):?>
+					<?=$this->Html->image('Site.../images/bandeira_a.png');?>
+				<?php endfor; ?>
+			</div>
+		<?php endfor; ?>
+
 	</div>
-	<div class="webdoor_footer"><a class="arrow" href="#"><img src="images/arrow_wd.png"></a></div>
+	<div class="webdoor_footer"><a class="arrow" href="#"><?=$this->Html->image('Site.../images/arrow_wd.png');?></a></div>
 	</div>
 </div>
 <section class="gallery_featured">
@@ -33,21 +28,21 @@
 		<h2 class="title"> <span>Galeria</span></h2><a class="view_more" href="#">VEJA MAIS <span>[+]</span></a>
 	</div>
 	<div class="gallery_item item-1">
-		<div class="media"><img src="images/gallery_3.jpg"></div>
+		<div class="media"><?=$this->Html->image('Site.../images/gallery_3.jpg');?></div>
 		<div class="text">
 		<p class="name">AGENCY XXXXX</p>
 		<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus fringilla sodales. Maecenas varius urn…</p>
 		</div>
 	</div>
 	<div class="gallery_item item-2">
-		<div class="media"><img src="images/gallery_2.jpg"></div>
+		<div class="media"><?=$this->Html->image('Site.../images/gallery_2.jpg');?></div>
 		<div class="text">
 		<p class="name">AGENCY XXXXX</p>
 		<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus fringilla sodales. Maecenas varius urn…</p>
 		</div>
 	</div>
 	<div class="gallery_item item-3">
-		<div class="media"><img src="images/gallery_3.jpg"></div>
+		<div class="media"><?=$this->Html->image('Site.../images/gallery_3.jpg');?></div>
 		<div class="text">
 		<p class="name">AGENCY XXXXX</p>
 		<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus fringilla sodales. Maecenas varius urn…</p>
@@ -61,7 +56,7 @@
 		<h2 class="title"> <span>novi <br> dades</span></h2><a class="view_more" href="#">VEJA MAIS <span>[+]</span></a>
 	</div>
 	<div class="main_post">
-		<div class="media"><img src="images/image_2.jpg" alt=""></div>
+		<div class="media"><?=$this->Html->image('Site.../images/image_2.jpg');?></div>
 	</div>
 	<div class="publications">
 		<div class="wrapper">
@@ -86,7 +81,7 @@
 </section>
 <section class="opinion_featured">
 	<div class="media">
-	<div class="writer"><img src="images/home_writer.jpg" alt=""></div>
+	<div class="writer"><?=$this->Html->image('Site.../images/home_writer.jpg');?></div>
 	</div>
 	<div class="wrapper">
 	<div class="section_title">
