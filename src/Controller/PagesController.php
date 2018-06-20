@@ -96,6 +96,10 @@ class PagesController extends AppController
     $this->set('posts', $posts);
   }
 
+  public function galeria(){
+    
+  }
+
   public function public(){
 
   }
