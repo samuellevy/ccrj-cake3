@@ -7,6 +7,7 @@ var runSequence = require('run-sequence');
 var cache = require('gulp-cache');
 var imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync');
+var concat = require('gulp-concat');
 
 var source = './source/';
 var target = './plugins/Site/webroot/';
@@ -16,7 +17,7 @@ var vendorPath = 'node_modules/';
 
 //gulp.task('default', ['clean:dist']);
 gulp.task('default', function(callback) {
-  runSequence(['images', 'sass', 'fonts', 'js', 'browserSync'], 'watch',
+  runSequence(['images', 'sass', 'fonts', 'scripts', 'browserSync'], 'watch',
   callback
 )
 });
@@ -24,7 +25,7 @@ gulp.task('default', function(callback) {
 gulp.task('build', function(callback) {
   runSequence(
     'clean:dist',
-    ['sass', 'images', 'fonts', 'js'],
+    ['sass', 'images', 'fonts', 'scripts'],
     callback
   )
 });
@@ -34,7 +35,7 @@ gulp.task('watch', function() {
   gulp.watch(source + 'scss/**/*.scss', ['sass']);
   gulp.watch(source + '*.html', ['html']);
   gulp.watch('./plugins/Site/**/*.ctp', ['ctp']);
-  gulp.watch(source + 'js/**/*.js', ['js']);
+  gulp.watch(source + 'js/**/*.js', ['scripts']);
 })
 
 gulp.task('browserSync',[], function() {
@@ -86,6 +87,15 @@ gulp.task('js', function() {
   .pipe(browserSync.reload({ // Reloading with Browser Sync
     stream: true
   }));
+});
+
+gulp.task('scripts', function() {
+  return gulp.src(source + 'js/*.js')
+    .pipe(sourcemaps.init())
+      .pipe(concat('main.js'))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(target + 'js/'))
+	.pipe(browserSync.stream());
 });
 
 gulp.task('clean:dist', function() {
