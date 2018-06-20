@@ -1,0 +1,64 @@
+<ul class="nav">
+  <li>
+    <a href="<?= $this->Url->build(["controller" => "messages","action" => "index"]);?>" <?=$params['controller']=='Messages'?"class='active'":""?>>
+      <i class="pe-7s-mail"></i>
+      <p>Caixa de Mensagens</p>
+    </a>
+  </li>
+
+  <li class="sidebar-dropdown" data-id="1">
+    <a <?=$params['controller']=='Posts'||$params['controller']=='BlogCategories'||$params['controller']=='BlogTags'?"class='active'":""?>>
+      <i class="pe-7s-news-paper"></i>
+      <p>Blog</p>
+      <i class="i-absolute pe-7s-angle-right"></i>
+    </a>
+    <ul <?=$params['controller']=='Posts'||$params['controller']=='BlogCategories'||$params['controller']=='BlogTags'?"class='show-sidebar-dropdown'":""?>>
+      <li>
+        <a href="<?= $this->Url->build(["controller" => "Posts","action" => "index"]);?>" <?=$params['controller']=='Posts'?"class='active'":""?>>
+          <i class="pe-7s-angle-right"></i>
+          <p>Posts</p>
+        </a>
+      </li>
+      <li>
+        <a href="<?= $this->Url->build(["controller" => "BlogCategories","action" => "index"]);?>" <?=$params['controller']=='BlogCategories'?"class='active'":""?>>
+          <i class="pe-7s-angle-right"></i>
+          <p>Categorias</p>
+        </a>
+      </li>
+      <li>
+        <a href="<?= $this->Url->build(["controller" => "BlogTags","action" => "index"]);?>" <?=$params['controller']=='BlogTags'?"class='active'":""?>>
+          <i class="pe-7s-angle-right"></i>
+          <p>Tags</p>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="<?= $this->Url->build(["controller" => "Menu","action" => "index"]);?>" <?=$params['controller']=='Menu'?"class='active'":""?>>
+      <i class="pe-7s-menu"></i>
+      <p>Menu</p>
+    </a>
+  </li>
+
+  <li>
+    <a href="<?= $this->Url->build(["controller" => "pages","action" => "index"]);?>" <?=$params['controller']=='Pages'?"class='active'":""?>>
+      <i class="pe-7s-photo-gallery"></i>
+      <p>Páginas</p>
+    </a>
+  </li>
+
+  <li>
+    <a href="<?= $this->Url->build(["controller" => "testimonials","action" => "index"]);?>" <?=$params['controller']=='Testimonials'?"class='active'":""?>>
+      <i class="pe-7s-speaker"></i>
+      <p>Depoimentos</p>
+    </a>
+  </li>
+
+  <li>
+    <a href="<?= $this->Url->build(["controller" => "Users","action" => "index"]);?>" <?=$params['controller']=='Users'?"class='active'":""?>>
+      <i class="pe-7s-user"></i>
+      <p>Usuários</p>
+    </a>
+  </li>
+</ul>
