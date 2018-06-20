@@ -15,7 +15,8 @@ class PagesController extends AppController
 
   /* paginas ccrj */
   public function send(){
-    
+    $this->viewBuilder()->setLayout('Site');
+    $this->viewBuilder()->setLayout('pages');
   }
   /* */
 
