@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp-manager": "cd plugins/Gerenciador && gulp build"
   },
   "repository": {
     "type": "git",
