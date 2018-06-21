@@ -46,8 +46,8 @@
         }
     }
     .media {
-        background: #1C1C1C;
         display: flex;
+
         .mask{
             position: absolute;
             top: 0;
@@ -68,6 +68,12 @@
                 object-position: center;
                 width: 68vw;
             }
+        }
+        .mask_opiniao{
+            background: url('../images/bg_opiniao.png') no-repeat center;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;;
         }
     }
 }
