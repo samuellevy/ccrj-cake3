@@ -74,13 +74,14 @@ class PagesController extends AppController
     $this->loadModel('Posts');
     $posts = $this->Posts->find('all', [
       'contain'=>[
-        'files',
-        'authors'
+        'files'
       ],
       'limit' => 4,
-      'order' => ['publish_date' => 'DESC']
+      'order' => ['publish_date' => 'DESC'],
     ]);
+    
     $posts = $posts->all();
+    $posts = $posts->toArray();
 
     /** ccrj */
 

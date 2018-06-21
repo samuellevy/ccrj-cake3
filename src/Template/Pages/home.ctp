@@ -49,24 +49,26 @@
 		<a class="view_more" href="#">VEJA MAIS <span>[+]</span></a>
 	</div>
 	<div class="main_post">
-		<div class="media"><?=$this->Html->image('Site.../images/image_2.png');?></div>
+		<div class="media">
+			<?php echo $this->Html->image('../uploads/files/'.$posts[0]['files'][0]['filename']);?>
+		</div>
 	</div>
 	<div class="publications">
 		<div class="wrapper">
 		<div class="featured_new">
-			<h4 class="title">TÍTULO DA NOTÍCIA</h4>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus fringilla sodales. Maecenas varius urn…</p>
+			<h4 class="title"><?=$posts[0]->title;?></h4>
+			<p><?=$posts[0]->description;?></p>
 		</div>
 		<ul class="list">
-			<li class="item"> 
-			<p> <strong>DESTAQUE // </strong><span> 6 diretores de criação comentam as mudanças no Cannes Lions</span></p><a class="view_more" href="#">VEJA MAIS [+]</a>
-			</li>
-			<li class="item"> 
-			<p> <strong>DESTAQUE // </strong><span> 6 diretores de criação comentam as mudanças no Cannes Lions</span></p><a class="view_more" href="#">VEJA MAIS [+]</a>
-			</li>
-			<li class="item"> 
-			<p> <strong>DESTAQUE // </strong><span> 6 diretores de criação comentam as mudanças no Cannes Lions</span></p><a class="view_more" href="#">VEJA MAIS [+]</a>
-			</li>
+			<?php foreach($posts as $key=>$post):?>
+				<?php if($key!=0):?>
+					<li class="item"> 
+						<p><strong>DESTAQUE // </strong><span> <?=$post->title;?></span></p>
+						<a class="view_more" href="<?= $this->Url->build($post->id);?>">VEJA MAIS [+]</a>
+					</li>
+				<?php endif;?>
+			<?php endforeach;?>
+
 		</ul>
 		</div>
 	</div>
