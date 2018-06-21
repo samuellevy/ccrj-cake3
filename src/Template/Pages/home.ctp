@@ -81,13 +81,15 @@
 </section>
 <section class="opinion_featured">
 	<div class="media">
-	<div class="writer"><?=$this->Html->image('Site.../images/home_writer.jpg');?></div>
+	<div class="writer"><?=$this->Html->image('Site.../images/ccj_opiniao.png');?></div>
 	</div>
 	<div class="wrapper">
 	<div class="section_title">
-		<h2 class="title"> <span>opinião</span></h2><a class="view_more" href="#">VEJA MAIS <span>[+]</span></a>
-		<p class="name"><strong class="name">BRUNO OPPIDO</strong><small class="info">EM ARTIGO EXCLUSIVO PARA O CCRJ</small></p>
-		<p class="desc">“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus de fringilla sodales. Maecenas varius urnar…”</p>
+		<div class="wrap">
+			<h2 class="title"> <span>opinião</span></h2><a class="view_more" href="#">VEJA MAIS <span>[+]</span></a>
+			<p class="name"><strong class="name">BRUNO OPPIDO</strong><small class="info">EM ARTIGO EXCLUSIVO PARA O CCRJ</small></p>
+			<p class="desc">“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus de fringilla sodales. Maecenas varius urnar…”</p>
+		</div>
 	</div>
 	</div>
 </section>

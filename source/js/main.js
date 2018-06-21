@@ -163,8 +163,9 @@ var envie_peca = {
 		});
 		$('.row_action .add_file').click(function (e) { 
 			e.preventDefault();
-			var clone = $('<div class="row_send_file"> <div class="form_item file"> <label class="custom-file-upload"><img src="images/doc.png" alt=""><span class="file_text">Envie seu arquivo</span> <input class="file-upload" type="file"> </label><span class="hint">O arquivo deve ter no máximo XXMB e estar no formato jpeg.</span> </div><span class="separator">Ou</span> <div class="form_item"> <input class="input_link" type="text" placeholder="Link do Youtube ou Vimeo"> </div> </div>');
+			var clone = $('<div class="row_send_file"> <div class="form_item file"> <label class="custom-file-upload"><span class="file_text">Envie seu arquivo</span> <input name="files['+qtd_input_pecas+'][filename]" class="file-upload" type="file"> </label><span class="hint">O arquivo deve ter no máximo XXMB e estar no formato jpeg.</span> </div><span class="separator">Ou</span> <div class="form_item"> <input name="medias['+qtd_input_pecas+'][url]" class="input_link" type="text" placeholder="Link do Youtube ou Vimeo"> </div> </div>');
 			clone.appendTo('.form_area .wrap');
+			qtd_input_pecas++;
 		});
 	},
 	init: function() {
@@ -179,8 +180,10 @@ jQuery(document).ready(function($) {
 	gallery.init();
 	envie_peca.init();
 });
-
 $(window).bind("load", function() {
 	$('.preloader').fadeOut();
 	$('body').addClass('page_start');    
 });
+
+//
+var qtd_input_pecas = 1;
