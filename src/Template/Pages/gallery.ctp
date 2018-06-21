@@ -11,16 +11,16 @@
             </div>
           </form>
           <ul class="list">
-            <li><a href="#">Filme</a></li>
-            <li><a href="#">Impresso</a></li>
-            <li><a href="#">Marketing Direto</a></li>
-            <li><a href="#">Digital</a></li>
-            <li><a href="#">Outdoor</a></li>
-            <li><a href="#">Rádio</a></li>
-            <li><a href="#">Content</a></li>
-            <li><a href="#">Experimento</a></li>
-            <li><a href="#">Integrada</a></li>
-            <li><a href="#">Design</a></li>
+            <li><a href="?c=filme">Filme</a></li>
+            <li><a href="?c=impresso">Impresso</a></li>
+            <li><a href="?c=marketing-direto">Marketing Direto</a></li>
+            <li><a href="?c=digital">Digital</a></li>
+            <li><a href="?c=outdoor">Outdoor</a></li>
+            <li><a href="?c=radio">Rádio</a></li>
+            <li><a href="?c=content">Content</a></li>
+            <li><a href="?c=experimento">Experimento</a></li>
+            <li><a href="?c=integrada">Integrada</a></li>
+            <li><a href="?c=design">Design</a></li>
           </ul>
         </div>
         <h1 class="page_title">GALERIA</h1>
@@ -30,30 +30,21 @@
       <div class="wrapper">
         <div class="info_news">
           <div class="slider_news">
+            <?php foreach($featured_works as $work):?>
             <div class="item"><span class="tag">DESTAQUE// IMPRESSO</span>
-              <h3 class="title">Nome da Campanha Lorem ipsum dolor sit amet lorem ipsum</h3>
-              <p class="hint">Nome do Cliente</p>
-              <p class="hint">Nome do Cliente</p><a class="view_more" href="#">VEJA MAIS [+]</a>
+              <h3 class="title"><?=$work->sheet->project_title?></h3>
+              <p class="hint"><?=$work->sheet->advertiser?></p>
+              <p class="hint"><?=$work->sheet->production_company?></p><a class="view_more" href="#">VEJA MAIS [+]</a>
             </div>
-            <div class="item"><span class="tag">DESTAQUE// IMPRESSO</span>
-              <h3 class="title">Nome da Campanha Lorem ipsum dolor sit amet lorem ipsum</h3>
-              <p class="hint">Nome do Cliente</p>
-              <p class="hint">Nome do Cliente</p><a class="view_more" href="#">VEJA MAIS [+]</a>
-            </div>
-            <div class="item"><span class="tag">DESTAQUE// IMPRESSO</span>
-              <h3 class="title">Nome da Campanha Lorem ipsum dolor sit amet lorem ipsum</h3>
-              <p class="hint">Nome do Cliente</p>
-              <p class="hint">Nome do Cliente</p><a class="view_more" href="#">VEJA MAIS [+]</a>
-            </div>
-            <div class="item"><span class="tag">DESTAQUE// IMPRESSO</span>
-              <h3 class="title">Nome da Campanha Lorem ipsum dolor sit amet lorem ipsum</h3>
-              <p class="hint">Nome do Cliente</p>
-              <p class="hint">Nome do Cliente</p><a class="view_more" href="#">VEJA MAIS [+]</a>
-            </div>
+            <?php endforeach;?>
           </div>
         </div>
         <div class="media">
-          <div class="slider"><?=$this->Html->image('Site.../images/galeria3.png', ['alt'=>'']);?><?=$this->Html->image('Site.../images/galeria3.png', ['alt'=>'']);?><?=$this->Html->image('Site.../images/galeria3.png', ['alt'=>'']);?><?=$this->Html->image('Site.../images/galeria3.png', ['alt'=>'']);?></div>
+          <div class="slider">
+            <?php foreach($featured_works as $work):?>
+              <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
+            <?php endforeach;?>
+          </div>
         </div>
       </div>
     </section>
@@ -66,36 +57,13 @@
       <div class="wrapper">
         <h4 class="title">Recentes//</h4>
         <div class="cards_galleries">
+          <?php foreach($works as $work):?>
           <div class="card_item">
             <div class="media"><?=$this->Html->image('Site.../images/galeria1.png', ['alt'=>'']);?>
-              <p><strong>CLIENTE// </strong><span>Nome da Campanha</span></p>
+              <p><strong><?=$work->sheet->avertiser?>// </strong><span><?=$work->sheet->project_title?></span></p>
             </div><a class="view_more" href="#">VEJA MAIS [+]</a>
           </div>
-          <div class="card_item">
-            <div class="media"><?=$this->Html->image('Site.../images/galeria1.png', ['alt'=>'']);?>
-              <p><strong>CLIENTE// </strong><span>Nome da Campanha</span></p>
-            </div><a class="view_more" href="#">VEJA MAIS [+]</a>
-          </div>
-          <div class="card_item">
-            <div class="media"><?=$this->Html->image('Site.../images/galeria1.png', ['alt'=>'']);?>
-              <p><strong>CLIENTE// </strong><span>Nome da Campanha</span></p>
-            </div><a class="view_more" href="#">VEJA MAIS [+]</a>
-          </div>
-          <div class="card_item">
-            <div class="media"><?=$this->Html->image('Site.../images/galeria1.png', ['alt'=>'']);?>
-              <p><strong>CLIENTE// </strong><span>Nome da Campanha</span></p>
-            </div><a class="view_more" href="#">VEJA MAIS [+]</a>
-          </div>
-          <div class="card_item">
-            <div class="media"><?=$this->Html->image('Site.../images/galeria1.png', ['alt'=>'']);?>
-              <p><strong>CLIENTE// </strong><span>Nome da Campanha</span></p>
-            </div><a class="view_more" href="#">VEJA MAIS [+]</a>
-          </div>
-          <div class="card_item">
-            <div class="media"><?=$this->Html->image('Site.../images/galeria1.png', ['alt'=>'']);?>
-              <p><strong>CLIENTE// </strong><span>Nome da Campanha</span></p>
-            </div><a class="view_more" href="#">VEJA MAIS [+]</a>
-          </div>
+          <?php endforeach;?>
         </div>
       </div>
     </section>

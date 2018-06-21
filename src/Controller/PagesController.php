@@ -153,18 +153,40 @@ class PagesController extends AppController
     // die(debug($page));
   }
 
-  public function gallery(){
+  public function gallery($q=null){
     $this->viewBuilder()->setLayout('pages');
     $this->loadModel('Works');
+    $categories = $this->Works->Sheets->WorkCategories->find('list');
+    $categories = $categories->all();
+    $featured_works = $this->Works->find('all', [
+      'contain'=>[
+        'files',
+        'Sheets'
+      ],
+      'limit' => 3,
+      'conditions'=>['status'=>1, 'feature'=>1]
+    ]);
+    $featured_works = $featured_works;
+
+    $query = $this->request->query;
+    if(isset($query['c'])){
+      $category = $query['c'];
+    }
+    if(isset($query['s'])){
+      $search = $query['s'];
+    }
+
     $works = $this->Works->find('all', [
       'contain'=>[
-        'files'
+        'files',
+        'Sheets.WorkCategories',
       ],
-      'limit' => 1,
-      'conditions'=>['status'=>1]
+      'limit' => 6,
+      'conditions'=>['status'=>1, 'feature'=>0]
     ]);
     $works = $works->all();
-    $this->set(compact(['works']));
+    die(debug($categories));
+    $this->set(compact(['featured_works','works']));
   }
   
   public function galleryread(){
