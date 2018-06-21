@@ -97,11 +97,11 @@ class PagesController extends AppController
     
   }
 
-  public function galery(){
+  public function gallery(){
     
   }
   
-  public function galeryread(){
+  public function galleryread(){
     
   }
 
@@ -114,10 +114,6 @@ class PagesController extends AppController
   }
 
   public function opinion(){
-    
-  }
-
-  public function send(){
     
   }
 
