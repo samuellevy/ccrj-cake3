@@ -13,8 +13,6 @@
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name', ['label'=>'Nome']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('role', ['label'=>'Função']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('position', ['label'=>'Posição']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('department_id', ['label'=>'Departmento']) ?></th>
                 <th scope="col" class="actions"><?= __('Opções') ?></th>
               </tr>
             </thead>
@@ -24,8 +22,6 @@
                   <td><?= $this->Number->format($person->id) ?></td>
                   <td><?= h($person->name) ?></td>
                   <td><?= h($person->role) ?></td>
-                  <td><?= h($person->position) ?></td>
-                  <td><?= h($person->department->name) ?></td>
 
                   <td class="actions">
                     <?php //= $this->Html->link(__('Ver'), ['action' => 'view', $person->id]) ?>

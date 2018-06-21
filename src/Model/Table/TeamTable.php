@@ -37,9 +37,9 @@ class TeamTable extends Table
     $this->setDisplayField('name');
     $this->setPrimaryKey('id');
 
-    $this->belongsTo('Departments', [
-      'foreignKey' => 'department_id'
-    ]);
+    // $this->belongsTo('Departments', [
+    //   'foreignKey' => 'department_id'
+    // ]);
     
     $this->hasMany('Files', [
       'className' => 'Files',

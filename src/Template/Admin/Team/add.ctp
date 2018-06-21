@@ -30,18 +30,11 @@
                 <div class="input select">
                   <label for="position">Posição</label>
                   <select name="position" class="form-control" id="position" value="bottom">
-                    <option value="bottom">bottom</option>
-                    <option value="top">top</option>
+                    <option value="top">Diretoria</option>  
+                    <option value="bottom">Conselheiro</option>
+                    <option value="both">Ambos</option>
                   </select>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <?php echo $this->Form->control('department_id', ['class'=>'form-control', 'label'=>'Departmento']);?>
               </div>
             </div>
           </div>

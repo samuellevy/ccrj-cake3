@@ -14,7 +14,6 @@ class TeamController extends AppController
     $team = $this->paginate($this->Team, [
       'contain'=>[
         'Files',
-        'Departments'
       ],
       'order'=>[
         'id'=>'ASC'
@@ -28,7 +27,6 @@ class TeamController extends AppController
   public function add()
   {
     $team = $this->Team->newEntity();
-    $departments = $this->Team->Departments->find('list', ['limit' => 200, 'order'=>['id'=>'ASC']]);
 
     if ($this->request->is('post')) {
       $team = $this->Team->patchEntity($team, $this->request->getData(),[
@@ -44,7 +42,7 @@ class TeamController extends AppController
       }
       $this->Flash->error(__('Não pôde ser salvo.'));
     }
-    $this->set(compact('team', 'departments'));
+    $this->set(compact('team'));
     $this->set('_serialize', ['team']);
   }
 
@@ -66,11 +64,9 @@ class TeamController extends AppController
   {
     $team = $this->Team->get($id, [
       'contain' => [
-        'Departments',
         'Files'
       ]
     ]);
-    $departments = $this->Team->Departments->find('list', ['limit' => 200, 'order'=>['id'=>'ASC']]);
 
     if ($this->request->is(['patch', 'post', 'put'])) {
       $old_team = $team;
@@ -97,7 +93,7 @@ class TeamController extends AppController
       }
       $this->Flash->error(__('Não pôde ser salvo..'));
     }
-    $this->set(compact('team','departments'));
+    $this->set(compact('team'));
     $this->set('_serialize', ['team']);
   }
 

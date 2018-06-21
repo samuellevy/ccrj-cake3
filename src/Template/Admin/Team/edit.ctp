@@ -27,15 +27,7 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
-                <?php echo $this->Form->control('position', ['class'=>'form-control', 'label'=>'Posição', 'options'=>['top'=>'top','bottom'=>'bottom']]);?>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <?php echo $this->Form->control('department_id', ['class'=>'form-control', 'label'=>'Departmento']);?>
+                <?php echo $this->Form->control('position', ['class'=>'form-control', 'label'=>'Posição', 'options'=>['top'=>'Diretoria','bottom'=>'Conselheiros','both'=>'Ambos']]);?>
               </div>
             </div>
           </div>

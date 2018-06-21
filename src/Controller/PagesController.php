@@ -113,11 +113,58 @@ class PagesController extends AppController
   }
   
   public function club(){
-    
+    $page = $this->Pages->find('all', [
+      'conditions'=>[
+        'slug'=>'club'
+      ],
+      'limit'=>1,
+      'contain'=>[
+        'PagesComponents'=>[
+          'sort'=>['sort'=>'asc']
+        ],
+        'PagesComponents.Files',
+      ]
+    ]);
+    $page = $page->first();
+
+    $this->loadModel('Team');
+    $team_top = $this->Team->find('all', [
+      'contain'=>[
+        'files'
+      ],
+      'limit' => 1,
+      'conditions'=>['position !='=>'bottom']
+    ]);
+    $team_top = $team_top->all();
+
+    $team_bottom = $this->Team->find('all', [
+      'contain'=>[
+        'files'
+      ],
+      'limit' => 1,
+      'conditions'=>['position !='=>'top']
+    ]);
+    $team_bottom = $team_bottom->all();
+
+
+    $this->set(compact(['page', 'team_top', 'team_bottom']));
+
+
+    // die(debug($page));
   }
 
   public function gallery(){
-    
+    $this->viewBuilder()->setLayout('pages');
+    $this->loadModel('Works');
+    $works = $this->Works->find('all', [
+      'contain'=>[
+        'files'
+      ],
+      'limit' => 1,
+      'conditions'=>['status'=>1]
+    ]);
+    $works = $works->all();
+    $this->set(compact(['works']));
   }
   
   public function galleryread(){
