@@ -8,6 +8,8 @@ var cache = require('gulp-cache');
 var imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync');
 var concat = require('gulp-concat');
+var autoprefixer = require('gulp-autoprefixer');
+var autoprefixerOptions = {browsers: ['last 2 versions', '> 5%', 'Firefox ESR']};
 
 var source = './source/';
 var target = './plugins/Site/webroot/';
@@ -51,17 +53,31 @@ gulp.task('ctp', function() {
   }));
 });
 
+// gulp.task('sass', function () {
+//   return gulp.src(source + 'scss/*.scss')
+//   .pipe(sourcemaps.init())
+//   .pipe(sass({ includePaths: [vendorPath] })
+//         .on('error', sass.logError))
+//   .pipe(browserSync.reload({ // Reloading with Browser Sync
+//     stream: true
+//   }))
+//   .pipe(sass().on('error', sass.logError))
+//   .pipe(sourcemaps.write())
+//   .pipe(gulp.dest(target + 'css'));
+// });
+
 gulp.task('sass', function () {
-  return gulp.src(source + 'scss/*.scss')
-  .pipe(sourcemaps.init())
-  .pipe(sass({ includePaths: [vendorPath] })
-        .on('error', sass.logError))
-  .pipe(browserSync.reload({ // Reloading with Browser Sync
-    stream: true
-  }))
-  .pipe(sass().on('error', sass.logError))
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest(target + 'css'));
+	return gulp.src(source + 'scss/*.scss')
+	.pipe(sourcemaps.init())
+	.pipe(sass({outputStyle: 'compressed'}))
+	.on('error', function(err){
+		browserSync.notify(err.message, 3000);
+		this.emit('end');
+	})
+	.pipe(autoprefixer(autoprefixerOptions))
+	.pipe(sourcemaps.write())
+	.pipe(gulp.dest(target + 'css'))
+	.pipe(browserSync.stream());
 });
 
 gulp.task('images', function() {

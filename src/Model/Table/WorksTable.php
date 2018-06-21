@@ -50,6 +50,11 @@ class WorksTable extends Table
             'conditions' => [
                 'entity' => 'Work']
         ]);
+
+        $this->hasMany('Medias', [
+            'className' => 'Medias',
+            'foreignKey' => 'work_id',
+        ]);
     }
 
     /**

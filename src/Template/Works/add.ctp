@@ -59,14 +59,14 @@
         <div class="wrap">
         <div class="row_send_file">
             <div class="form_item file">
-            <label class="custom-file-upload"><img src="images/doc.png" alt=""><span class="file_text">Envie seu arquivo</span>
-                <?php echo $this->Form->file('files.0.filename', ['class'=>'form-file']);?>
-                <?php echo $this->Form->hidden('files.0.entity', ['class'=>'form-file', 'value'=>'Work']);?>
-                <?php echo $this->Form->hidden('files.0.obs', ['class'=>'form-file', 'value'=>'Photo']);?>
-            </label><span class="hint">O arquivo deve ter no máximo XXMB e estar no formato jpeg.</span>
+            <label class="custom-file-upload">
+                <span class="file_text">Envie seu arquivo</span>
+                <input name="files[0][filename]" class="file-upload" type="file">
+            </label>
+            <span class="hint">O arquivo deve ter no máximo XXMB e estar no formato jpeg.</span>
             </div><span class="separator">Ou</span>
             <div class="form_item">
-            <input class="input_link" type="text" placeholder="Link do Youtube ou Vimeo">
+                <input name="medias[0][url]" class="input_link" type="text" placeholder="Link do Youtube ou Vimeo">
             </div>
         </div>
         </div>

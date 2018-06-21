@@ -24,5 +24,5 @@
 .DS_Store
 
 #DYNAMIC CONTENT
-webroot/*
-webroot/**/*
+#webroot/*
+#webroot/**/*
