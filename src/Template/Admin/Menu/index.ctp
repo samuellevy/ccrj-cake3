@@ -27,7 +27,7 @@
                   <td><?= $item->url ?></td>
                   <td>
                     <div class="switch__container">
-                      <input id="switch-flat-<?=$item->id?>" class="switch switch--flat" uid="<?=$item->id?>" type="checkbox" <?=$item->status==1?"checked":""?> onclick="changeStatus($(this).attr('uid'));">
+                      <input id="switch-flat-<?=$item->id?>" class="switch switch--flat" uid="<?=$item->id?>" type="checkbox" <?=$item->status==1?"checked":""?> onclick="changeStatus('menu', 'status', $(this).attr('uid'));">
                       <label for="switch-flat-<?=$item->id?>" class="general-switch"></label>
                     </div>
                   </td>

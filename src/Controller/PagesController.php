@@ -11,6 +11,8 @@ class PagesController extends AppController
 {
   public function beforeFilter(Event $event){
     parent::beforeFilter($event);
+    $configs['action'] = $this->request->action;
+    $this->set(compact('configs'));
   }
   
   public function view($slug=null){
@@ -61,14 +63,6 @@ class PagesController extends AppController
     /* Final page components */
     //die(debug($page));
 
-    $this->loadModel('Testimonials');
-    $testimonials = $this->Testimonials->find('all', [
-      'contain'=>[
-        'files'
-      ]
-    ]);
-    $testimonials = $testimonials->all();
-
     $this->loadModel('Institutes');
     $affiliates = $this->Institutes->find('all', [
       'contain'=>[
@@ -88,9 +82,33 @@ class PagesController extends AppController
     ]);
     $posts = $posts->all();
 
-    $this->set('testimonials', $testimonials);
-    $this->set('affiliates', $affiliates);
-    $this->set('posts', $posts);
+    /** ccrj */
+
+    $this->loadModel('Works');
+    $works = $this->Works->find('all', [
+      'contain'=>[
+        'files',
+        'Sheets'
+      ],
+      'limit' => 3,
+      'order' => ['Works.created' => 'DESC'],
+      'conditions'=>['Works.feature'=>1, 'Works.status'=>1]
+    ]);
+    $works = $works->all();
+
+
+    $this->loadModel('Testimonials');
+    $testimonials = $this->Testimonials->find('all', [
+      'contain'=>[
+        'files'
+      ],
+      'limit' => 1,
+      'order' => ['Testimonials.created' => 'DESC'],
+    ]);
+    $testimonials = $testimonials->all();
+    // die(debug($works));
+
+    $this->set(compact(['posts','works', 'testimonials']));
   }
   
   public function club(){

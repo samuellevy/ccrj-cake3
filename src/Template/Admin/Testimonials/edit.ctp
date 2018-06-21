@@ -18,7 +18,7 @@
           <div class="row">
             <div class="col-md-3">
               <div class="form-group">
-                <?php echo $this->Form->control('role', ['class'=>'form-control', 'label'=>'Função']);?>
+                <?php echo $this->Form->control('subtitle', ['class'=>'form-control', 'label'=>'Subtítulo']);?>
               </div>
             </div>
           </div>
@@ -46,7 +46,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="form-group">
-                <?php echo $this->Form->control('testimony', ['class'=>'form-control ckeditor', 'label'=>'Depoimento']); ?>
+                <?php echo $this->Form->control('testimony', ['class'=>'form-control', 'label'=>'Depoimento']); ?>
               </div>
             </div>
           </div>

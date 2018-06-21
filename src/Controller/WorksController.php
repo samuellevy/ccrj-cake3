@@ -20,6 +20,7 @@ class WorksController extends AppController
 		if ($this->request->is('post')) {
 			$work = $this->Works->patchEntity($work, $this->request->getData());
 			foreach($work->files as $key=>$file){
+				$file->entity = 'Work';
 				if($file->filename==''){
 					unset($work->files[$key]);
 				}

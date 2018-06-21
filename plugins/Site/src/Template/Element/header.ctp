@@ -1,6 +1,13 @@
-<header id="header">
+<?php
+if($configs['action']!='home'){
+    $logo = 'logo_small.png';
+}else{
+    $logo = 'logo.png';
+}
+?>
+<header id="header" class="<?=$configs['action']!='home'?'interna':''?>">
     <div class="wrapper">
-    <div class="logo"><a href="<?= $this->Url->build('/');?>"><li><?=$this->Html->image('Site.../images/logo.png');?></a></div>
+    <div class="logo"><a href="<?= $this->Url->build('/');?>"><li><?=$this->Html->image('Site.../images/'.$logo);?></a></div>
     <nav id="main_nav">
         <ul class="list">
             <?=$this->element('navigation');?>

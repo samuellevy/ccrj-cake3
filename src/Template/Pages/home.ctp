@@ -27,36 +27,29 @@
 	<div class="section_title">
 		<h2 class="title"> <span>Galeria</span></h2><a class="view_more" href="#">VEJA MAIS <span>[+]</span></a>
 	</div>
-	<div class="gallery_item item-1">
-		<div class="media"><?=$this->Html->image('Site.../images/gallery_3.jpg');?></div>
+	<?php foreach($works as $key=>$work):?>
+	<div class="gallery_item item-<?=$key+1?>">
+		<div class="media">
+			<?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
+		</div>
 		<div class="text">
-		<p class="name">AGENCY XXXXX</p>
-		<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus fringilla sodales. Maecenas varius urn…</p>
+		<p class="name"><?=$work->sheet->production_company?></p>
+		<p class="description"><?=$work->description?></p>
 		</div>
 	</div>
-	<div class="gallery_item item-2">
-		<div class="media"><?=$this->Html->image('Site.../images/gallery_2.jpg');?></div>
-		<div class="text">
-		<p class="name">AGENCY XXXXX</p>
-		<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus fringilla sodales. Maecenas varius urn…</p>
-		</div>
-	</div>
-	<div class="gallery_item item-3">
-		<div class="media"><?=$this->Html->image('Site.../images/gallery_3.jpg');?></div>
-		<div class="text">
-		<p class="name">AGENCY XXXXX</p>
-		<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus fringilla sodales. Maecenas varius urn…</p>
-		</div>
-	</div>
+	<?php endforeach;?>
+
+
 	</div>
 </section>
 <section class="new_publications">
 	<div class="wrapper">
 	<div class="section_title">
-		<h2 class="title"> <span>novi <br> dades</span></h2><a class="view_more" href="#">VEJA MAIS <span>[+]</span></a>
+		<h2 class="title"><span>novi <br> dades</span></h2>
+		<a class="view_more" href="#">VEJA MAIS <span>[+]</span></a>
 	</div>
 	<div class="main_post">
-		<div class="media"><?=$this->Html->image('Site.../images/image_2.jpg');?></div>
+		<div class="media"><?=$this->Html->image('Site.../images/image_2.png');?></div>
 	</div>
 	<div class="publications">
 		<div class="wrapper">
@@ -79,17 +72,21 @@
 	</div>
 	</div>
 </section>
+<?php foreach($testimonials as $testimonial):?>
 <section class="opinion_featured">
 	<div class="media">
-	<div class="writer"><?=$this->Html->image('Site.../images/ccj_opiniao.png');?></div>
+	<div class="writer"><?php echo $this->Html->image('../uploads/files/'.$testimonial['files'][0]['filename']);?>/div>
 	</div>
 	<div class="wrapper">
 	<div class="section_title">
+		
 		<div class="wrap">
 			<h2 class="title"> <span>opinião</span></h2><a class="view_more" href="#">VEJA MAIS <span>[+]</span></a>
-			<p class="name"><strong class="name">BRUNO OPPIDO</strong><small class="info">EM ARTIGO EXCLUSIVO PARA O CCRJ</small></p>
-			<p class="desc">“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus de fringilla sodales. Maecenas varius urnar…”</p>
+			<p class="name"><strong class="name"><?=$testimonial->name;?></strong><small class="info"><?=$testimonial->subtitle?></small></p>
+			<p class="desc"><?=substr($testimonial->testimony,0,100)?>...</p>
 		</div>
+		
 	</div>
 	</div>
 </section>
+<?php endforeach;?>

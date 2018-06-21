@@ -50,12 +50,12 @@ function removeFileFromServer(id){
   });
 }
 
-function changeStatus(id){
+function changeStatus(model, field, id){
   var responder = "";
   $.ajax({
-    url: "./menu/changeStatus/"+id,
+    url: "./"+model+"/changeStatus/"+id,
     cache: false,
-    data: {status: "toggle"},
+    data: {status: "toggle", field: field},
     method: 'POST'
   })
   .done(function( html ) {
