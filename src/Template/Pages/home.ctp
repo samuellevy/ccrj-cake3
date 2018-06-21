@@ -64,7 +64,7 @@
 		<div class="wrapper">
 		<div class="featured_new">
 			<h4 class="title"><?=$posts[0]->title;?></h4>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus fringilla sodales. Maecenas varius urn…</p>
+			<p><?=$posts[0]->description;?></p>
 		</div>
 		<ul class="list">
 			<?php foreach($posts as $key=>$post):?>
