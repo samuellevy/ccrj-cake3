@@ -1,5 +1,6 @@
 #header {
 	background: $color1;
+	position: relative;
 	&.interna {
 		.wrapper{
 			display: flex;
@@ -14,9 +15,8 @@
 		}
 	}
 	.wrapper {
-		max-width: 1920px;
+		max-width: 1366px;
 		margin: 0 auto;
-		position: relative;
 		padding-top: 35px;
 		padding-bottom: 30px;
 	}

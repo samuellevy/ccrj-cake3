@@ -89,6 +89,7 @@
 		background: #282828;
 		position: relative;
 	}
+
 	.gallery_item {
 		height: 100vh;
 		overflow: hidden;
@@ -135,6 +136,40 @@
 			height: 100%;
 			transition: all 0.3s;
 			opacity: 0.8;
+		}
+	}
+	.item-1{
+		.text {
+			text-align: left;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			display: block;
+			padding: 28px 0 22px 170px;
+			margin: 0 auto;
+			font-weight: 300;
+			max-height: 150px;
+			transition: all ease-in 0.3s;
+			background: rgba($color1, 0.7);
+			display: block;
+		}
+	}
+	.item-3{
+		.text {
+			text-align: left;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			display: block;
+			padding: 28px 130px 22px 80px;
+			margin: 0 auto;
+			font-weight: 300;
+			max-height: 150px;
+			transition: all ease-in 0.3s;
+			background: rgba($color1, 0.7);
+			display: block;
 		}
 	}
 }

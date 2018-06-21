@@ -24,14 +24,102 @@ img {
         transform: translateY(0%);
 	}
 }
-
+.gallery_featured{
+	.section_title{
+		position: absolute;
+		top: 10%;
+		padding: 15px 0px;
+		z-index: 1;
+		max-width: 80%;
+		margin: 0 auto;
+		width: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		.title  {
+			color: $color4;
+			text-transform: uppercase;
+			font-weight: 900;
+			margin-left: -8px;
+			display: block;
+			transition: all ease-in 0.3s;	
+			@include get-vw(1366, 86px);
+			line-height: 0.95;
+			letter-spacing: 4px;
+			@include break-max(1366px) {
+				@include get-vw(1366,100px);
+			}
+		}
+		.view_more{
+			color: white;
+			margin-top: 15px;
+			transition: all ease-in 0.3s;	
+			display: block;
+			font-size: 14px;
+			font-weight: bold;
+			@include get-vw(1366,14px);
+			@include break-max(1366px) {
+				@include get-vw(1366,18px);
+			}
+			span {
+				color: $color4;
+				font-weight: normal;
+			}
+		}
+	}
+}
+.new_publications{
+	.section_title{
+		position: absolute;
+		top: 10%;
+		padding: 15px 0px;
+		z-index: 1;
+		max-width: 80%;
+		margin: 0 auto;
+		width: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		.title  {
+			color: $color4;
+			text-transform: uppercase;
+			font-weight: 900;
+			margin-left: -8px;
+			display: block;
+			transition: all ease-in 0.3s;	
+			@include get-vw(1366, 86px);
+			line-height: 0.95;
+			letter-spacing: 4px;
+			@include break-max(1366px) {
+				@include get-vw(1366,100px);
+			}
+		}
+		.view_more{
+			color: white;
+			margin-top: 15px;
+			transition: all ease-in 0.3s;	
+			display: block;
+			font-size: 14px;
+			font-weight: bold;
+			@include get-vw(1366,14px);
+			@include break-max(1366px) {
+				@include get-vw(1366,18px);
+			}
+			span {
+				color: $color4;
+				font-weight: normal;
+			}
+		}
+	}
+}
 .section_title{
 	position: absolute;
-	top: 10%;
-	left: 10%;
-	padding: 15px;
+	top: 20%;
+	padding: 50px 90px;
 	z-index: 1;
-	
+	max-width: 80%;
+	margin: 0 auto;
+	width: 100%;
+	left: 50%;
+	transform: translateX(-50%);
 	.title  {
 		color: $color4;
 		text-transform: uppercase;
@@ -39,19 +127,21 @@ img {
 		margin-left: -8px;
 		display: block;
 		transition: all ease-in 0.3s;	
-		@include get-vw(1920,130px);
+		@include get-vw(1366, 86px);
 		line-height: 0.95;
+		letter-spacing: 4px;
 		@include break-max(1366px) {
 			@include get-vw(1366,100px);
 		}
 	}
 	.view_more{
 		color: white;
+		margin-top: 15px;
 		transition: all ease-in 0.3s;	
 		display: block;
 		font-size: 14px;
 		font-weight: bold;
-		@include get-vw(1920,24px);
+		@include get-vw(1366,14px);
 		@include break-max(1366px) {
 			@include get-vw(1366,18px);
 		}

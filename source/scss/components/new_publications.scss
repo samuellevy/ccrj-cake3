@@ -7,8 +7,9 @@
         .wrapper {
             display: flex;
             align-items: center;
-            max-width: 1200px;
+            max-width: 80%;
             margin: 0 auto;
+            padding: 0 0px;
             width: 100%;
         }
         .list {
@@ -16,12 +17,28 @@
             align-items: center;
             li {
                 background: $color1;
-                padding: 30px 20px 15px 20px;
-                max-width: 240px;
+                padding: 15px 20px;
+                max-width: 250px;
                 font-weight: 300;
                 margin-left: 10px;
+                text-align: right;
                 p {
                     color: white;
+                    text-align: left;
+                    line-height: 21px;
+                    margin-bottom: 10px;
+                    strong{
+                        font-weight: bold;
+                        color: #BA8425;
+                    }
+
+                }
+                a{
+                    color: #BA8425;
+                    text-align: left;
+                    font-weight: bold;
+                    font-size: 14px;
+
                 }
             }
         }
