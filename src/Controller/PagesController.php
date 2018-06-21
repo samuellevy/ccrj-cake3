@@ -61,36 +61,20 @@ class PagesController extends AppController
     /* Final page components */
     //die(debug($page));
 
-    $this->loadModel('Testimonials');
-    $testimonials = $this->Testimonials->find('all', [
-      'contain'=>[
-        'files'
-      ]
-    ]);
-    $testimonials = $testimonials->all();
-
-    $this->loadModel('Institutes');
-    $affiliates = $this->Institutes->find('all', [
-      'contain'=>[
-        'files'
-      ]
-    ]);
-    $affiliates = $affiliates->all();
-
     $this->loadModel('Posts');
     $posts = $this->Posts->find('all', [
       'contain'=>[
-        'files',
-        'authors'
+        'files'
       ],
       'limit' => 4,
-      'order' => ['publish_date' => 'DESC']
+      'order' => ['publish_date' => 'DESC'],
     ]);
+    
     $posts = $posts->all();
+    $posts = $posts->toArray();
 
-    $this->set('testimonials', $testimonials);
-    $this->set('affiliates', $affiliates);
     $this->set('posts', $posts);
+    // die(debug($posts[0]));
   }
   
   public function club(){
