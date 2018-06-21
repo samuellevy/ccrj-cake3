@@ -1,6 +1,6 @@
-<header id="header">
+<header class="interna" id="header">
     <div class="wrapper">
-    <div class="logo"><a href="<?= $this->Url->build('/');?>"><li><?=$this->Html->image('Site.../images/logo.png');?></a></div>
+    <div class="logo"><a href="<?= $this->Url->build('/');?>"><li><?=$this->Html->image('Site.../images/logo_small.png');?></a></div>
     <nav id="main_nav">
         <ul class="list">
             <?=$this->element('navigation');?>

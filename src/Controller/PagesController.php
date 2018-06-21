@@ -12,14 +12,7 @@ class PagesController extends AppController
   public function beforeFilter(Event $event){
     parent::beforeFilter($event);
   }
-
-  /* paginas ccrj */
-  public function send(){
-    $this->viewBuilder()->setLayout('Site');
-    $this->viewBuilder()->setLayout('pages');
-  }
-  /* */
-
+  
   public function view($slug=null){
     $page = $this->Pages->find('all', [
       'conditions'=>[
