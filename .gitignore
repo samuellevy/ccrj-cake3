@@ -22,3 +22,7 @@
 /plugins/Gerenciador/webroot
 
 .DS_Store
+
+#DYNAMIC CONTENT
+webroot/*
+webroot/**/*

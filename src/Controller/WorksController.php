@@ -27,7 +27,14 @@ class WorksController extends AppController
           }
           $this->Flash->error(__('The work could not be saved. Please, try again.'));
       }
-      $this->set(compact('work'));
+
+      $categories = $this->Works->Sheets->WorkCategories->find('list');
+      $this->set(compact(['work','categories']));
       $this->set('_serialize', ['work']);
+  }
+
+  public function index(){
+      $works = $this->Works->find('all', ['contain'=>['Sheets']]);
+      die(debug($works->all()));
   }
 }

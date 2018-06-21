@@ -40,8 +40,15 @@ class WorksTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->hasMany('Sheets', [
+        $this->hasOne('Sheets', [
             'foreignKey' => 'work_id'
+        ]);
+
+        $this->hasMany('Files', [
+            'className' => 'Files',
+            'foreignKey' => 'model_id',
+            'conditions' => [
+                'entity' => 'Work']
         ]);
     }
 

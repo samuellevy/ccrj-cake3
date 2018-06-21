@@ -40,6 +40,10 @@ class SheetsTable extends Table
         $this->belongsTo('Works', [
             'foreignKey' => 'work_id'
         ]);
+
+        $this->hasOne('WorkCategories', [
+            'foreignKey' => 'category_id'
+        ]);
     }
 
     /**
