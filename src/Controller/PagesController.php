@@ -13,13 +13,19 @@ class PagesController extends AppController
     parent::beforeFilter($event);
     $configs['action'] = $this->request->action;
     $configs['matchedRoute']= $this->request->params['_matchedRoute'];
+    $configs['url'] =  '/'.strtolower($this->request->params['controller']).'/'.$this->request->action;
     $this->set(compact('configs'));
+
+    // die(debug($this->request->params));
   }
 
   public function beforeRender(Event $event){
+    $url = '/'.strtolower($this->request->params['controller']).'/'.$this->request->action;
     // die(debug($this->request->params));
-    $this->viewBuilder()->layout('mobile_default');
-    $this->viewBuilder()->template('/Mobile/pages/home');
+    if($this->request->params['_matchedRoute']=='/m'){
+      $this->viewBuilder()->layout('mobile_default');
+      $this->viewBuilder()->template('/Mobile'.$url);
+    }
   }
 
   public function home(){
