@@ -48,4 +48,64 @@ class WorksController extends AppController
 		$table = $this->Works->patchEntity($entity, $post_data);
 		$this->Works->save($table);  //update record
 	}
+
+	public function add(){
+		$work = $this->Works->newEntity();
+		$works = $this->Works->find('list', ['conditions'=>['parent_id'=>0]]);
+
+		$this->loadModel('WorkCategories');
+		$categories = $this->WorkCategories->find('list', ['limit' => 200, 'order'=>['id'=>'ASC']]);
+
+		if ($this->request->is('post')) {
+			$data = $this->request->getData();
+			$work = $this->Works->patchEntity($work, $data,[
+			'associated' => [
+				'WorkCategories',
+				'Files'
+			]
+		]);
+		
+		if ($this->Works->save($work)) {
+			$this->Flash->success(__('Salvo com sucesso.'));
+
+			return $this->redirect(['action' => 'index']);
+		}
+		$this->Flash->error(__('Não pôde ser salvo.'));
+		}
+
+		$this->set(compact(['work', 'works', 'categories']));
+		$this->set('_serialize', ['work', 'works']);
+	}
+
+	public function edit($id=null){
+		$work = $this->Works->get($id);
+		$works = $this->Works->find('list', ['conditions'=>['parent_id'=>0]]);
+
+		if ($this->request->is(['patch', 'post', 'put'])) {
+		$work = $this->Works->patchEntity($work, $this->request->getData());
+		$data = $this->request->getData();
+
+		if ($this->Works->save($work)) {
+			$this->Flash->success(__('Salvo com sucesso.'));
+
+			return $this->redirect(['action' => 'edit',$id]);
+		}
+		$this->Flash->error(__('Não pôde ser salvo.'));
+		}
+		$this->set(compact('work', 'works', 'pages'));
+		$this->set('_serialize', ['work', 'works']);
+	}
+
+	public function delete($id = null){
+		$this->request->allowMethod(['post', 'delete']);
+		$work = $this->Works->get($id);
+		
+		if ($this->Works->delete($work)) {
+			$this->Flash->success(__('Removido com sucesso.'));
+		} else {
+			$this->Flash->error(__('Não pôde ser removido.'));
+		}
+
+		return $this->redirect(['action' => 'index']);
+	}
 }

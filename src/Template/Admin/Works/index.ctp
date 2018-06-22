@@ -14,7 +14,7 @@
                 <th scope="col"><?= $this->Paginator->sort('sender_name', ['label'=>'Título']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('status', ['label'=>'Status']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('feature', ['label'=>'Destaque']) ?></th>
-                <!-- <th scope="col" class="actions"><?= __('Opções') ?></th> -->
+                <th scope="col" class="actions"><?= __('Opções') ?></th>
               </tr>
             </thead>
             <tbody>
@@ -35,10 +35,10 @@
                       <label for="switch-flat-f-<?=$work->id?>" class="general-switch"></label>
                     </div>
                   </td>
-                  <!-- <td class="actions">
+                  <td class="actions">
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $work->id]) ?>
                     <?= $this->Form->postLink(__('Remover'), ['action' => 'delete', $work->id], ['confirm' => __('Are you sure you want to delete # {0}?', $work->id)]) ?>
-                  </td> -->
+                  </td>
                 </tr>
               <?php endforeach; ?>
             </tbody>
@@ -51,7 +51,7 @@
               <?= $this->Paginator->numbers() ?>
               <?= $this->Paginator->next(__('próximo') . ' >') ?>
               <?= $this->Paginator->last(__('último') . ' >>') ?>
-              <li><a href="<?= $this->Url->build(["controller" => "Menu", "action" => "add"]);?>">Novo</a></li>
+              <li><a href="<?= $this->Url->build(["controller" => "Works", "action" => "add"]);?>">Novo</a></li>
             </ul>
             <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
           </div>

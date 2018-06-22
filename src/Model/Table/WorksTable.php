@@ -44,6 +44,11 @@ class WorksTable extends Table
             'foreignKey' => 'work_id'
         ]);
 
+        $this->belongsTo('WorkCategories', [
+            'foreignKey' => 'category_id'
+        ]);
+
+
         $this->hasMany('Files', [
             'className' => 'Files',
             'foreignKey' => 'model_id',
