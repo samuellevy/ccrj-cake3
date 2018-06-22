@@ -1,4 +1,4 @@
-<?php $site_name = "JUSPREV | Gerenciador"; ?>
+<?php $site_name = "Clube de Criação RJ | Gerenciador"; ?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -12,7 +12,10 @@ class PagesController extends AppController
   public function beforeFilter(Event $event){
     parent::beforeFilter($event);
     $configs['action'] = $this->request->action;
+    $configs['url'] =  '/'.strtolower($this->request->params['controller']).'/'.$this->request->action;
     $this->set(compact('configs'));
+
+    // die(debug($this->request->params));
   }
   
   public function view($slug=null){
