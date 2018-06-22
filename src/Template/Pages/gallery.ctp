@@ -13,7 +13,7 @@
           <ul class="list">
             <li><a href="?c=filme">Filme</a></li>
             <li><a href="?c=impresso">Impresso</a></li>
-            <li><a href="?c=marketing-direto">Marketing Direto</a></li>
+            <li><a href="?c=marketing direto">Marketing Direto</a></li>
             <li><a href="?c=digital">Digital</a></li>
             <li><a href="?c=outdoor">Outdoor</a></li>
             <li><a href="?c=radio">Rádio</a></li>
@@ -55,7 +55,7 @@
     </div>
     <section class="others_galleries">
       <div class="wrapper">
-        <h4 class="title">Recentes//</h4>
+        <h4 class="title"><?=$selected_category!=null?$selected_category:'Recentes'?>//</h4>
         <div class="cards_galleries">
           <?php foreach($works as $work):?>
           <div class="card_item">

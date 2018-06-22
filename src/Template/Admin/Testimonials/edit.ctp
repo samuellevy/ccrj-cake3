@@ -46,7 +46,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="form-group">
-                <?php echo $this->Form->control('testimony', ['class'=>'form-control', 'label'=>'Depoimento']); ?>
+                <?php echo $this->Form->control('testimony', ['class'=>'form-control ckeditor', 'label'=>'Depoimento']); ?>
               </div>
             </div>
           </div>

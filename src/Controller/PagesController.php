@@ -157,7 +157,10 @@ class PagesController extends AppController
     $this->viewBuilder()->setLayout('pages');
     $this->loadModel('Works');
     $categories = $this->Works->Sheets->WorkCategories->find('list');
-    $categories = $categories->all();
+    $categories = $categories->toArray();
+    $conditions = null;
+    $selected_category = null;
+
     $featured_works = $this->Works->find('all', [
       'contain'=>[
         'files',
@@ -170,7 +173,8 @@ class PagesController extends AppController
 
     $query = $this->request->query;
     if(isset($query['c'])){
-      $category = $query['c'];
+      $category_id = array_search(strtolower($query['c']), array_map('strtolower', $categories));
+      $conditions = ['category_id'=>$category_id];
     }
     if(isset($query['s'])){
       $search = $query['s'];
@@ -182,11 +186,15 @@ class PagesController extends AppController
         'Sheets.WorkCategories',
       ],
       'limit' => 6,
-      'conditions'=>['status'=>1, 'feature'=>0]
+      'conditions'=>['status'=>1, 'feature'=>0, $conditions]
     ]);
+    if(isset($category_id)){
+      $selected_category = $categories[$category_id];
+    }
+
     $works = $works->all();
-    die(debug($categories));
-    $this->set(compact(['featured_works','works']));
+    // die(debug($categories));
+    $this->set(compact(['featured_works','works', 'selected_category']));
   }
   
   public function galleryread(){
@@ -194,7 +202,17 @@ class PagesController extends AppController
   }
 
   public function news(){
-    
+    $this->loadModel('Posts');
+    $posts = $this->Posts->find('all', [
+      'contain'=>[
+        'files',
+        'Authors'
+      ],
+      'limit' => 15
+    ]);
+    $posts = $posts->all();
+    // die(debug($posts));
+    $this->set(compact(['posts']));
   }
 
   public function newsread(){
@@ -202,11 +220,36 @@ class PagesController extends AppController
   }
 
   public function opinion(){
-    
+    $this->loadModel('Testimonials');
+    $testimonials = $this->Testimonials->find('all', [
+      'contain'=>[
+        'files',
+      ],
+      'limit' => 15
+    ]);
+    $testimonials = $testimonials->all();
+    $testimonials = $testimonials->toArray();
+
+    // die(debug($testimonials));
+    $this->set(compact(['testimonials']));
   }
 
   public function contact(){
-    
+    $page = $this->Pages->find('all', [
+      'conditions'=>[
+        'slug'=>'contact'
+      ],
+      'limit'=>1,
+      'contain'=>[
+        'PagesComponents'=>[
+          'sort'=>['sort'=>'asc']
+        ],
+        'PagesComponents.Files',
+      ]
+    ]);
+    $page = $page->first();
+    $this->set(compact(['page']));
+    // die(debug($page));
   }
 
 }
