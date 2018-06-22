@@ -1,25 +1,8 @@
 <div class="webdoor">
 	<div class="wrapper">
-		<div class="item"><?=$this->Html->image('Site.../images/home_webdoor.jpg');?></div>
-		<div class="webdoor_pager"></div>
-		<div class="brand_layer">
-			
-			<?php for ($i = 0; $i < 5; $i++):?>	
-			<div class="row right">
-				<?php for ($j = 0; $j < 5; $j++):?>
-				<?=$this->Html->image('Site.../images/bandeira_b.png');?>
-				<?php endfor; ?>
-			</div>
-			
-			<div class="row left">
-				<?php for ($j = 0; $j < 5; $j++):?>
-				<?=$this->Html->image('Site.../images/bandeira_a.png');?>
-				<?php endfor; ?>
-			</div>
-			<?php endfor; ?>
-			
-		</div>
-		<div class="webdoor_footer"><a class="arrow" href="#"><?=$this->Html->image('Site.../images/arrow_wd.png');?></a></div>
+	<div class="item"><?=$this->Html->image('Site.../images/home_webdoor.jpg');?></div>
+	<div class="webdoor_mask"></div>
+	<div class="webdoor_footer"><a class="arrow" href="#"><?=$this->Html->image('Site.../images/arrow_wd.png');?></a></div>
 	</div>
 </div>
 <section class="gallery_featured">
@@ -77,6 +60,7 @@
 <section class="opinion_featured">
 	<div class="media">
 		<div class="writer"><?php echo $this->Html->image('../uploads/files/'.$testimonial['files'][0]['filename']);?></div>
+		<div class="mask_opiniao"></div>
 	</div>
 	<div class="wrapper">
 		<div class="section_title">
