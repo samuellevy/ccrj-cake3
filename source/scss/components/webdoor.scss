@@ -54,7 +54,7 @@
 	}
 	.webdoor_mask{
 		width: 100%;
-		height: 100vh;
+		height: calc(100vh - 105px);
 		position: absolute;
 		left: 0;
 		top: 0;

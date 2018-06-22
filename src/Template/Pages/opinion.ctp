@@ -4,22 +4,15 @@
       <div class="writer">
         <div class="media"><?=$this->Html->image('Site.../images/writer_internal.png', ['alt'=>'']);?></div>
         <div class="text">
-          <p>“Aliquam imperdiet vel dolor sit amet tincidunt. Donec maximus et leo sed commodo. Suspendisse potenti. Maecenas suscipit massa a lectus aliquam semper. Duis volutpat auctor ante at pulvinar. Pellentesque volutpat sit amet qua.”</p>
+          <p><?=$testimonials[0]['quote']?></p>
         </div>
       </div>
       <article class="article">
-        <h2 class="name">BRUNO OPPIDO</h2>
-        <p class="helper">EM ARTIGO EXCLUSIVO PARA O CCRJ</p>
+        <h2 class="name"><?=$testimonials[0]['name'];?></h2>
+        <p class="helper"><?=$testimonials[0]['subtitle'];?></p>
         <div class="social_media"><span>Compartilhe:</span><a href="#"><?=$this->Html->image('Site.../images/fb.png', ['alt'=>'']);?></a><a href="#"><?=$this->Html->image('Site.../images/tw.png', ['alt'=>'']);?></a></div>
         <div class="content_area">
-          <p>Aliquam erat volutpat. Mauris sit amet orci eu lorem maximus pellentesque vitae et dolor. Morbi erat tellus, tempor non viverra ac, egestas eu ligula. Aenean id neque in dolor lobortis pellentesque. Vestibulum dictum erat ac neque convallis lacinia. In eu sem at velit faucibus semper vitae et ex. Vivamus faucibus mauris sit amet ligula scelerisque, quis posuere mauris porttitor. Morbi tristique leo nunc, et cursus neque mattis non. Nam rhoncus faucibus laoreet.</p>
-          <p>Aliquam erat volutpat. Mauris sit amet orci eu lorem maximus pellentesque vitae et dolor. Morbi erat tellus, tempor non viverra ac, egestas eu ligula. Aenean id neque in dolor lobortis pellentesque. Vestibulum dictum erat ac neque convallis lacinia. In eu sem at velit faucibus semper vitae et ex. Vivamus faucibus mauris sit amet ligula scelerisque, quis posuere mauris porttitor. Morbi tristique leo nunc, et cursus neque mattis non. Nam rhoncus faucibus laoreet.</p>
-          <p>Aliquam erat volutpat. Mauris sit amet orci eu lorem maximus pellentesque vitae et dolor. Morbi erat tellus, tempor non viverra ac, egestas eu ligula. Aenean id neque in dolor lobortis pellentesque. Vestibulum dictum erat ac neque convallis lacinia. In eu sem at velit faucibus semper vitae et ex. Vivamus faucibus mauris sit amet ligula scelerisque, quis posuere mauris porttitor. Morbi tristique leo nunc, et cursus neque mattis non. Nam rhoncus faucibus laoreet.</p>
-          <p>Aliquam erat volutpat. Mauris sit amet orci eu lorem maximus pellentesque vitae et dolor. Morbi erat tellus, tempor non viverra ac, egestas eu ligula. Aenean id neque in dolor lobortis pellentesque. Vestibulum dictum erat ac neque convallis lacinia. In eu sem at velit faucibus semper vitae et ex. Vivamus faucibus mauris sit amet ligula scelerisque, quis posuere mauris porttitor. Morbi tristique leo nunc, et cursus neque mattis non. Nam rhoncus faucibus laoreet.</p>
-          <p>Aliquam erat volutpat. Mauris sit amet orci eu lorem maximus pellentesque vitae et dolor. Morbi erat tellus, tempor non viverra ac, egestas eu ligula. Aenean id neque in dolor lobortis pellentesque. Vestibulum dictum erat ac neque convallis lacinia. In eu sem at velit faucibus semper vitae et ex. Vivamus faucibus mauris sit amet ligula scelerisque, quis posuere mauris porttitor. Morbi tristique leo nunc, et cursus neque mattis non. Nam rhoncus faucibus laoreet.</p>
-          <p>Aliquam erat volutpat. Mauris sit amet orci eu lorem maximus pellentesque vitae et dolor. Morbi erat tellus, tempor non viverra ac, egestas eu ligula. Aenean id neque in dolor lobortis pellentesque. Vestibulum dictum erat ac neque convallis lacinia. In eu sem at velit faucibus semper vitae et ex. Vivamus faucibus mauris sit amet ligula scelerisque, quis posuere mauris porttitor. Morbi tristique leo nunc, et cursus neque mattis non. Nam rhoncus faucibus laoreet.</p>
-          <p>Aliquam erat volutpat. Mauris sit amet orci eu lorem maximus pellentesque vitae et dolor. Morbi erat tellus, tempor non viverra ac, egestas eu ligula. Aenean id neque in dolor lobortis pellentesque. Vestibulum dictum erat ac neque convallis lacinia. In eu sem at velit faucibus semper vitae et ex. Vivamus faucibus mauris sit amet ligula scelerisque, quis posuere mauris porttitor. Morbi tristique leo nunc, et cursus neque mattis non. Nam rhoncus faucibus laoreet.</p>
-          <p>Aliquam erat volutpat. Mauris sit amet orci eu lorem maximus pellentesque vitae et dolor. Morbi erat tellus, tempor non viverra ac, egestas eu ligula. Aenean id neque in dolor lobortis pellentesque. Vestibulum dictum erat ac neque convallis lacinia. In eu sem at velit faucibus semper vitae et ex. Vivamus faucibus mauris sit amet ligula scelerisque, quis posuere mauris porttitor. Morbi tristique leo nunc, et cursus neque mattis non. Nam rhoncus faucibus laoreet.</p>
+          <?=$testimonials[0]['testimony'];?>
         </div>
         <div class="social_media right"><span>Compartilhe:</span><a href="#"><?=$this->Html->image('Site.../images/fb.png', ['alt'=>'']);?></a><a href="#"><?=$this->Html->image('Site.../images/tw.png', ['alt'=>'']);?></a></div>
       </article>
@@ -28,36 +21,15 @@
   <section class="others_opinions">
     <div class="wrapper">
       <div class="cards">
-        <div class="card_item">
-          <div class="media"><?=$this->Html->image('Site.../images/writer_internal.png', ['alt'=>'']);?></div>
-          <h4 class="title">BRUNO OPPIDO</h4>
-          <p class="desc">Lorem ipsum dolor sit amet, adi fringilla sodales consectetur donec lobortis tortor</p><a class="view_more" href="#">VEJA MAIS [+]</a>
-        </div>
-        <div class="card_item">
-          <div class="media"><?=$this->Html->image('Site.../images/writer_internal.png', ['alt'=>'']);?></div>
-          <h4 class="title">BRUNO OPPIDO</h4>
-          <p class="desc">Lorem ipsum dolor sit amet, adi fringilla sodales consectetur donec lobortis tortor</p><a class="view_more" href="#">VEJA MAIS [+]</a>
-        </div>
-        <div class="card_item">
-          <div class="media"><?=$this->Html->image('Site.../images/writer_internal.png', ['alt'=>'']);?></div>
-          <h4 class="title">BRUNO OPPIDO</h4>
-          <p class="desc">Lorem ipsum dolor sit amet, adi fringilla sodales consectetur donec lobortis tortor</p><a class="view_more" href="#">VEJA MAIS [+]</a>
-        </div>
-        <div class="card_item">
-          <div class="media"><?=$this->Html->image('Site.../images/writer_internal.png', ['alt'=>'']);?></div>
-          <h4 class="title">BRUNO OPPIDO</h4>
-          <p class="desc">Lorem ipsum dolor sit amet, adi fringilla sodales consectetur donec lobortis tortor</p><a class="view_more" href="#">VEJA MAIS [+]</a>
-        </div>
-        <div class="card_item">
-          <div class="media"><?=$this->Html->image('Site.../images/writer_internal.png', ['alt'=>'']);?></div>
-          <h4 class="title">BRUNO OPPIDO</h4>
-          <p class="desc">Lorem ipsum dolor sit amet, adi fringilla sodales consectetur donec lobortis tortor</p><a class="view_more" href="#">VEJA MAIS [+]</a>
-        </div>
-        <div class="card_item">
-          <div class="media"><?=$this->Html->image('Site.../images/writer_internal.png', ['alt'=>'']);?></div>
-          <h4 class="title">BRUNO OPPIDO</h4>
-          <p class="desc">Lorem ipsum dolor sit amet, adi fringilla sodales consectetur donec lobortis tortor</p><a class="view_more" href="#">VEJA MAIS [+]</a>
-        </div>
+        <?php foreach($testimonials as $key=>$testimonial):?>
+          <?php if($key>0):?>
+            <div class="card_item">
+              <div class="media"><?=$this->Html->image('Site.../images/writer_internal.png', ['alt'=>'']);?></div>
+              <h4 class="title"><?=$testimonial->name;?></h4>
+              <p class="desc"><?=$testimonial->subtitle?></p><a class="view_more" href="#">VEJA MAIS [+]</a>
+            </div>
+          <?php endif;?>
+        <?php endforeach;?>
       </div>
     </div>
   </section>

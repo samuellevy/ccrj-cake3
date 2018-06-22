@@ -12,7 +12,8 @@
               <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name', ['label'=>'Nome']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('role', ['label'=>'Função']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('subtitle', ['label'=>'Subtítulo']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('quote', ['label'=>'Citação']) ?></th>
                 <!--th scope="col"><?= $this->Paginator->sort('tipo', ['label'=>'Status']) ?></th-->
                 <th scope="col" class="actions"><?= __('Opções') ?></th>
               </tr>
@@ -22,7 +23,8 @@
                 <tr>
                   <td><?= $this->Number->format($testimonial->id) ?></td>
                   <td><?= h($testimonial->name) ?></td>
-                  <td><?= h($testimonial->role) ?></td>
+                  <td><?= h($testimonial->subtitle) ?></td>
+                  <td><?= h($testimonial->quote) ?></td>
                   <td class="actions">
                     <?php //= $this->Html->link(__('Ver'), ['action' => 'view', $testimonial->id]) ?>
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $testimonial->id]) ?>

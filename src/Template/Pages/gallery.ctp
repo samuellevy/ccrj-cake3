@@ -13,7 +13,7 @@
           <ul class="list">
             <li><a href="?c=filme">Filme</a></li>
             <li><a href="?c=impresso">Impresso</a></li>
-            <li><a href="?c=marketing-direto">Marketing Direto</a></li>
+            <li><a href="?c=marketing direto">Marketing Direto</a></li>
             <li><a href="?c=digital">Digital</a></li>
             <li><a href="?c=outdoor">Outdoor</a></li>
             <li><a href="?c=radio">Rádio</a></li>
@@ -34,7 +34,7 @@
             <div class="item"><span class="tag">DESTAQUE// IMPRESSO</span>
               <h3 class="title"><?=$work->sheet->project_title?></h3>
               <p class="hint"><?=$work->sheet->advertiser?></p>
-              <p class="hint"><?=$work->sheet->production_company?></p><a class="view_more" href="#">VEJA MAIS [+]</a>
+              <p class="hint"><?=$work->sheet->production_company?></p><a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">VEJA MAIS [+]</a>
             </div>
             <?php endforeach;?>
           </div>
@@ -55,13 +55,13 @@
     </div>
     <section class="others_galleries">
       <div class="wrapper">
-        <h4 class="title">Recentes//</h4>
+        <h4 class="title"><?=$selected_category!=null?$selected_category:'Recentes'?>//</h4>
         <div class="cards_galleries">
           <?php foreach($works as $work):?>
           <div class="card_item">
             <div class="media"><?=$this->Html->image('Site.../images/galeria1.png', ['alt'=>'']);?>
               <p><strong><?=$work->sheet->avertiser?>// </strong><span><?=$work->sheet->project_title?></span></p>
-            </div><a class="view_more" href="#">VEJA MAIS [+]</a>
+            </div><a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">VEJA MAIS [+]</a>
           </div>
           <?php endforeach;?>
         </div>

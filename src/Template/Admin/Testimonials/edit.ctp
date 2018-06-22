@@ -15,6 +15,15 @@
               </div>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <?php echo $this->Form->control('quote', ['class'=>'form-control', 'label'=>'Citação']);?>
+              </div>
+            </div>
+          </div>
+
           <div class="row">
             <div class="col-md-3">
               <div class="form-group">
@@ -46,7 +55,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="form-group">
-                <?php echo $this->Form->control('testimony', ['class'=>'form-control', 'label'=>'Depoimento']); ?>
+                <?php echo $this->Form->control('testimony', ['class'=>'form-control ckeditor', 'label'=>'Depoimento']); ?>
               </div>
             </div>
           </div>
