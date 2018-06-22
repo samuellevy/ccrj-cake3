@@ -14,8 +14,13 @@ var autoprefixerOptions = {browsers: ['last 2 versions', '> 5%', 'Firefox ESR']}
 var source = './source/';
 var target = './plugins/Site/webroot/';
 
+var mobile_source = './mobile_source/';
+var mobile_target = './plugins/Site/webroot/mobile/';
+
 var tasks = requireDir('./tasks');
 var vendorPath = 'node_modules/';
+
+var dest = 'default';
 
 //gulp.task('default', ['clean:dist']);
 gulp.task('default', function(callback) {
@@ -25,6 +30,16 @@ gulp.task('default', function(callback) {
 });
 
 gulp.task('build', function(callback) {
+  dest = 'default';
+  runSequence(
+    'clean:dist',
+    ['sass', 'images', 'fonts', 'scripts'],
+    callback
+  )
+});
+
+gulp.task('mbuild', function(callback) {
+  dest = 'mobile';
   runSequence(
     'clean:dist',
     ['sass', 'images', 'fonts', 'scripts'],
@@ -53,20 +68,11 @@ gulp.task('ctp', function() {
   }));
 });
 
-// gulp.task('sass', function () {
-//   return gulp.src(source + 'scss/*.scss')
-//   .pipe(sourcemaps.init())
-//   .pipe(sass({ includePaths: [vendorPath] })
-//         .on('error', sass.logError))
-//   .pipe(browserSync.reload({ // Reloading with Browser Sync
-//     stream: true
-//   }))
-//   .pipe(sass().on('error', sass.logError))
-//   .pipe(sourcemaps.write())
-//   .pipe(gulp.dest(target + 'css'));
-// });
-
 gulp.task('sass', function () {
+  if(dest == 'mobile'){
+    source = mobile_source;
+    target = mobile_target;
+  }
 	return gulp.src(source + 'scss/*.scss')
 	.pipe(sourcemaps.init())
 	.pipe(sass({outputStyle: 'compressed'}))
@@ -81,6 +87,10 @@ gulp.task('sass', function () {
 });
 
 gulp.task('images', function() {
+  if(dest == 'mobile'){
+    source = mobile_source;
+    target = mobile_target;
+  }
   return gulp.src(source + 'images/**/*.+(png|jpg|jpeg|gif|svg)')
   .pipe(cache(imagemin({
     interlaced: true,
@@ -89,6 +99,10 @@ gulp.task('images', function() {
 });
 
 gulp.task('fonts', function() {
+  if(dest == 'mobile'){
+    source = mobile_source;
+    target = mobile_target;
+  }
   return gulp.src(source + 'fonts/**/*')
   .pipe(gulp.dest(target + 'fonts'))
 });
@@ -106,6 +120,10 @@ gulp.task('js', function() {
 });
 
 gulp.task('scripts', function() {
+  if(dest == 'mobile'){
+    source = mobile_source;
+    target = mobile_target;
+  }
   return gulp.src(source + 'js/*.js')
     .pipe(sourcemaps.init())
       .pipe(concat('main.js'))
@@ -115,5 +133,9 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('clean:dist', function() {
+  if(dest == 'mobile'){
+    source = mobile_source;
+    target = mobile_target;
+  }
   return del.sync([target+'/**/*', '!'+target+'/images', '!'+target+'/images/**/*', '!'+target+'index.php']);
 });
