@@ -3,8 +3,8 @@
     <div class="wrapper">
       <div class="writer">
         <div class="media"><?=$this->Html->image('Site.../images/writer_internal.png', ['alt'=>'']);?></div>
-        <div class="text" style='display: none;'>
-          <p>“Aliquam imperdiet vel dolor sit amet tincidunt. Donec maximus et leo sed commodo. Suspendisse potenti. Maecenas suscipit massa a lectus aliquam semper. Duis volutpat auctor ante at pulvinar. Pellentesque volutpat sit amet qua.”</p>
+        <div class="text">
+          <p><?=$testimonials[0]['quote']?></p>
         </div>
       </div>
       <article class="article">

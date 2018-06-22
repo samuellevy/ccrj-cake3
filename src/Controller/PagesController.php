@@ -74,7 +74,7 @@ class PagesController extends AppController
     $this->loadModel('Posts');
     $posts = $this->Posts->find('all', [
       'contain'=>[
-        'files'
+        'files'=>['conditions'=>['obs'=>'Capa']]
       ],
       'limit' => 4,
       'order' => ['publish_date' => 'DESC'],
@@ -82,6 +82,7 @@ class PagesController extends AppController
     
     $posts = $posts->all();
     $posts = $posts->toArray();
+    // die(debug($posts));
 
     /** ccrj */
 
@@ -197,15 +198,34 @@ class PagesController extends AppController
     $this->set(compact(['featured_works','works', 'selected_category']));
   }
   
-  public function galleryread(){
-    
+  public function galleryread($id=null){
+    $this->loadModel('Works');
+    $work = $this->Works->get($id, [
+      'contain' => [
+        'Files',
+        'Sheets.WorkCategories',
+      ]
+    ]);
+
+    $works = $this->Works->find('all', [
+      'contain'=>[
+        'files',
+        'Sheets.WorkCategories',
+      ],
+      'limit' => 15,
+      'conditions'=>['Works.id !='=>$id]
+    ]);
+    $works = $works->all();
+    $this->set(compact(['work', 'works']));
+    $this->set('_serialize', ['work', 'works']);
+    // die(debug($post));
   }
 
   public function news(){
     $this->loadModel('Posts');
     $posts = $this->Posts->find('all', [
       'contain'=>[
-        'files',
+        'files'=>['conditions'=>['obs'=>'Capa']],
         'Authors'
       ],
       'limit' => 15
@@ -215,8 +235,27 @@ class PagesController extends AppController
     $this->set(compact(['posts']));
   }
 
-  public function newsread(){
-    
+  public function newsread($id=null){
+    $this->loadModel('Posts');
+    $post = $this->Posts->get($id, [
+      'contain' => [
+        'Files',
+        'Capas'
+      ]
+    ]);
+
+    $posts = $this->Posts->find('all', [
+      'contain'=>[
+        'files',
+        'Capas'
+      ],
+      'limit' => 15,
+      'conditions'=>['Posts.id !='=>$id]
+    ]);
+    $posts = $posts->all();
+    $this->set(compact(['post', 'posts']));
+    $this->set('_serialize', ['post', 'posts']);
+    // die(debug($post));
   }
 
   public function opinion(){

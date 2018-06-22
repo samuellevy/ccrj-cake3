@@ -11,16 +11,16 @@
           </div>
         </form>
         <ul class="list">
-          <li><a href="#">Filme</a></li>
-          <li><a href="#">Impresso</a></li>
-          <li><a href="#">Marketing Direto</a></li>
-          <li><a href="#">Digital</a></li>
-          <li><a href="#">Outdoor</a></li>
-          <li><a href="#">Rádio</a></li>
-          <li><a href="#">Content</a></li>
-          <li><a href="#">Experimento</a></li>
-          <li><a href="#">Integrada</a></li>
-          <li><a href="#">Design</a></li>
+          <li><a href="<?=$this->Url->build(["controller" => "pages","action" => "gallery"]);?>?c=filme">Filme</a></li>
+          <li><a href="<?=$this->Url->build(["controller" => "pages","action" => "gallery"]);?>?c=impresso">Impresso</a></li>
+          <li><a href="<?=$this->Url->build(["controller" => "pages","action" => "gallery"]);?>?c=marketing direto">Marketing Direto</a></li>
+          <li><a href="<?=$this->Url->build(["controller" => "pages","action" => "gallery"]);?>?c=digital">Digital</a></li>
+          <li><a href="<?=$this->Url->build(["controller" => "pages","action" => "gallery"]);?>?c=outdoor">Outdoor</a></li>
+          <li><a href="<?=$this->Url->build(["controller" => "pages","action" => "gallery"]);?>?c=radio">Rádio</a></li>
+          <li><a href="<?=$this->Url->build(["controller" => "pages","action" => "gallery"]);?>?c=content">Content</a></li>
+          <li><a href="<?=$this->Url->build(["controller" => "pages","action" => "gallery"]);?>?c=experimento">Experimento</a></li>
+          <li><a href="<?=$this->Url->build(["controller" => "pages","action" => "gallery"]);?>?c=integrada">Integrada</a></li>
+          <li><a href="<?=$this->Url->build(["controller" => "pages","action" => "gallery"]);?>?c=design">Design</a></li>
         </ul>
       </div>
       <h1 class="page_title">GALERIA</h1>
@@ -30,37 +30,34 @@
     <div class="wrapper">
       <div class="content">
         <div class="head"><span>00/00/00 às 00h00</span><span class="share">Compartilhe:</span><a href="#"><?=$this->Html->image('Site.../images/fb.png', ['alt'=>'']);?></a><a href="#"><?=$this->Html->image('Site.../images/tw.png', ['alt'=>'']);?></a></div>
-        <h2 class="name">Nome da Campanha lorem ipsum dolor sit amet lorem ipsum</h2>
-        <p class="hint"><strong>Cliente: </strong><span>XXXXXXXXX</span></p>
-        <p class="hint"><strong>Agência: </strong><span>XXXXXXXXX</span></p>
+        <h2 class="name"><?=$work->sheet->project_title;?></h2>
+        <p class="hint"><strong>Cliente: </strong><span><?=$work->sheet->advertiser;?></span></p>
+        <p class="hint"><strong>Agência: </strong><span><?=$work->sheet->production_company;?></span></p>
         <h3 class="title">DESCRIÇÃO</h3>
-        <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus fringilla sodales. Lorem ipsum dolor sit amet, consectetu adipiscing elit. Vestibulum maximus fringilla sodales. Lorem ipsum dolor sit amet, onsectetur adipiscing elit. Vestibulum maximus fringilla.</p>
+        <p class="desc"><?=$work->description;?></p>
         <h3 class="title">FICHA TÉCNICA</h3>
         <ul class="list">
-          <li class="item"> <span>Direção de Criação:</span><span> XXXXXXXXXXXXXXXXXXXXXXXXXXX</span></li>
-          <li class="item"> <span>Direção de Arte:</span><span> XXXXXXXXXXXXXXXXXXXXXXXXXXX</span></li>
-          <li class="item"> <span>Redação:</span><span> XXXXXXXXXXXXXXXXXXXXXXXXXXX</span></li>
-          <li class="item"> <span>Ilustração:</span><span> XXXXXXXXXXXXXXXXXXXXXXXXXXX</span></li>
-          <li class="item"> <span>Fotografia:</span><span> XXXXXXXXXXXXXXXXXXXXXXXXXXX</span></li>
-          <li class="item"> <span>Produtora de Áudio:</span><span> XXXXXXXXXXXXXXXXXXXXXXXXXXX</span></li>
-          <li class="item"> <span>Produtora de Vídeo:</span><span> XXXXXXXXXXXXXXXXXXXXXXXXXXX</span></li>
-          <li class="item"> <span>Estúdio:</span><span> XXXXXXXXXXXXXXXXXXXXXXXXXXX</span></li>
+          <li class="item"> <span>Direção de Criação:</span><span> <?=$work->sheet->creative_director;?></span></li>
+          <li class="item"> <span>Direção de Arte:</span><span> <?=$work->sheet->art_director;?></span></li>
+          <li class="item"> <span>Redação:</span><span> <?=$work->sheet->writer;?></span></li>
+          <li class="item"> <span>Ilustração:</span><span> <?=$work->sheet->illustator;?></span></li>
+          <li class="item"> <span>Fotografia:</span><span> <?=$work->sheet->photographer;?></span></li>
+          <li class="item"> <span>Produtora de Áudio:</span><span> <?=$work->sheet->music_producer;?></span></li>
+          <li class="item"> <span>Produtora de Vídeo:</span><span> <?=$work->sheet->video_producer;?></span></li>
+          <li class="item"> <span>Estúdio:</span><span> <?=$work->sheet->post_production_company;?></span></li>
         </ul>
       </div>
       <div class="wrap">
         <div class="slider">
           <!-- MAIN SLIDES-->
           <div class="main_slider">
-            <figure><?=$this->Html->image('Site.../images/galeria_view.png', ['alt'=>'One']);?></figure>
-            <figure><?=$this->Html->image('Site.../images/galeria_view.png', ['alt'=>'One']);?></figure>
-            <figure><?=$this->Html->image('Site.../images/galeria_view.png', ['alt'=>'One']);?></figure>
-            <figure><?=$this->Html->image('Site.../images/galeria_view.png', ['alt'=>'One']);?></figure>
+            <figure><?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?></figure>
           </div>
           <!-- THUMBNAILS-->
           <div class="slider-nav-thumbnails">
-            <div><?=$this->Html->image('Site.../images/galeria_view.png', ['alt'=>'One']);?></div>
-            <div><?=$this->Html->image('Site.../images/galeria_view.png', ['alt'=>'Two']);?></div>
-            <div><?=$this->Html->image('Site.../images/galeria_view.png', ['alt'=>'Three']);?></div>
+            <?php foreach($work->files as $file):?>
+              <div><?php echo $this->Html->image('../uploads/files/'.$file['filename']);?></div>
+            <?php endforeach;?>
           </div>
         </div>
       </div>
@@ -68,38 +65,15 @@
   </section>
   <section class="others_galleries">
     <div class="wrapper">
-      <h4 class="title">RELACIONADAS//</h4>
+      <!-- <h4 class="title">RELACIONADAS//</h4> -->
       <div class="cards_galleries">
+
         <div class="card_item">
-          <div class="media"><?=$this->Html->image('Site.../images/galeria1.png', ['alt'=>'']);?>
+          <!-- <div class="media"><?=$this->Html->image('Site.../images/galeria1.png', ['alt'=>'']);?>
             <p><strong>CLIENTE// </strong><span>Nome da Campanha</span></p>
-          </div><a class="view_more" href="#">VEJA MAIS [+]</a>
+          </div><a class="view_more" href="#">VEJA MAIS [+]</a> -->
         </div>
-        <div class="card_item">
-          <div class="media"><?=$this->Html->image('Site.../images/galeria1.png', ['alt'=>'']);?>
-            <p><strong>CLIENTE// </strong><span>Nome da Campanha</span></p>
-          </div><a class="view_more" href="#">VEJA MAIS [+]</a>
-        </div>
-        <div class="card_item">
-          <div class="media"><?=$this->Html->image('Site.../images/galeria1.png', ['alt'=>'']);?>
-            <p><strong>CLIENTE// </strong><span>Nome da Campanha</span></p>
-          </div><a class="view_more" href="#">VEJA MAIS [+]</a>
-        </div>
-        <div class="card_item">
-          <div class="media"><?=$this->Html->image('Site.../images/galeria1.png', ['alt'=>'']);?>
-            <p><strong>CLIENTE// </strong><span>Nome da Campanha</span></p>
-          </div><a class="view_more" href="#">VEJA MAIS [+]</a>
-        </div>
-        <div class="card_item">
-          <div class="media"><?=$this->Html->image('Site.../images/galeria1.png', ['alt'=>'']);?>
-            <p><strong>CLIENTE// </strong><span>Nome da Campanha</span></p>
-          </div><a class="view_more" href="#">VEJA MAIS [+]</a>
-        </div>
-        <div class="card_item">
-          <div class="media"><?=$this->Html->image('Site.../images/galeria1.png', ['alt'=>'']);?>
-            <p><strong>CLIENTE// </strong><span>Nome da Campanha</span></p>
-          </div><a class="view_more" href="#">VEJA MAIS [+]</a>
-        </div>
+
       </div>
     </div>
   </section>

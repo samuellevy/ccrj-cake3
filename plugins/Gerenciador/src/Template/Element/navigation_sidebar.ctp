@@ -9,7 +9,7 @@
   <li class="sidebar-dropdown" data-id="1">
     <a <?=$params['controller']=='Posts'||$params['controller']=='BlogCategories'||$params['controller']=='BlogTags'?"class='active'":""?>>
       <i class="pe-7s-news-paper"></i>
-      <p>Blog</p>
+      <p>Novidades</p>
       <i class="i-absolute pe-7s-angle-right"></i>
     </a>
     <ul <?=$params['controller']=='Posts'||$params['controller']=='BlogCategories'||$params['controller']=='BlogTags'?"class='show-sidebar-dropdown'":""?>>
@@ -19,18 +19,12 @@
           <p>Posts</p>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a href="<?= $this->Url->build(["controller" => "BlogCategories","action" => "index"]);?>" <?=$params['controller']=='BlogCategories'?"class='active'":""?>>
           <i class="pe-7s-angle-right"></i>
           <p>Categorias</p>
         </a>
-      </li>
-      <li>
-        <a href="<?= $this->Url->build(["controller" => "BlogTags","action" => "index"]);?>" <?=$params['controller']=='BlogTags'?"class='active'":""?>>
-          <i class="pe-7s-angle-right"></i>
-          <p>Tags</p>
-        </a>
-      </li>
+      </li> -->
     </ul>
   </li>
 
@@ -54,7 +48,12 @@
       <p>Depoimentos</p>
     </a>
   </li>
-
+  <li>
+    <a href="<?= $this->Url->build(["controller" => "Works","action" => "index"]);?>" <?=$params['controller']=='Users'?"class='active'":""?>>
+      <i class="pe-7s-user"></i>
+      <p>Peças</p>
+    </a>
+  </li>
   <li>
     <a href="<?= $this->Url->build(["controller" => "Users","action" => "index"]);?>" <?=$params['controller']=='Users'?"class='active'":""?>>
       <i class="pe-7s-user"></i>

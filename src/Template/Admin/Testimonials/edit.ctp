@@ -15,6 +15,15 @@
               </div>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <?php echo $this->Form->control('quote', ['class'=>'form-control', 'label'=>'Citação']);?>
+              </div>
+            </div>
+          </div>
+
           <div class="row">
             <div class="col-md-3">
               <div class="form-group">

@@ -21,15 +21,13 @@
 			</div>
 		</div>
 		<?php endforeach;?>
-		
-		
 	</div>
 </section>
 <section class="new_publications">
 	<div class="wrapper">
 		<div class="section_title">
 			<h2 class="title"><span>novi <br> dades</span></h2>
-			<a class="view_more" href="#">VEJA MAIS <span>[+]</span></a>
+			<a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "news"]);?>">VEJA MAIS <span>[+]</span></a>
 		</div>
 		<div class="main_post">
 			<div class="media">
@@ -47,7 +45,7 @@
 					<?php if($key!=0):?>
 					<li class="item"> 
 						<p><strong>DESTAQUE // </strong><span> <?=$post->title;?></span></p>
-						<a class="view_more" href="<?= $this->Url->build($post->id);?>">VEJA MAIS [+]</a>
+						<a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->id]);?>">VEJA MAIS [+]</a>
 					</li>
 					<?php endif;?>
 					<?php endforeach;?>
@@ -64,13 +62,11 @@
 	</div>
 	<div class="wrapper">
 		<div class="section_title">
-			
 			<div class="wrap">
 				<h2 class="title"> <span>opinião</span></h2><a class="view_more" href="#">VEJA MAIS <span>[+]</span></a>
 				<p class="name"><strong class="name"><?=$testimonial->name;?></strong><small class="info"><?=$testimonial->subtitle?></small></p>
-				<p class="desc"><?=substr(strip_tags($testimonial->testimony),0,100)?>...</p>
+				<p class="desc">"<?=substr(strip_tags($testimonial->quote),0,100)?>..."</p>
 			</div>
-			
 		</div>
 	</div>
 </section>
