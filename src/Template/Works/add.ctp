@@ -1,3 +1,4 @@
+<?= $this->Flash->render() ?>
 <section id="envie">
     <div class="wrapper">
     <h1 class="page_title">ENVIE SUA PEÇA</h1>

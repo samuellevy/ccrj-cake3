@@ -12,8 +12,13 @@ class WorksController extends AppController
 	public function beforeFilter(Event $event){
 		parent::beforeFilter($event);
 		$this->viewBuilder()->setLayout('pages');
+
+		$configs['action'] = $this->request->action;
+		$configs['matchedRoute']= $this->request->params['_matchedRoute'];
+		$configs['url'] =  '/'.strtolower($this->request->params['controller']).'/'.$this->request->action;
+		$this->set(compact('configs'));
 	}
-	
+
 	public function add()
 	{
 		$work = $this->Works->newEntity();
@@ -31,11 +36,9 @@ class WorksController extends AppController
 				}
 			}
 			if ($this->Works->save($work)) {
-				$this->Flash->success(__('The work has been saved.'));
-				
-				return $this->redirect(['action' => 'index']);
+				$this->Flash->success(__('Sua peça foi enviada com sucesso.'));
 			}
-			$this->Flash->error(__('The work could not be saved. Please, try again.'));
+			$this->Flash->error(__('Não foi possível enviar sua peça. Verifique os campos.'));
 		}
 		
 		$categories = $this->Works->Sheets->WorkCategories->find('list');
