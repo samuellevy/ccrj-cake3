@@ -1,5 +1,4 @@
-body {
-	&.clube {
+.clube {
 		.contentClube {
 			background: $colorMob5;
 			width: 100%;
@@ -65,7 +64,7 @@ body {
 		}
 	}
 
-	&.opniao {
+.opniao {
 		.opinionTop {
 			background: $colorMob5;
 			margin-bottom: 40px;
@@ -136,8 +135,7 @@ body {
 			}
 		}
 	}
-
-	&.sendPeca {
+.sendPeca {
 		background: $white;
 		#header.interna {
 			background: $white;
@@ -246,7 +244,7 @@ body {
 		}
 	}
 
-	&.contact {
+.contact {
 		background: $white;
 		#header.interna {
 			background: $white;
@@ -267,4 +265,3 @@ body {
 			}
 		}
 	}
-}

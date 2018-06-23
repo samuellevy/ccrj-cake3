@@ -1,5 +1,4 @@
-body {
-	&.news {
+.news {
 		#header.interna {
 			background: $white;
 		}
@@ -64,8 +63,7 @@ body {
 			}
 		}
 	}
-
-	&.newsInfo {
+.newsInfo {
 		#header.interna {
 			background: $white;
 		}
@@ -174,4 +172,3 @@ body {
 			}
 		}
 	}
-}
