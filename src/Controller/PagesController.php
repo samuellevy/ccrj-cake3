@@ -88,6 +88,8 @@ class PagesController extends AppController
     $testimonials = $testimonials->all();
 
     $this->set(compact(['posts','works', 'testimonials']));
+
+    // die(debug($works));
   }
   
   public function club(){

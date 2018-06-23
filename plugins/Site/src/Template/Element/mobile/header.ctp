@@ -1,3 +1,10 @@
+<?php
+if($configs['action']!='home'){
+    $logo = 'logo-mobile.png';
+}else{
+    $logo = 'logo.png';
+}
+?>
 <div class="menuMob">
     <section class="inforTop">
     <div class="wrapper"><?=$this->Html->image('Site.../mobile/images/logo-mobile.png');?>
@@ -22,12 +29,9 @@
 </div>
 <header id="header">
     <div class="wrapper">
-    <div class="logo"><a href="#"><?=$this->Html->image('Site.../mobile/images/logo.png');?></a></div>
+    <div class="logo"><a href="#"><?=$this->Html->image('Site.../mobile/images/'.$logo);?></a></div>
     <nav id="main_nav">
         <div class="viewMob"><i class="icon-menu"></i></div>
-        <ul class="list">
-            <?=$this->element('navigation');?>
-        </ul>
     </nav>
     </div>
 </header>

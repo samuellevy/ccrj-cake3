@@ -115,13 +115,10 @@
 	}
 	.logo {
 		position: absolute;
-		top: 45px;
-		left: 80px;
 		z-index: 1;
 		padding-bottom: 85px;
-		padding-right: 136px;
 		@include break-max(1440px) {
-			top: 90px;
+			// top: 90px;
 		}
 	}
 }
@@ -130,8 +127,6 @@ body.home {
     @media screen and (max-width: $break-small) {
         #header {
             .logo {
-                left: 20px;
-                top: 0px;
                 width: 61%;
                 background: #282828;
                 padding: 20px;
