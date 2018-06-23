@@ -29,5 +29,4 @@
             <?=$this->element('navigation');?>
         </ul>
     </nav>
-    </div>
 </header>
