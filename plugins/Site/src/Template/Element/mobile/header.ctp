@@ -33,5 +33,4 @@ if($configs['action']!='home'){
     <nav id="main_nav">
         <div class="viewMob"><i class="icon-menu"></i></div>
     </nav>
-    </div>
 </header>

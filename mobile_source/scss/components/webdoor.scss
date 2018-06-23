@@ -1,4 +1,7 @@
 .webdoor {
+	width: 100%;
+	background: url('../images/bbaner_mobile.png');
+	height: 100vh;
 	.webdoor_pager {
 		position: absolute;
 		right: 38px;
@@ -62,8 +65,7 @@
 	.wrapper {
 		position: relative;
 		overflow: hidden;
-		padding: 0 80px;
-		background: $color1;		
+		padding: 0 80px;		
 	}
 	.brand_layer {
 		position: absolute;
