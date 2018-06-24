@@ -87,8 +87,6 @@ class PagesController extends AppController
     ]);
     $testimonials = $testimonials->all();
 
-    $this->set(compact(['posts','works', 'testimonials']));
-
     // die(debug($works));
   }
   
@@ -253,21 +251,13 @@ class PagesController extends AppController
   }
 
   public function contact(){
-    $page = $this->Pages->find('all', [
-      'conditions'=>[
-        'slug'=>'contact'
-      ],
-      'limit'=>1,
-      'contain'=>[
-        'PagesComponents'=>[
-          'sort'=>['sort'=>'asc']
-        ],
-        'PagesComponents.Files',
-      ]
-    ]);
-    $page = $page->first();
-    $this->set(compact(['page']));
-    // die(debug($page));
+    $this->loadModel('Contacts');
+    $contacts = $this->Contacts->find('all');
+    $contacts = $contacts->all();
+
+    $this->set(compact(['posts','works','testimonials','contacts']));
+
+    $this->set(compact(['contacts']));
   }
 
 }

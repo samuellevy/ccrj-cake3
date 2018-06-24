@@ -1,8 +1,8 @@
 <ul class="nav">
   <li>
-    <a href="<?= $this->Url->build(["controller" => "messages","action" => "index"]);?>" <?=$params['controller']=='Messages'?"class='active'":""?>>
-      <i class="pe-7s-mail"></i>
-      <p>Caixa de Mensagens</p>
+    <a href="<?= $this->Url->build(["controller" => "Menu","action" => "index"]);?>" <?=$params['controller']=='Menu'?"class='active'":""?>>
+      <i class="pe-7s-menu"></i>
+      <p>Menu</p>
     </a>
   </li>
 
@@ -29,13 +29,6 @@
   </li>
 
   <li>
-    <a href="<?= $this->Url->build(["controller" => "Menu","action" => "index"]);?>" <?=$params['controller']=='Menu'?"class='active'":""?>>
-      <i class="pe-7s-menu"></i>
-      <p>Menu</p>
-    </a>
-  </li>
-
-  <li>
     <a href="<?= $this->Url->build(["controller" => "pages","action" => "index"]);?>" <?=$params['controller']=='Pages'?"class='active'":""?>>
       <i class="pe-7s-photo-gallery"></i>
       <p>Páginas</p>
@@ -50,8 +43,14 @@
   </li>
   <li>
     <a href="<?= $this->Url->build(["controller" => "Works","action" => "index"]);?>" <?=$params['controller']=='Users'?"class='active'":""?>>
-      <i class="pe-7s-user"></i>
+      <i class="pe-7s-file"></i>
       <p>Peças</p>
+    </a>
+  </li>
+  <li>
+    <a href="<?= $this->Url->build(["controller" => "testimonials","action" => "index"]);?>" <?=$params['controller']=='Testimonials'?"class='active'":""?>>
+      <i class="pe-7s-mail"></i>
+      <p>E-mails de contato</p>
     </a>
   </li>
   <li>
