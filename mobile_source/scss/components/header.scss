@@ -117,6 +117,11 @@
 		position: absolute;
 		z-index: 1;
 		padding-bottom: 85px;
+		a{
+			img{
+				margin-top:-13px;
+			}
+		}
 		@include break-max(1440px) {
 			// top: 90px;
 		}
