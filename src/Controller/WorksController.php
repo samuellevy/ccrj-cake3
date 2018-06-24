@@ -19,6 +19,10 @@ class WorksController extends AppController
 		$this->set(compact('configs'));
 	}
 
+	public function beforeRender(Event $event){
+		parent::beforeRender($event);
+	}
+
 	public function add()
 	{
 		$work = $this->Works->newEntity();

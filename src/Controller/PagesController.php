@@ -20,15 +20,10 @@ class PagesController extends AppController
   }
 
   public function beforeRender(Event $event){
-    $url = '/'.strtolower($this->request->params['controller']).'/'.$this->request->action;
-
-      $this->viewBuilder()->layout('mobile_default');
-      $this->viewBuilder()->template('/Mobile'.$url);
-
+    parent::beforeRender($event);
   }
 
   public function home(){
-    /* Carrega page components */
     $page = $this->Pages->find('all', [
       'conditions'=>[
         'slug'=>'home'
@@ -42,16 +37,6 @@ class PagesController extends AppController
       ]
     ]);
     $page = $page->first();
-    $this->set('page', $page);
-    /* Final page components */
-
-    $this->loadModel('Institutes');
-    $affiliates = $this->Institutes->find('all', [
-      'contain'=>[
-        'files'
-      ]
-    ]);
-    $affiliates = $affiliates->all();
 
     $this->loadModel('Posts');
     $posts = $this->Posts->find('all', [
@@ -88,6 +73,7 @@ class PagesController extends AppController
     $testimonials = $testimonials->all();
 
     // die(debug($works));
+    $this->set(compact(['page', 'posts', 'works', 'testimonials']));
   }
   
   public function club(){
