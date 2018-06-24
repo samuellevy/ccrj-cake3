@@ -180,13 +180,20 @@
 			}
 
 			.decription {
-				border: 1px solid #B5D1D8;
 				margin-bottom: 30px;
-				padding: 15px;
 				font-family: $font1;
 				color: #5F656A;
 				line-height: 20px;
 				font-size: 14px;
+				textarea{
+					color: #5F656A;
+					overflow: auto;
+					border: 1px solid #B5D1D8;
+					width: 100%;
+					padding: 15px;
+					border-radius: 3px;
+
+				}
 			}
 
 			.boxAnexo {
