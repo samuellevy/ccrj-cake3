@@ -20,11 +20,7 @@ class PagesController extends AppController
   }
 
   public function beforeRender(Event $event){
-    $url = '/'.strtolower($this->request->params['controller']).'/'.$this->request->action;
-
-      $this->viewBuilder()->layout('mobile_default');
-      $this->viewBuilder()->template('/Mobile'.$url);
-
+    parent::beforeRender($event);
   }
 
   public function home(){
