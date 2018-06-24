@@ -7,7 +7,10 @@ if($configs['action']!='home'){
 ?>
 <div class="menuMob">
     <section class="inforTop">
-    <div class="wrapper"><?=$this->Html->image('Site.../mobile/images/logo-mobile.png');?>
+    <div class="wrapper">
+        <a href="<?=$this->Url->build(["controller" => "pages","action" => "home"]);?>">
+            <?=$this->Html->image('Site.../mobile/images/logo-mobile.png');?>
+        </a>
         <div class="clouseLightBox"><i class="icon-clouse"></i></div>
     </div>
     </section>
@@ -29,7 +32,7 @@ if($configs['action']!='home'){
 </div>
 <header id="header">
     <div class="wrapper">
-    <div class="logo"><a href="#"><?=$this->Html->image('Site.../mobile/images/'.$logo);?></a></div>
+    <div class="logo"><a href="<?=$this->Url->build(["controller" => "pages","action" => "home"]);?>"><?=$this->Html->image('Site.../mobile/images/'.$logo);?></a></div>
     <nav id="main_nav">
         <div class="viewMob"><i class="icon-menu"></i></div>
     </nav>
