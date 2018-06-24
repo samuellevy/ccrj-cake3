@@ -4,21 +4,6 @@
             <div class="webdoor_pager"></div>
         </div>
     </div>
-    <div class="viewMob">
-        <section class="galleryMob">
-            <div class="titleContent">
-                <h2>Galeria</h2><a href="">Veja mais <span>[+]</span></a>
-            </div>
-            <?php foreach($works as $key=>$work):?>
-                <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename'], ['title'=>$work->sheet->project_title]);?>
-                <div class="textInfo">
-                    <h3><?=$work->sheet->production_company;?></h3>
-                    <p><?=$work->description;?></i>
-                </div>
-                <?php break;?>
-            <?php endforeach;?>
-        </section>
-    </div>
     <div class="viewMob"> 
         <section class="publicationsMob">
             <div class="wrapper">
