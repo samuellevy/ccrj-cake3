@@ -24,7 +24,6 @@ class PagesController extends AppController
   }
 
   public function home(){
-    /* Carrega page components */
     $page = $this->Pages->find('all', [
       'conditions'=>[
         'slug'=>'home'
@@ -38,16 +37,6 @@ class PagesController extends AppController
       ]
     ]);
     $page = $page->first();
-    $this->set('page', $page);
-    /* Final page components */
-
-    $this->loadModel('Institutes');
-    $affiliates = $this->Institutes->find('all', [
-      'contain'=>[
-        'files'
-      ]
-    ]);
-    $affiliates = $affiliates->all();
 
     $this->loadModel('Posts');
     $posts = $this->Posts->find('all', [
@@ -84,6 +73,7 @@ class PagesController extends AppController
     $testimonials = $testimonials->all();
 
     // die(debug($works));
+    $this->set(compact(['page', 'posts', 'works', 'testimonials']));
   }
   
   public function club(){
