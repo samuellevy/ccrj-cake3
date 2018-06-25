@@ -36,6 +36,13 @@
   </li>
 
   <li>
+    <a href="<?= $this->Url->build(["controller" => "banners","action" => "index"]);?>" <?=$params['controller']=='Banners'?"class='active'":""?>>
+      <i class="pe-7s-display2"></i>
+      <p>Banners</p>
+    </a>
+  </li>
+
+  <li>
     <a href="<?= $this->Url->build(["controller" => "testimonials","action" => "index"]);?>" <?=$params['controller']=='Testimonials'?"class='active'":""?>>
       <i class="pe-7s-speaker"></i>
       <p>Opiniões</p>

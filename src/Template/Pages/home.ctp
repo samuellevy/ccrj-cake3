@@ -1,6 +1,8 @@
 <div class="webdoor">
 	<div class="wrapper">
-	<div class="item"><?=$this->Html->image('Site.../images/home_webdoor.jpg');?></div>
+	<div class="item">
+		<?php echo $this->Html->image('../uploads/files/'.$banners[0]['files'][0]['filename']);?>
+	</div>
 	<div class="webdoor_mask"></div>
 	<div class="webdoor_footer"><a class="arrow" href="#"><?=$this->Html->image('Site.../images/arrow_wd.png');?></a></div>
 	</div>
