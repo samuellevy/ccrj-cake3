@@ -38,7 +38,7 @@
   <li>
     <a href="<?= $this->Url->build(["controller" => "testimonials","action" => "index"]);?>" <?=$params['controller']=='Testimonials'?"class='active'":""?>>
       <i class="pe-7s-speaker"></i>
-      <p>Depoimentos</p>
+      <p>Opiniões</p>
     </a>
   </li>
   <li>
@@ -48,7 +48,7 @@
     </a>
   </li>
   <li>
-    <a href="<?= $this->Url->build(["controller" => "testimonials","action" => "index"]);?>" <?=$params['controller']=='Testimonials'?"class='active'":""?>>
+    <a href="<?= $this->Url->build(["controller" => "contacts","action" => "index"]);?>" <?=$params['controller']=='Testimonials'?"class='active'":""?>>
       <i class="pe-7s-mail"></i>
       <p>E-mails de contato</p>
     </a>
