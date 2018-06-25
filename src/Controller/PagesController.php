@@ -96,7 +96,6 @@ class PagesController extends AppController
       'contain'=>[
         'files'
       ],
-      'limit' => 1,
       'conditions'=>['position !='=>'bottom']
     ]);
     $team_top = $team_top->all();
@@ -105,7 +104,6 @@ class PagesController extends AppController
       'contain'=>[
         'files'
       ],
-      'limit' => 1,
       'conditions'=>['position !='=>'top']
     ]);
     $team_bottom = $team_bottom->all();

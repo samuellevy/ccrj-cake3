@@ -41,8 +41,9 @@ class WorksController extends AppController
 			}
 			if ($this->Works->save($work)) {
 				$this->Flash->success(__('Sua peça foi enviada com sucesso.'));
+			}else{
+				$this->Flash->error(__('Não foi possível enviar sua peça. Verifique os campos.'));
 			}
-			$this->Flash->error(__('Não foi possível enviar sua peça. Verifique os campos.'));
 		}
 		
 		$categories = $this->Works->Sheets->WorkCategories->find('list');
