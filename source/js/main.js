@@ -1,48 +1,3 @@
-var webdoor = {
-	webdoor: function() {
-		$('.webdoor_footer .arrow').click(function (e) { 
-			e.preventDefault();
-			target = $('.gallery_featured');
-			$('html, body').animate({
-				scrollTop: target.offset().top
-			}, 1000);			
-		});
-		//webdoor
-		$('.webdoor .slider').slick({
-			arrows: false,
-			autoplay: true,
-			autoplaySpeed: 2500,
-			dots:true,
-			appendDots: $('.webdoor_pager')
-		});
-		$('.webdoor .wrapper').height(($(window).height() - $('#header').outerHeight()));
-		$('.webdoor_footer .image_description').text($('.slick-current').find('img').attr('title'));
-		
-		$('.webdoor .slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
-			var title = $('.webdoor .slider .slick-current').find('img').attr('title');
-			$('.webdoor_footer .image_description').text(title);
-		});
-		$('.brand_layer').css('width', $('.webdoor .wrapper').width());
-		(function hl() {
-			var li = $('.brand_layer img').not('.active'),
-			r  = Math.floor(Math.random() * li.length),
-			h  = li.eq(r).hasClass('active');
-			
-			if (h == true) {
-				r  = Math.floor(Math.random() * li.length);
-				h  = li.eq(r).hasClass('active');
-			}
-			var w  = li.filter('.active').length;
-			
-			li.eq(r).addClass('active');
-			
-			if (w < li.length) setTimeout(hl, 0);
-		})();		
-	},
-	init: function() {
-		webdoor.webdoor();
-	}
-};
 var header = {
 	search: function() {
 		$('.form_area.search_header .action').click(function (e) { 
@@ -78,29 +33,6 @@ var clubnews = {
 	},
 	init: function() {
 		clubnews.slider();
-	}
-};
-var gallery_featured = {
-	click_item: function() {
-		$('.gallery_featured .gallery_item, .gallery_featured .close_gallery').click(function (e) { 
-			e.preventDefault();
-			if($(this).hasClass('close_gallery')) {
-				$('.gallery_featured').removeClass('focus');
-				$('.gallery_featured .gallery_item').removeClass('active');
-			}
-			else {
-				$('.gallery_featured').addClass('focus');
-				$(this).addClass('active');
-			}
-		});
-		$(window).on('scroll', function(){
-			if ($(".gallery_featured").is(':visible')){
-				$(".gallery_featured").addClass('show');
-			}
-		});
-	},
-	init: function() {
-		gallery_featured.click_item();
 	}
 };
 var gallery = {
@@ -175,7 +107,6 @@ var envie_peca = {
 jQuery(document).ready(function($) {
 	header.init();
 	webdoor.init();
-	gallery_featured.init();
 	clubnews.init();
 	gallery.init();
 	envie_peca.init();

@@ -17,7 +17,7 @@
 			</div>
 			<div class="text">
 				<p class="name"><?=$work->sheet->production_company?></p>
-				<p class="description"><?=$work->description?></p>
+				<p class="description"><?=substr($work->description,0,115);?>...</p>
 			</div>
 		</div>
 		<?php endforeach;?>
