@@ -20,13 +20,13 @@ class TestimonialsController extends AppController
   public function add()
   {
     $testimonial = $this->Testimonials->newEntity();
-
     if ($this->request->is('post')) {
       $testimonial = $this->Testimonials->patchEntity($testimonial, $this->request->getData(),[
         'associated' => [
           'Files'
         ]
-      ]);
+      ]); 
+      // die(debug($testimonial));
       if ($this->Testimonials->save($testimonial)) {
         $this->Flash->success(__('Salvo com sucesso.'));
 
@@ -65,7 +65,7 @@ class TestimonialsController extends AppController
 
       if ($this->Testimonials->save($testimonial)) {
         $this->Flash->success(__('Salvo com sucesso.'));
-        return $this->redirect(['action' => 'edit',$id]);
+        return $this->redirect(['action' => 'index']);
       }
       $this->Flash->error(__('Não pôde ser salvo.'));
     }

@@ -52,6 +52,14 @@
                 color: $color1;
             }
         }
+        .media{
+            img{
+                width: 320px;
+                height: 310px;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
     }
 }
 .cards_galleries{
