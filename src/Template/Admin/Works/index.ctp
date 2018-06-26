@@ -36,7 +36,8 @@
                     </div>
                   </td>
                   <td class="actions">
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $work->id]) ?>
+                    <!-- <?= $this->Html->link(__('Editar'), ['action' => 'edit', $work->id]) ?> -->
+                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $work->id]) ?> | 
                     <?= $this->Form->postLink(__('Remover'), ['action' => 'delete', $work->id], ['confirm' => __('Are you sure you want to delete # {0}?', $work->id)]) ?>
                   </td>
                 </tr>
@@ -51,7 +52,7 @@
               <?= $this->Paginator->numbers() ?>
               <?= $this->Paginator->next(__('próximo') . ' >') ?>
               <?= $this->Paginator->last(__('último') . ' >>') ?>
-              <li><a href="<?= $this->Url->build(["controller" => "Works", "action" => "add"]);?>">Novo</a></li>
+              <!-- <li><a href="<?= $this->Url->build(["controller" => "Works", "action" => "add"]);?>">Novo</a></li> -->
             </ul>
             <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
           </div>

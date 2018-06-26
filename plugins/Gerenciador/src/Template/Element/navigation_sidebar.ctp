@@ -49,19 +49,19 @@
     </a>
   </li>
   <li>
-    <a href="<?= $this->Url->build(["controller" => "Works","action" => "index"]);?>" <?=$params['controller']=='Users'?"class='active'":""?>>
+    <a href="<?= $this->Url->build(["controller" => "Works","action" => "index"]);?>" <?=$params['controller']=='Works'?"class='active'":""?>>
       <i class="pe-7s-file"></i>
       <p>Peças</p>
     </a>
   </li>
   <li>
-    <a href="<?= $this->Url->build(["controller" => "contacts","action" => "index"]);?>" <?=$params['controller']=='Testimonials'?"class='active'":""?>>
+    <a href="<?= $this->Url->build(["controller" => "contacts","action" => "index"]);?>" <?=$params['controller']=='Contacts'?"class='active'":""?>>
       <i class="pe-7s-mail"></i>
       <p>E-mails de contato</p>
     </a>
   </li>
   <li>
-    <a href="<?= $this->Url->build(["controller" => "team","action" => "index"]);?>" <?=$params['controller']=='Testimonials'?"class='active'":""?>>
+    <a href="<?= $this->Url->build(["controller" => "team","action" => "index"]);?>" <?=$params['controller']=='Team'?"class='active'":""?>>
       <i class="pe-7s-users"></i>
       <p>Time</p>
     </a>

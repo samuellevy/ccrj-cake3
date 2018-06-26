@@ -82,18 +82,35 @@ class WorksController extends AppController
 		$works = $this->Works->find('list', ['conditions'=>['parent_id'=>0]]);
 
 		if ($this->request->is(['patch', 'post', 'put'])) {
-		$work = $this->Works->patchEntity($work, $this->request->getData());
-		$data = $this->request->getData();
+			$work = $this->Works->patchEntity($work, $this->request->getData());
+			$data = $this->request->getData();
 
-		if ($this->Works->save($work)) {
-			$this->Flash->success(__('Salvo com sucesso.'));
+			if ($this->Works->save($work)) {
+				$this->Flash->success(__('Salvo com sucesso.'));
 
-			return $this->redirect(['action' => 'edit',$id]);
+				return $this->redirect(['action' => 'index']);
+			}
+			$this->Flash->error(__('Não pôde ser salvo.'));
 		}
-		$this->Flash->error(__('Não pôde ser salvo.'));
-		}
-		$this->set(compact('work', 'works', 'pages'));
+
+		$this->loadModel('WorkCategories');
+		$categories = $this->WorkCategories->find('list', ['limit' => 200, 'order'=>['id'=>'ASC']]);
+
+		$this->set(compact('work', 'works', 'pages', 'categories'));
 		$this->set('_serialize', ['work', 'works']);
+	}
+
+	  public function view($id = null)
+  {
+		$work = $this->Works->get($id, [
+		'contain' => [
+			'Files',
+			'Sheets'
+		]
+		]);
+
+		$this->set('work', $work);
+		$this->set('_serialize', ['work']);
 	}
 
 	public function delete($id = null){

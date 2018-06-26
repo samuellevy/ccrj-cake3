@@ -38,3 +38,13 @@
 .small{
   height: 40px;
 }
+
+.images{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 0;
+  img{
+    width: 33.33%;
+    height: 100%;
+  }
+}

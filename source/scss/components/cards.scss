@@ -76,6 +76,12 @@
                 text-transform: uppercase;
             }
         }
+        img{
+            height: 230px;
+            width: 370px;
+            object-fit: cover;
+            object-position: center;
+        }
     }
     .card_item {
         width: 31%;

@@ -29,7 +29,7 @@
   <section class="main_gallery_view">
     <div class="wrapper">
       <div class="content">
-        <div class="head"><span>00/00/00 às 00h00</span><span class="share">Compartilhe:</span><a href="#"><?=$this->Html->image('Site.../images/fb.png', ['alt'=>'']);?></a><a href="#"><?=$this->Html->image('Site.../images/tw.png', ['alt'=>'']);?></a></div>
+        <div class="head"><span><?= h($this->FormatDate->formatDate($work->created, 'blog-date')); ?></span><span class="share">Compartilhe:</span><a href="#"><?=$this->Html->image('Site.../images/fb.png', ['alt'=>'']);?></a><a href="#"><?=$this->Html->image('Site.../images/tw.png', ['alt'=>'']);?></a></div>
         <h2 class="name"><?=$work->sheet->project_title;?></h2>
         <p class="hint"><strong>Cliente: </strong><span><?=$work->sheet->advertiser;?></span></p>
         <p class="hint"><strong>Agência: </strong><span><?=$work->sheet->production_company;?></span></p>
@@ -51,7 +51,9 @@
         <div class="slider">
           <!-- MAIN SLIDES-->
           <div class="main_slider">
-            <figure><?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?></figure>
+            <?php foreach($work->files as $file):?>
+              <div><?php echo $this->Html->image('../uploads/files/'.$file['filename']);?></div>
+            <?php endforeach;?>
           </div>
           <!-- THUMBNAILS-->
           <div class="slider-nav-thumbnails">
