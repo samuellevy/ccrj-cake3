@@ -14,14 +14,8 @@ class DocumentsTable extends Table
     parent::initialize($config);
 
     $this->setTable('documents');
-    $this->setDisplayField('title');
+    $this->setDisplayField('name');
     $this->setPrimaryKey('id');
-
-    $this->addBehavior('Timestamp');
-
-    $this->belongsTo('DocumentsCategories', [
-      'foreignKey' => 'category_id'
-    ]);
 
     $this->hasOne('Files', [
       'className' => 'Files',
@@ -31,10 +25,6 @@ class DocumentsTable extends Table
       ]
     ]);
 
-    $this->belongsTo('DocumentsYears', [
-      'className' => 'DocumentsYears',
-      'foreignKey' => 'year_id',
-    ]);
   }
 
   /**

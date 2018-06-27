@@ -67,6 +67,12 @@
     </a>
   </li>
   <li>
+    <a href="<?= $this->Url->build(["controller" => "documents","action" => "index"]);?>" <?=$params['controller']=='Documents'?"class='active'":""?>>
+      <i class="pe-7s-users"></i>
+      <p>Documentos</p>
+    </a>
+  </li>
+  <li>
     <a href="<?= $this->Url->build(["controller" => "Users","action" => "index"]);?>" <?=$params['controller']=='Users'?"class='active'":""?>>
       <i class="pe-7s-user"></i>
       <p>Usuários</p>

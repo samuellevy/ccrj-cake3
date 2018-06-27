@@ -6,7 +6,7 @@
         <ul class="list">
         <?php foreach($contacts as $contact):?>
           <li>
-            <p><?=$contact->title;?>//</p>
+            <p><?=$contact->title;?></p>
             <span><?=$contact->email;?></span>
           </li>
         <?php endforeach;?>

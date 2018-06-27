@@ -119,9 +119,16 @@ class PagesController extends AppController
       'conditions'=>['position !='=>'top']
     ]);
     $team_bottom = $team_bottom->all();
+    
+    $this->loadModel('Documents');
+    $documents = $this->Documents->find('all', [
+      'contain'=>[
+        'Files'
+      ],
+    ]);
+    $documents = $documents->all();
 
-
-    $this->set(compact(['page', 'team_top', 'team_bottom']));
+    $this->set(compact(['page', 'team_top', 'team_bottom', 'documents']));
 
 
     // die(debug($page));
