@@ -12,6 +12,10 @@
 		.logo{
 			position: static;
 			padding: 0;
+			li{
+				position: absolute;
+				top: 25px;
+			}
 		}
 	}
 	.wrapper {
