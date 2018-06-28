@@ -66,13 +66,15 @@ class PagesController extends AppController
     $works = $this->Works->find('all', [
       'contain'=>[
         'files',
-        'Sheets'
+        'Sheets',
+        'medias'
       ],
       'limit' => 3,
       'order' => ['Works.created' => 'DESC'],
       'conditions'=>['Works.feature'=>1, 'Works.status'=>1]
     ]);
     $works = $works->all();
+    
 
     $this->loadModel('Testimonials');
     $testimonials = $this->Testimonials->find('all', [
@@ -145,7 +147,8 @@ class PagesController extends AppController
     $featured_works = $this->Works->find('all', [
       'contain'=>[
         'files',
-        'Sheets'
+        'Sheets',
+        'medias'
       ],
       'limit' => 3,
       'conditions'=>['status'=>1, 'feature'=>1]
@@ -184,6 +187,7 @@ class PagesController extends AppController
       'contain' => [
         'Files',
         'Sheets.WorkCategories',
+        'medias'
       ]
     ]);
 

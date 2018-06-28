@@ -10,18 +10,30 @@
 <section class="gallery_featured">
 	<div class="wrapper"><a class="close_gallery" href="#"></a>
 		<div class="section_title">
-			<h2 class="title"> <span>Galeria</span></h2><a class="view_more" href="#">VEJA MAIS <span>[+]</span></a>
+			<h2 class="title"> <span>Galeria</span></h2><a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "gallery"]);?>">VEJA MAIS <span>[+]</span></a>
 		</div>
 		<?php foreach($works as $key=>$work):?>
-		<div class="gallery_item item-<?=$key+1?>">
-			<div class="media">
-				<?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
+			<div class="gallery_item item-<?=$key+1?>">
+				<a href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">
+					<div class="media">
+						<?php if(isset($work['files'][0])):?>
+							<?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
+						<?php endif;?>
+						<?php if(isset($work['medias'][0])):
+							$videoURL = $work['medias'][0]['url'];
+							$urlArr = explode("/",$videoURL);
+							$urlArrNum = count($urlArr);
+							$youtubeVideoId = $urlArr[$urlArrNum - 1];
+							$thumbURL = 'http://img.youtube.com/vi/'.$youtubeVideoId.'/maxresdefault.jpg';
+							echo $this->Html->image($thumbURL);
+						endif;?>
+					</div>
+					<div class="text">
+						<p class="name"><?=$work->sheet->production_company?></p>
+						<p class="description"><?=substr($work->description,0,100);?>...</p>
+					</div>
+				</a>
 			</div>
-			<div class="text">
-				<p class="name"><?=$work->sheet->production_company?></p>
-				<p class="description"><?=substr($work->description,0,115);?>...</p>
-			</div>
-		</div>
 		<?php endforeach;?>
 	</div>
 </section>

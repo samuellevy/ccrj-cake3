@@ -162,6 +162,10 @@
             object-fit: cover;
             object-position: center;
         }
+        iframe {
+            height: 400px;
+            width: 590px;
+        }
     }
     .wrap{
         width: 584px;
@@ -231,4 +235,8 @@
 }
 .slick-list{  
     overflow: hidden;
+}
+.slick-track{
+    display: flex;
+    align-items: center;
 }

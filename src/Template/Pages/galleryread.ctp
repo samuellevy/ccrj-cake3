@@ -51,15 +51,35 @@
         <div class="slider">
           <!-- MAIN SLIDES-->
           <div class="main_slider">
-            <?php foreach($work->files as $file):?>
-              <div><?php echo $this->Html->image('../uploads/files/'.$file['filename']);?></div>
-            <?php endforeach;?>
+            <?php if(isset($work->files)):?>
+              <?php foreach($work->files as $file):?>
+                <div><?php echo $this->Html->image('../uploads/files/'.$file['filename']);?></div>
+              <?php endforeach;?>
+            <?php endif;?>
+            <?php if(isset($work->medias)):?>
+              <?php foreach($work->medias as $media):?>
+                <iframe src="<?=$media['url'];?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              <?php endforeach;?>
+            <?php endif;?>
           </div>
           <!-- THUMBNAILS-->
           <div class="slider-nav-thumbnails">
-            <?php foreach($work->files as $file):?>
-              <div><?php echo $this->Html->image('../uploads/files/'.$file['filename']);?></div>
-            <?php endforeach;?>
+            <?php if(isset($work->files)):?>
+              <?php foreach($work->files as $file):?>
+                <div><?php echo $this->Html->image('../uploads/files/'.$file['filename']);?></div>
+              <?php endforeach;?>
+            <?php endif;?>
+            <?php if(isset($work->medias)):?>
+              <?php foreach($work->medias as $media):
+                $videoURL = $media['url'];
+                $urlArr = explode("/",$videoURL);
+                $urlArrNum = count($urlArr);
+                $youtubeVideoId = $urlArr[$urlArrNum - 1];
+                $thumbURL = 'http://img.youtube.com/vi/'.$youtubeVideoId.'/maxresdefault.jpg';
+                echo $this->Html->image($thumbURL);
+              endforeach;?>
+            <?php endif;?>
+            
           </div>
         </div>
       </div>

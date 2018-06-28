@@ -29,7 +29,6 @@ var webdoor = {
 			dots:true,	
 			appendDots: $('.webdoor_pager')	
 		});	
-		$('.webdoor .wrapper').height(($(window).height() - $('#header').outerHeight()));	
 		$('.webdoor_footer .image_description').text($('.slick-current').find('img').attr('title'));	
 		
 		$('.webdoor .slider').on('afterChange', function(event, slick, currentSlide, nextSlide){	

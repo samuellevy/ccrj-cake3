@@ -19,11 +19,20 @@
           <p><strong>Produtora de Áudio: </strong><?=$work->sheet->music_producer;?></p>
           <p><strong>Produtora de Vídeo: </strong><?=$work->sheet->video_producer;?></p>
           <p><strong>Estúdio: </strong><?=$work->sheet->post_production_company;?></p>
-          <div class="images">
-            <?php foreach($work->files as $file):?>
-              <?php echo $this->Html->image('../uploads/files/'.$file['filename']);?>
-            <?php endforeach;?>
+
+          <div class="works-media">
+            <?php if(isset($work->files)):?>
+              <?php foreach($work->files as $file):?>
+                <?php echo $this->Html->image('../uploads/files/'.$file['filename']);?>
+              <?php endforeach;?>
+            <?php endif;?>
+            <?php if(isset($work->medias)):?>
+              <?php foreach($work->medias as $media):?>
+                <iframe src="<?=$media['url'];?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              <?php endforeach;?>
+            <?php endif;?>
           </div>
+
         </div>
       </div>
     </div>

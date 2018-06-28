@@ -105,7 +105,8 @@ class WorksController extends AppController
 		$work = $this->Works->get($id, [
 		'contain' => [
 			'Files',
-			'Sheets'
+			'Sheets',
+			'medias'
 		]
 		]);
 
