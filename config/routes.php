@@ -11,7 +11,7 @@ Router::prefix('admin', function ($routes) {
     $routes->connect('/', ['controller' => 'pages', 'action' => 'home']);
 });
 
-Router::scope('/m', function (RouteBuilder $routes) {
+Router::scope('/m', ['m'=>true], function (RouteBuilder $routes) {
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'home']);
     $routes->connect('/posts/:type', ['controller' => 'posts', 'action' => 'index'],['pass' => ['type']]);
     $routes->connect('/page/:slug', ['controller' => 'pages', 'action' => 'view'],['pass' => ['slug']]);
