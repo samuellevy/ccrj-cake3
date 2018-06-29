@@ -58,7 +58,10 @@
             <?php endif;?>
             <?php if(isset($work->medias)):?>
               <?php foreach($work->medias as $media):?>
-                <iframe src="<?=$media['url'];?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              <?php 
+                $url_exploded = explode('watch?v=',$media['url']);
+              ?>
+                <iframe src="https://www.youtube.com/embed/<?=$url_exploded[1];?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
               <?php endforeach;?>
             <?php endif;?>
           </div>
