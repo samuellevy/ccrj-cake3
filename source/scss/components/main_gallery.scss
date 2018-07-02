@@ -144,6 +144,12 @@
         /* the parent */
         .slick-list {
             margin: 0 -8px;
+            img{
+                width: 190px;
+                height: 130px;
+                object-fit: cover;
+                object-position: center;
+            }
         }
     }
     .main_slider {
@@ -151,9 +157,14 @@
             outline: none;
         }
         img {
-            width: 100%;
+            max-height: 800px;
+            width: 590px;
             object-fit: cover;
             object-position: center;
+        }
+        iframe {
+            height: 400px;
+            width: 590px;
         }
     }
     .wrap{
@@ -218,4 +229,14 @@
             }
         }
     }
+    .slick-arrow{
+        display: none !important;
+    }
+}
+.slick-list{  
+    overflow: hidden;
+}
+.slick-track{
+    display: flex;
+    align-items: center;
 }

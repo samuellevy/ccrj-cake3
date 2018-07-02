@@ -30,8 +30,10 @@
       <div class="media"><?=$this->Html->image('Site.../images/image_clube.png', ['alt'=>'Image clube']);?>
         <div class="wrap">
           <h2 class="help_title">ARQUIVOS</h2>
-          <div class="item"><span>Baixe o Manual da marca</span><a class="dwn_link" href="#">DOWNLOAD</a></div>
-          <div class="item"><span>Baixe o Estatuto</span><a class="dwn_link" href="#">DOWNLOAD</a></div>
+          <?php foreach($documents as $document):?>
+            <div class="item"><span><?=$document->name?></span><a class="dwn_link" download href="<?=$this->Url->build('/documents/'.$document['file']['filename'])?>">DOWNLOAD</a></div>
+          <?php endforeach;?>
+
         </div>
       </div>
     </div>

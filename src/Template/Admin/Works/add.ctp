@@ -9,27 +9,27 @@
           <?= $this->Form->create($work, ['type'=>'file']) ?>
 
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="form-group">
-                <?=$this->Form->control('sender_name', ['class'=>'input_text', 'placeholder'=>'Nome Completo', 'label'=>false]);?>
+                <?=$this->Form->control('sender_name', ['class'=>'form-control ckeditor', 'label'=>'Nome Completo']);?>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <?=$this->Form->control('sender_email', ['class'=>'form-control ckeditor', 'label'=>'E-mail']);?>
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <?=$this->Form->control('sender_email', ['class'=>'input_text', 'placeholder'=>'E-mail', 'label'=>false]);?>
-              </div>
-            </div>
-
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="form-group">
                 <?php echo $this->Form->control('category_id', ['class'=>'form-control', 'label'=>'Categoria', 'options'=>$categories]);?>
               </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="form-group">
                 <div class="input text"><label for="publish-date">Data de publicação</label><input type="date" name="publish_date" class="form-control" id="publish-date" value="<?= date("Y-m-d")?>"></div>
               </div>

@@ -29,7 +29,7 @@
   <section class="main_gallery_view">
     <div class="wrapper">
       <div class="content">
-        <div class="head"><span>00/00/00 às 00h00</span><span class="share">Compartilhe:</span><a href="#"><?=$this->Html->image('Site.../images/fb.png', ['alt'=>'']);?></a><a href="#"><?=$this->Html->image('Site.../images/tw.png', ['alt'=>'']);?></a></div>
+        <div class="head"><span><?= h($this->FormatDate->formatDate($work->created, 'blog-date')); ?></span><span class="share">Compartilhe:</span><a href="#"><?=$this->Html->image('Site.../images/fb.png', ['alt'=>'']);?></a><a href="#"><?=$this->Html->image('Site.../images/tw.png', ['alt'=>'']);?></a></div>
         <h2 class="name"><?=$work->sheet->project_title;?></h2>
         <p class="hint"><strong>Cliente: </strong><span><?=$work->sheet->advertiser;?></span></p>
         <p class="hint"><strong>Agência: </strong><span><?=$work->sheet->production_company;?></span></p>
@@ -51,13 +51,38 @@
         <div class="slider">
           <!-- MAIN SLIDES-->
           <div class="main_slider">
-            <figure><?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?></figure>
+            <?php if(isset($work->files)):?>
+              <?php foreach($work->files as $file):?>
+                <div><?php echo $this->Html->image('../uploads/files/'.$file['filename']);?></div>
+              <?php endforeach;?>
+            <?php endif;?>
+            <?php if(isset($work->medias)):?>
+              <?php foreach($work->medias as $media):?>
+              <?php 
+                $url_exploded = explode('watch?v=',$media['url']);
+              ?>
+                <iframe src="https://www.youtube.com/embed/<?=$url_exploded[1];?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              <?php endforeach;?>
+            <?php endif;?>
           </div>
           <!-- THUMBNAILS-->
           <div class="slider-nav-thumbnails">
-            <?php foreach($work->files as $file):?>
-              <div><?php echo $this->Html->image('../uploads/files/'.$file['filename']);?></div>
-            <?php endforeach;?>
+            <?php if(isset($work->files)):?>
+              <?php foreach($work->files as $file):?>
+                <div><?php echo $this->Html->image('../uploads/files/'.$file['filename']);?></div>
+              <?php endforeach;?>
+            <?php endif;?>
+            <?php if(isset($work->medias)):?>
+              <?php foreach($work->medias as $media):
+                $videoURL = $media['url'];
+                $urlArr = explode("/",$videoURL);
+                $urlArrNum = count($urlArr);
+                $youtubeVideoId = $urlArr[$urlArrNum - 1];
+                $thumbURL = 'http://img.youtube.com/vi/'.$youtubeVideoId.'/maxresdefault.jpg';
+                echo $this->Html->image($thumbURL);
+              endforeach;?>
+            <?php endif;?>
+            
           </div>
         </div>
       </div>

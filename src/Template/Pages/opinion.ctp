@@ -2,7 +2,7 @@
   <section class="opinion">
     <div class="wrapper">
       <div class="writer">
-        <div class="media"><?=$this->Html->image('Site.../images/writer_internal.png', ['alt'=>'']);?></div>
+        <div class="media"><?=$this->Html->image('../uploads/files/'.$testimonials[0]['files'][0]['filename']);?></div>
         <div class="text">
           <p><?=$testimonials[0]['quote']?></p>
         </div>
@@ -24,7 +24,7 @@
         <?php foreach($testimonials as $key=>$testimonial):?>
           <?php if($key>0):?>
             <div class="card_item">
-              <div class="media"><?=$this->Html->image('Site.../images/writer_internal.png', ['alt'=>'']);?></div>
+              <div class="media"><?=$this->Html->image('../uploads/files/'.$testimonial['files'][0]['filename']);?></div>
               <h4 class="title"><?=$testimonial->name;?></h4>
               <p class="desc"><?=$testimonial->subtitle?></p><a class="view_more" href="#">VEJA MAIS [+]</a>
             </div>

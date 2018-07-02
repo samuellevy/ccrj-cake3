@@ -64,6 +64,9 @@ class FormatDateHelper extends Helper {
       case "pt-numbers-hours":
       $return = date("d", strtotime($date))."/".date("m", strtotime($date))."/".date("Y", strtotime($date))." ".date("H", strtotime($time)).":".date("i", strtotime($time));
       break;
+      case "blog-date":
+      $return = date("d", strtotime($date))."/".date("m", strtotime($date))."/".date("Y", strtotime($date))." às ".date("H", strtotime($time))."h".date("i", strtotime($time));
+      break;
       case "just_day":
       $return = date("d", strtotime($date));
       break;

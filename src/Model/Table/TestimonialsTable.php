@@ -38,22 +38,11 @@ class TestimonialsTable extends Table
     ->notEmpty('name');
 
     $validator
-    ->requirePresence('role', 'create')
-    ->notEmpty('role');
-
-    $validator
     ->requirePresence('testimony', 'create')
     ->notEmpty('testimony');
 
     return $validator;
   }
 
-  public function buildRules(RulesChecker $rules)
-  {
-    // $rules->add($rules->existsIn(['author_id'], 'Authors'));
-    // $rules->add($rules->existsIn(['update_author_id'], 'UpdateAuthors'));
-    // $rules->add($rules->existsIn(['media_id'], 'Media'));
 
-    return $rules;
-  }
 }
