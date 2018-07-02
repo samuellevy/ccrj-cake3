@@ -1,16 +1,18 @@
 .webdoor {
-	width: 100%;
-	background: url('../images/bbaner_mobile.png') no-repeat center;
-	.webdoor_pager {
+	position: relative;
+	.webdoor_front {
+		width: 100%;
+		background: url(../images/bbaner_mobile.png) no-repeat center;
+		background-size: 100%;
 		position: absolute;
-		right: 38px;
-		top: 0;
-		z-index: 1;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 100%;
-		padding-bottom: 75px;
+		min-height: 495px;
+		z-index: 9;
+		max-height: 495px;
+	}
+	.webdoor_pager {
+		background: url(/ccrj-cake3/site/img/../images/home_webdoor.jpg) no-repeat center center;
+		min-height: 495px;
+		max-height: 495px;
 		.slick-dots {
 			display: flex;
 			flex-direction: column;
