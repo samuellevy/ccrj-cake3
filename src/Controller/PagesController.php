@@ -37,7 +37,7 @@ class PagesController extends AppController
       ]
     ]);
     $page = $page->first();
-
+      
     $this->loadModel('Banners');
     $banners = $this->Banners->find('all', [
       'contain'=>[
@@ -74,7 +74,17 @@ class PagesController extends AppController
       'conditions'=>['Works.feature'=>1, 'Works.status'=>1]
     ]);
     $works = $works->all();
-    
+
+    $randombanner = $this->Works->find('all', [
+      'contain'=>[
+        'files',
+        'medias'
+      ],
+      'order' => ('rand()'),
+      'conditions'=>['Works.feature'=>1, 'Works.status'=>1]
+    ]);
+
+    $randombanner = $randombanner->all()->toArray();
 
     $this->loadModel('Testimonials');
     $testimonials = $this->Testimonials->find('all', [
@@ -87,7 +97,7 @@ class PagesController extends AppController
     $testimonials = $testimonials->all();
 
     // die(debug($works));
-    $this->set(compact(['page', 'banners', 'posts', 'works', 'testimonials']));
+    $this->set(compact(['page', 'banners', 'posts', 'works', 'testimonials', 'randombanner']));
   }
   
   public function club(){

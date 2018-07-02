@@ -2,22 +2,30 @@
     <div class="webdoor">
         <div class="webdoor_front">
         </div>
-
-        <div class="webdoor_pager"><?=$this->Html->image('Site.../images/home_webdoor.jpg');?></div>
+            <div class="webdoor_pager">
+            <?php foreach($randombanner as $key=>$banner):
+                if(isset($banner['files'][0])): ?>
+                    <?php echo $this->Html->image('../uploads/files/'.$banner['files'][0]['filename']);?>
+                    <?php break; 
+                endif;
+            endforeach;?>
+        </div>
     </div>
     <section class="galleryMob">
         <div class="titleContent">
             <h2>Galeria</h2><a href="">Veja mais <span>[+]</span></a>
         </div>
 
-		<?php foreach($works as $key=>$work):?>
-            <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
-
-            <div class="textInfo">
-                <h3><?=$work->sheet->production_company?></h3>
-                <p><?=substr($work->description,0,115)?></p><i class="icon-arrowHome"><img src="/ccrj-cake3/site/img/../mobile/images/arrowHome.png" alt="" /></i>
-            </div>
-		<?php endforeach;?>
+        <?php foreach($works as $key=>$work):
+            if(isset($work['files'][0])): ?>
+                <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
+                <div class="textInfo">
+                    <h3><?=$work->sheet->production_company?></h3>
+                    <p><?=substr($work->description,0,115)?></p><i class="icon-arrowHome"><img src="/ccrj-cake3/site/img/../mobile/images/arrowHome.png" alt="" /></i>
+                </div>
+                <?php break; 
+            endif;
+        endforeach;?>
     </section>
     <div class="viewMob"> 
         <section class="publicationsMob">
