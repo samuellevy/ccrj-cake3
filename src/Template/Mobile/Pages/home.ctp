@@ -2,7 +2,7 @@
     <div class="webdoor">
         <div class="webdoor_front">
         </div>
-            <div class="webdoor_pager">
+        <div class="webdoor_pager">
             <?php foreach($randombanner as $key=>$banner):
                 if(isset($banner['files'][0])): ?>
                     <?php echo $this->Html->image('../uploads/files/'.$banner['files'][0]['filename']);?>
