@@ -1,6 +1,7 @@
 <section class="home">
     <div class="webdoor">
         <div class="webdoor_front">
+            a
         </div>
         <div class="webdoor_pager">
             <?php foreach($randombanner as $key=>$banner):
