@@ -29,6 +29,8 @@ class AppController extends Controller
       $this->viewBuilder()->layout('mobile_default');
       $this->viewBuilder()->template('/Mobile'.$url);
     }
+
+    die(debug($m_routing));
   }
 
   public function beforeFilter(Event $event)
