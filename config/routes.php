@@ -16,7 +16,7 @@ Router::scope('/m', ['m'=>true], function (RouteBuilder $routes) {
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'home']);
     $routes->connect('/posts/:type', ['controller' => 'posts', 'action' => 'index'],['pass' => ['type']]);
     $routes->connect('/page/:slug', ['controller' => 'pages', 'action' => 'view'],['pass' => ['slug']]);
-    $routes->fallbacks(DashedRoute::class);
+    $routes->fallbacks();
 });
 
 Router::scope('/', function (RouteBuilder $routes) {
