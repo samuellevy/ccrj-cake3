@@ -5,7 +5,7 @@
     height: 100%;
     width: 100%;
     background: $colorMob5;
-    z-index: 9;
+    z-index: 100;
     display: none;
     overflow: scroll;
     .inforTop {
@@ -17,8 +17,12 @@
     		right: 40px;
     		color: $colorMob6;
     		font-size: 20px;
-    		top: 29px;
-    	}
+    		top: 35px;
+		}
+		img{
+			display: inline;
+    		margin-top: -8px;
+		}
     }
     .search {
     	position: relative;
@@ -116,10 +120,13 @@
 	.logo {
 		position: absolute;
 		z-index: 99;
-		padding-bottom: 85px;
 		a{
 			img{
-				margin-top:-13px;
+				margin-top: -13px;
+				&.logohome {
+					height: 130px;
+					margin-top: 0;
+				}
 			}
 		}
 		@include break-max(1440px) {

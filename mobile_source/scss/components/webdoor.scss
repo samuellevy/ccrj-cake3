@@ -18,6 +18,16 @@
 			min-height: 495px;
 		}
 	}
+	.iconArrowHome{
+		position: absolute;
+		bottom: 15px;
+		z-index: 1000;
+		left: 50%;
+		transform: translateX(-50%);
+		img{
+			height: 40px;
+		}
+	}
 	.item {
 		img {
 			height: 100%;

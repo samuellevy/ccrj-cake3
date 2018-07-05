@@ -10,6 +10,9 @@
                 endif;
             endforeach;?>
         </div>
+        <i class="iconArrowHome">
+            <img src="/ccrj-cake3/site/img/../mobile/images/arrowHome.png" alt=""/>
+        </i>
     </div>
     <section class="galleryMob">
         <div class="titleContent">
@@ -19,64 +22,64 @@
         <?php foreach($works as $key=>$work):
             if(isset($work['files'][0])): ?>
                 <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
-                <div class="textInfo">
-                    <h3><?=$work->sheet->production_company?></h3>
-                    <p><?=substr($work->description,0,115)?></p><i class="icon-arrowHome"><img src="/ccrj-cake3/site/img/../mobile/images/arrowHome.png" alt="" /></i>
-                </div>
+                <a href="<?=$this->Url->build(["controller" => "pages", "action" => "galleryread", $work->id]);?>">
+                    <div class="textInfo">
+                        <h3><?=$work->sheet->production_company?></h3>
+                        <p><?=substr($work->description,0,115)?></p>
+                    </div>
+                </a>
                 <?php break; 
             endif;
         endforeach;?>
     </section>
     <div class="viewMob"> 
         <section class="publicationsMob">
-            <div class="imageBack">
-                <?php echo $this->Html->image('Site.mobile/Video.jpg');?>
-            </div>
             <div class="contentPublic">
                 <div class="wrapper">
                     <h2>Novidades</h2><a href="<?=$this->Url->build(["controller" => "pages","action" => "news"]);?>">Veja mais <span>[+]</span></a>
                 </div>
-                <div class="bgNovidades"></div>
-                <div class="wrapper">
-                    <?php foreach($posts as $key=>$post):?>
-                        <?php if($key!=0):?>
-                        
-                        <div class="item"> 
-                            <h3><?=$post->title;?></h3>
-                            <p><?=$post->description;?></p>
+                <?php foreach($posts as $key=>$post):?>
+                    <?php if($key==0):?>
+                        <div class="bgNovidades">
+                            <?php echo $this->Html->image('../uploads/files/'.$post['files'][0]['filename'], ['class'=>'image']);?>
+                            <?php echo $this->Html->image('Site.../mobile/images/home_vazado.png', ['class'=>'mask']);?>
                         </div>
-                        
-                        <?php endif;?>
-                    <?php endforeach;?> 
-                   
-                </div>
+                        <a href="<?=$this->Url->build(["controller" => "pages", "action" => "newsread", $post->id]);?>">
+                            <div class="wrapper">
+                                <div class="item"> 
+                                    <h3><?=$post->title;?></h3>
+                                    <p><?=substr($post->description,0,115)?></p>
+                                </div>
+                            </div>
+                        </a>
+                    <?php endif;?>
+                <?php endforeach;?> 
             </div>
         </section>
     </div>
     <div class="viewMob"> 
-        <section class="publicationsMob opinion">
-            <div class="wrapper">
-                <h2>Opinião</h2><a href="">Veja mais <span>[+]</span></a>
-            </div>
-            <div class="bgNovidades"></div>
-            <div class="wrapper">
-                <h3>TÍTULO DA NOTICIA<span>EM ARTIGO EXCLUSIVO PARA O CCRJ</span></h3>
-                <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus de fringilla sodales. Maecenas varius urnar…” </p>
+        <section class="publicationsMob">
+            <div class="contentPublic">
+                <div class="wrapper">
+                    <h2>Opinião</h2><a href="<?=$this->Url->build(["controller" => "pages","action" => "testimonials"]);?>">Veja mais <span>[+]</span></a>
+                </div>
+                <?php foreach($testimonials as $key=>$testimonial):?>
+                    <?php if($key==0):?>
+                        <div class="bgNovidades">
+                            <?php echo $this->Html->image('../uploads/files/'.$testimonial['files'][0]['filename'], ['class'=>'image']);?>
+                            <?php echo $this->Html->image('Site.../mobile/images/home_vazado.png', ['class'=>'mask']);?>
+                        </div>
+                        <a href="<?=$this->Url->build(["controller" => "pages", "action" => "opinion", $testimonial->id]);?>">
+                            <div class="wrapper">
+                                <div class="item"> 
+                                    <h3><?=$testimonial->name;?><span><?=$testimonial->subtitle;?></span></h3>
+                                    <p><?=substr($testimonial->quote,0,115)?></p>
+                                </div>
+                            </div>
+                        </a>
+                    <?php endif;?>
+                <?php endforeach;?> 
             </div>
         </section>
-
-        <?php foreach($testimonials as $testimonial):?>
-            <section class="publicationsMob opinion">
-                <div class="wrapper">
-                    <h2>Opinião</h2><a href="">Veja mais <span>[+]</span></a>
-                </div>
-                <div class="bgNovidades"></div>
-                <div class="wrapper">
-                    <h3><?=$testimonial->name;?> <span>EM ARTIGO EXCLUSIVO PARA O CCRJ</span></h3>
-                    <p>“<?=substr(strip_tags($testimonial->quote),0,100)?>...” </p>
-                </div>
-            </section>
-        <?php endforeach;?>
-        
     </div>
 </section>

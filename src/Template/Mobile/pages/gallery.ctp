@@ -14,7 +14,19 @@
     <?php foreach($featured_works as $work):?>
       <div class="featured__full">
         <a href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">
+          <?php if(isset($work['files'][0])):?>
             <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
+          <?php endif;?>
+          <?php if(isset($work['medias'][0])):?>
+            <?php if(isset($work['medias'][0])):
+              $videoURL = $work['medias'][0]['url'];
+              $urlArr = explode("/",$videoURL);
+              $urlArrNum = count($urlArr);
+              $youtubeVideoId = $urlArr[$urlArrNum - 1];
+              $thumbURL = 'http://img.youtube.com/vi/'.$youtubeVideoId.'/maxresdefault.jpg';
+              echo $this->Html->image($thumbURL);
+            endif;?>
+          <?php endif;?>
           <h3><?=$work->sheet->production_company?>//<span><?=$work->sheet->project_title?></span></h3>
         </a>
       </div>
@@ -24,7 +36,19 @@
       <div class="featured__half">
         <div class="featured__half--50">
           <a href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">
+            <?php if(isset($work['files'][0])):?>
               <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
+            <?php endif;?>
+            <?php if(isset($work['medias'][0])):?>
+              <?php if(isset($work['medias'][0])):
+                $videoURL = $work['medias'][0]['url'];
+                $urlArr = explode("/",$videoURL);
+                $urlArrNum = count($urlArr);
+                $youtubeVideoId = $urlArr[$urlArrNum - 1];
+                $thumbURL = 'http://img.youtube.com/vi/'.$youtubeVideoId.'/maxresdefault.jpg';
+                echo $this->Html->image($thumbURL);
+              endif;?>
+            <?php endif;?>
           </a>
         </div>
       </div>

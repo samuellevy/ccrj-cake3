@@ -1,8 +1,10 @@
 <?php
 if($configs['action']!='home'){
     $logo = 'logo-mobile.png';
+    $logohome = '';
 }else{
     $logo = 'logo.png';
+    $logohome = 'logohome';
 }
 ?>
 <div class="menuMob">
@@ -32,7 +34,7 @@ if($configs['action']!='home'){
 </div>
 <header id="header">
     <div class="wrapper">
-    <div class="logo"><a href="<?=$this->Url->build(["controller" => "pages","action" => "home"]);?>"><?=$this->Html->image('Site.../mobile/images/'.$logo);?></a></div>
+    <div class="logo"><a href="<?=$this->Url->build(["controller" => "pages","action" => "home"]);?>"><?=$this->Html->image('Site.../mobile/images/'.$logo, ['class'=>$logohome]);?></a></div>
     <nav id="main_nav">
         <div class="viewMob"><i class="icon-menu"></i></div>
     </nav>
