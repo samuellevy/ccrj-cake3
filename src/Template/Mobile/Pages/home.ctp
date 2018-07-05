@@ -1,10 +1,8 @@
 <section class="home">
     <div class="webdoor">
         <div class="webdoor_front">
-            a
         </div>
         <div class="webdoor_pager">
-            <?php die(debug($randombanner));?>
             <?php foreach($randombanner as $key=>$banner):
                 if(isset($banner['files'][0])): ?>
                     <?php echo $this->Html->image('../uploads/files/'.$banner['files'][0]['filename']);?>
