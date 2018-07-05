@@ -12,11 +12,10 @@ Router::prefix('admin', function ($routes) {
 });
 
 Router::scope('/m', ['m'=>true], function (RouteBuilder $routes) {
-    $routes->fallbacks('InflectedRoute');
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'home']);
     $routes->connect('/posts/:type', ['controller' => 'posts', 'action' => 'index'],['pass' => ['type']]);
     $routes->connect('/page/:slug', ['controller' => 'pages', 'action' => 'view'],['pass' => ['slug']]);
-    $routes->fallbacks();
+    $routes->fallbacks(DashedRoute::class);
 });
 
 Router::scope('/', function (RouteBuilder $routes) {
