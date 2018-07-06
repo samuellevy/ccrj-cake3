@@ -55,10 +55,12 @@
 		</div>
 		<div class="publications">
 			<div class="wrapper">
-				<div class="featured_new">
-					<h4 class="title"><?=$posts[0]->title;?></h4>
-					<p><?=$posts[0]->description;?></p>
-				</div>
+				<a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$posts[0]->id]);?>">
+					<div class="featured_new">
+						<h4 class="title"><?=$posts[0]->title;?></h4>
+						<p><?=$posts[0]->description;?></p>
+					</div>
+				</a>
 				<ul class="list">
 					<?php foreach($posts as $key=>$post):?>
 					<?php if($key!=0):?>

@@ -11,7 +11,7 @@ Router::prefix('admin', function ($routes) {
     $routes->connect('/', ['controller' => 'pages', 'action' => 'home']);
 });
 
-Router::scope('/m', function ($routes) {
+Router::scope('/m', ['m'=>true], function ($routes) {
     $routes->fallbacks('InflectedRoute');
     $routes->connect('/', ['controller' => 'pages', 'action' => 'home']);
 });
