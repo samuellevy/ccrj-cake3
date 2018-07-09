@@ -13,7 +13,7 @@
         </div>
         <h3 class="title">DESCRIÇÃO DA PEÇA</h3>
         <div class="form_item">
-            <?=$this->Form->control('description', ['class'=>'input_text', 'placeholder'=>'', 'label'=>false]);?>
+            <?=$this->Form->control('description', ['class'=>'input_text', 'placeholder'=>'', 'label'=>false, 'required'=>true]);?>
         </div>
         </div>
         <div class="column">
@@ -22,7 +22,7 @@
             <?=$this->Form->control('sheet.advertiser', ['class'=>'input_text', 'placeholder'=>'Cliente', 'label'=>false]);?>
         </div>
         <div class="form_item">
-            <?=$this->Form->control('sheet.project_title', ['class'=>'input_text', 'placeholder'=>'Título', 'label'=>false]);?>
+            <?=$this->Form->control('sheet.project_title', ['class'=>'input_text', 'placeholder'=>'Título', 'label'=>false, 'required'=>true]);?>
         </div>
         <div class="form_item">
             <?=$this->Form->control('sheet.production_company', ['class'=>'input_text', 'placeholder'=>'Agência', 'label'=>false]);?>

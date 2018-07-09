@@ -7,14 +7,14 @@
     <div class="imageInfo">
         <?php echo $this->Html->image('../mobile/images/image_user.png')?>
         <div class="wrapper">
-        <ul> 
+        <!-- <ul> 
             <li><a href="" id="sharesFace"> <i class="icon-facebook"></i></a></li>
             <li><a href="" id="sharesTwitter"> <i class="icon-twitter"></i></a></li>
-        </ul>
+        </ul> -->
         </div>
     </div>
     <div class="wrapper">
-        <p class="date"><span>12/05/2018 </span>às <strong>00h00</strong></p>
+        <p class="date"><span><?= h($this->FormatDate->formatDate($post->created, 'blog-date')); ?></span></p>
         <?=$post->content;?>
         <div class="relatedNews">
             <!-- <h3>Relacionadas</h3>

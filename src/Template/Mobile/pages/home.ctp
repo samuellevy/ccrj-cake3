@@ -21,8 +21,8 @@
 
         <?php foreach($works as $key=>$work):
             if(isset($work['files'][0])): ?>
-                <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
                 <a href="<?=$this->Url->build(["controller" => "pages", "action" => "galleryread", $work->id]);?>">
+                    <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
                     <div class="textInfo">
                         <h3><?=$work->sheet->production_company?></h3>
                         <p><?=substr($work->description,0,115)?></p>
@@ -40,11 +40,11 @@
                 </div>
                 <?php foreach($posts as $key=>$post):?>
                     <?php if($key==0):?>
-                        <div class="bgNovidades">
-                            <?php echo $this->Html->image('../uploads/files/'.$post['files'][0]['filename'], ['class'=>'image']);?>
-                            <?php echo $this->Html->image('Site.../mobile/images/home_vazado.png', ['class'=>'mask']);?>
-                        </div>
                         <a href="<?=$this->Url->build(["controller" => "pages", "action" => "newsread", $post->id]);?>">
+                            <div class="bgNovidades">
+                                <?php echo $this->Html->image('../uploads/files/'.$post['files'][0]['filename'], ['class'=>'image']);?>
+                                <?php echo $this->Html->image('Site.../mobile/images/home_vazado.png', ['class'=>'mask']);?>
+                            </div>
                             <div class="wrapper">
                                 <div class="item"> 
                                     <h3><?=$post->title;?></h3>

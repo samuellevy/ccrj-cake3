@@ -32,7 +32,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <?php echo $this->Form->control('description', ['class'=>'form-control', 'label'=>'Descrição', 'maxlength'=>'200']);?>
+                <?php echo $this->Form->control('description', ['class'=>'form-control', 'label'=>'Descrição', 'maxlength'=>'400']);?>
               </div>
             </div>
           </div>

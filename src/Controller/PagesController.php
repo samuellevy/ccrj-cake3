@@ -217,16 +217,28 @@ class PagesController extends AppController
 
   public function news(){
     $this->loadModel('Posts');
+    $lastposts = $this->Posts->find('all', [
+      'contain' => [
+        'Files',
+        'Capas',
+        'Authors'
+      ],
+      'limit' => 3
+    ]);
+
     $posts = $this->Posts->find('all', [
       'contain'=>[
-        'files'=>['conditions'=>['obs'=>'Capa']],
-        'Authors'
+        'files',
+        'Miniaturas'
       ],
       'limit' => 15
     ]);
+
+    $lastposts = $lastposts->all();
     $posts = $posts->all();
+
     // die(debug($posts));
-    $this->set(compact(['posts']));
+    $this->set(compact(['posts', 'lastposts']));
   }
 
   public function newsread($id=null){
@@ -241,7 +253,7 @@ class PagesController extends AppController
     $posts = $this->Posts->find('all', [
       'contain'=>[
         'files',
-        'Capas'
+        'Miniaturas'
       ],
       'limit' => 15,
       'conditions'=>['Posts.id !='=>$id]
@@ -252,19 +264,38 @@ class PagesController extends AppController
     // die(debug($post));
   }
 
-  public function opinion(){
+  public function opinion($id=null){
     $this->loadModel('Testimonials');
-    $testimonials = $this->Testimonials->find('all', [
-      'contain'=>[
-        'files',
-      ],
-      'limit' => 15
-    ]);
-    $testimonials = $testimonials->all();
-    $testimonials = $testimonials->toArray();
-
+    if($id==null){
+      $testimonials = $this->Testimonials->find('all', [
+        'contain'=>[
+          'files',
+        ],
+        'limit' => 15
+      ]);
+      $testimonials = $testimonials->all();
+      $testimonials = $testimonials->toArray();
+    } else {
+      $opinion = $this->Testimonials->get($id, [
+        'contain' => [
+          'files'
+          ]
+        ]);
+        $opinions = $this->Testimonials->find('all', [
+          'contain'=>[
+            'files',
+          ],
+          'conditions'=>[
+            'Testimonials.id !='=>$id,
+          ],
+          'limit' => 15
+          ]);
+          $opinions = $opinions->all();
+          $opinions = $opinions->toArray();
+        }
+        
     // die(debug($testimonials));
-    $this->set(compact(['testimonials']));
+    $this->set(compact(['testimonials', 'opinion', 'opinions']));
   }
 
   public function contact(){

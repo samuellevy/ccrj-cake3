@@ -42,19 +42,21 @@
         <div class="media">
           <div class="slider">
             <?php foreach($featured_works as $work):?>
-              <?php if(isset($work['files'][0])):?>
-                <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
-              <?php endif;?>
-              <?php if(isset($work['medias'][0])):?>
-                <?php if(isset($work['medias'][0])):
-                  $videoURL = $work['medias'][0]['url'];
-                  $urlArr = explode("/",$videoURL);
-                  $urlArrNum = count($urlArr);
-                  $youtubeVideoId = $urlArr[$urlArrNum - 1];
-                  $thumbURL = 'http://img.youtube.com/vi/'.$youtubeVideoId.'/maxresdefault.jpg';
-                  echo $this->Html->image($thumbURL);
-                endif;?>
-              <?php endif;?>
+              <a href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">
+                <?php if(isset($work['files'][0])):?>
+                  <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
+                <?php endif;?>
+                <?php if(isset($work['medias'][0])):?>
+                  <?php if(isset($work['medias'][0])):
+                    $videoURL = $work['medias'][0]['url'];
+                    $urlArr = explode("/",$videoURL);
+                    $urlArrNum = count($urlArr);
+                    $youtubeVideoId = $urlArr[$urlArrNum - 1];
+                    $thumbURL = 'http://img.youtube.com/vi/'.$youtubeVideoId.'/maxresdefault.jpg';
+                    echo $this->Html->image($thumbURL);
+                  endif;?>
+                <?php endif;?>
+              </a>
             <?php endforeach;?>
           </div>
         </div>
@@ -62,7 +64,7 @@
     </section>
     <div class="row_send">
       <div class="wrapper">
-        <p>Quer aparecer nos destaques do CCRJ?</p><a class="send_link" href="#">ENVIE SUA PEÇA</a>
+        <p>Quer aparecer nos destaques do CCRJ?</p><a href="<?=$this->Url->build(["controller" => "works","action" => "add"]);?>" class="send_link">ENVIE SUA PEÇA</a>
       </div>
     </div>
     <section class="others_galleries">
@@ -70,11 +72,13 @@
         <h4 class="title"><?=$selected_category!=null?$selected_category:'Recentes'?>//</h4>
         <div class="cards_galleries">
           <?php foreach($works as $work):?>
-          <div class="card_item">
-            <div class="media"><?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
-              <p><strong><?=$work->sheet->avertiser?>// </strong><span><?=$work->sheet->project_title?></span></p>
-            </div><a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">VEJA MAIS [+]</a>
-          </div>
+            <a href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">
+              <div class="card_item">
+                <div class="media"><?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
+                  <p><strong><?=$work->sheet->avertiser?>// </strong><span><?=$work->sheet->project_title?></span></p>
+                </div><a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">VEJA MAIS [+]</a>
+              </div>
+            </a>
           <?php endforeach;?>
         </div>
       </div>

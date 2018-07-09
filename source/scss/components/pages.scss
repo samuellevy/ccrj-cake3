@@ -200,7 +200,7 @@
             margin: 0 0 0 auto; 
         }
         .media {
-            width: 40%;
+            width: 45%;
             height: 100vh;
             position: absolute;
             left: 0;
@@ -209,7 +209,7 @@
                 height: 100%;
                 object-fit: cover;
                 object-position: center center;
-                filter: grayscale(100%);
+                // filter: grayscale(100%);
             }
         }
     }

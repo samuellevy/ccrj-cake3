@@ -5,9 +5,12 @@
       <div class="slider_news">
         <?php foreach($posts as $key=>$post):?>
           <div class="item">
-            <div class="head"><span>00/00/00 às 00h00</span><a href="#"><?=$this->Html->image('Site.../images/fb.png', ['alt'=>'']);?></a><a href="#"><?=$this->Html->image('Site.../images/tw.png', ['alt'=>'']);?></a></div>
-            <h3 class="title"><?=$post->title;?> </h3>
-            <p class="desc"><?=$post->description;?></p><a class="view_more" href="#">VEJA MAIS [+]</a>
+            <div class="head">
+              <span><?= h($this->FormatDate->formatDate($post->created, 'blog-date')); ?></span>
+              <!-- <a href="#"><?=$this->Html->image('Site.../images/fb.png', ['alt'=>'']);?></a><a href="#"><?=$this->Html->image('Site.../images/tw.png', ['alt'=>'']);?></a> -->
+            </div>
+            <h3 class="title"><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread", $post->id]);?>"><?=$post->title;?> </a></h3>
+            <p class="desc"><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread", $post->id]);?>"><?=$post->description;?> </a></p><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread", $post->id]);?>" class="view_more">VEJA MAIS [+]</a>
           </div>
           <?php if($key==2) break; ?>
         <?php endforeach;?>
@@ -15,9 +18,8 @@
     </div>
     <div class="media">
       <div class="slider">
-        <?php foreach($posts as $key=>$post):?>
-            <?php echo $this->Html->image('../uploads/files/'.$post['files'][0]['filename']);?>
-            <?php if($key==2) break; ?>
+        <?php foreach($lastposts as $key=>$lastpost):?>
+          <?php echo $this->Html->image('../uploads/files/'.$lastpost['capas'][0]['filename']);?>
         <?php endforeach;?>
       </div>
     </div>
@@ -27,10 +29,13 @@
       <div class="cards type2">
         <?php foreach($posts as $key=>$post):?>
           <?php if($key > 2):?>
-            <div class="card_item"><span class="date">00/00/00 às 00h00</span>
-              <h4 class="title"><?=$post->title;?></h4>
-              <p class="desc"><?=$post->description;?></p>
-              <div class="media"><?php echo $this->Html->image('../uploads/files/'.$post['files'][0]['filename']);?></div><a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->id]);?>">VEJA MAIS [+]</a>
+            <div class="card_item"><span class="date"><?= h($this->FormatDate->formatDate($post->created, 'blog-date')); ?></span>
+              <h4 class="title"><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->id]);?>"><?=$post->title;?></a></h4>
+              <p class="desc"><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->id]);?>"><?=$post->description;?></a></p>
+              <div class="media">
+                <a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->id]);?>"><?php echo $this->Html->image('../uploads/files/'.$post['miniaturas'][0]['filename']);?></a>
+              </div>
+              <a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->id]);?>">VEJA MAIS [+]</a>
             </div>
           <?php endif;?>
         <?php endforeach;?>
