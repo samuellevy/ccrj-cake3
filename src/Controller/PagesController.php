@@ -223,7 +223,10 @@ class PagesController extends AppController
         'Capas',
         'Authors'
       ],
-      'limit' => 3
+      'limit' => 3,
+      'order'=>[
+        'publish_date'=>'DESC'
+      ]
     ]);
 
     $posts = $this->Posts->find('all', [
@@ -231,7 +234,10 @@ class PagesController extends AppController
         'files',
         'Miniaturas'
       ],
-      'limit' => 15
+      'limit' => 15,
+      'order'=>[
+        'publish_date'=>'DESC'
+      ]
     ]);
 
     $lastposts = $lastposts->all();
@@ -256,7 +262,10 @@ class PagesController extends AppController
         'Miniaturas'
       ],
       'limit' => 15,
-      'conditions'=>['Posts.id !='=>$id]
+      'conditions'=>['Posts.id !='=>$id],
+      'order'=>[
+        'publish_date'=>'DESC'
+      ]
     ]);
     $posts = $posts->all();
     $this->set(compact(['post', 'posts']));

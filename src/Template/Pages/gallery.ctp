@@ -46,16 +46,11 @@
                 <?php if(isset($work['files'][0])):?>
                   <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
                 <?php endif;?>
-                <?php if(isset($work['medias'][0])):?>
-                  <?php if(isset($work['medias'][0])):
-                    $videoURL = $work['medias'][0]['url'];
-                    $urlArr = explode("/",$videoURL);
-                    $urlArrNum = count($urlArr);
-                    $youtubeVideoId = $urlArr[$urlArrNum - 1];
-                    $thumbURL = 'http://img.youtube.com/vi/'.$youtubeVideoId.'/maxresdefault.jpg';
-                    echo $this->Html->image($thumbURL);
-                  endif;?>
-                <?php endif;?>
+                <?php if(isset($work['medias'][0])):
+                  $url_exploded = explode('watch?v=',$work['medias'][0]['url']);
+                  $thumbURL = 'http://img.youtube.com/vi/'.$url_exploded[1].'/maxresdefault.jpg';
+                  echo $this->Html->image($thumbURL);
+                endif;?>
               </a>
             <?php endforeach;?>
           </div>

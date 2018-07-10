@@ -209,7 +209,7 @@ figure {
     width: 80%;
     padding: 30px;
     background: #d4edda;
-    z-index: 1;
+    z-index: 100;
     left: 10%;
     color: #155724;
     text-transform: uppercase;
@@ -218,6 +218,11 @@ figure {
     font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 	transition: all 3s linear;
+	&.hidden{
+		opacity: 0;
+		z-index: 1;
+		transition: all .2s linear;
+	}
 }
 .alert-info-off{
 	top: -100px;

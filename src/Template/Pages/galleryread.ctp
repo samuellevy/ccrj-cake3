@@ -75,16 +75,13 @@
                 <div><?php echo $this->Html->image('../uploads/files/'.$file['filename']);?></div>
               <?php endforeach;?>
             <?php endif;?>
-            <?php if(isset($work->medias)):?>
-              <?php foreach($work->medias as $media):
-                $videoURL = $media['url'];
-                $urlArr = explode("/",$videoURL);
-                $urlArrNum = count($urlArr);
-                $youtubeVideoId = $urlArr[$urlArrNum - 1];
-                $thumbURL = 'http://img.youtube.com/vi/'.$youtubeVideoId.'/maxresdefault.jpg';
+            <?php if(isset($work->medias)):
+              foreach($work->medias as $media):
+                $url_exploded = explode('watch?v=',$media['url']);
+                $thumbURL = 'http://img.youtube.com/vi/'.$url_exploded[1].'/hqdefault.jpg';
                 echo $this->Html->image($thumbURL);
-              endforeach;?>
-            <?php endif;?>
+              endforeach;
+            endif;?>
             
           </div>
         </div>
