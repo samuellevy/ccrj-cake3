@@ -16,11 +16,11 @@
     </div>
     <section class="galleryMob">
         <div class="titleContent">
-            <h2>Galeria</h2><a href="">Veja mais <span>[+]</span></a>
+            <h2>Galeria</h2><a href="<?=$this->Url->build(["controller" => "pages","action" => "gallery"]);?>">Veja mais <span>[+]</span></a>
         </div>
 
-        <?php foreach($works as $key=>$work):
-            if(isset($work['files'][0])): ?>
+        <?php foreach($works as $key=>$work):?>
+            <?php if(isset($work['files'][0])): ?>
                 <a href="<?=$this->Url->build(["controller" => "pages", "action" => "galleryread", $work->id]);?>">
                     <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
                     <div class="textInfo">
@@ -28,9 +28,23 @@
                         <p><?=substr($work->description,0,115)?></p>
                     </div>
                 </a>
-                <?php break; 
-            endif;
-        endforeach;?>
+                <?php break;?>
+            <?php endif;?>
+
+            <?php if(isset($work['medias'][0])):?>
+                <a href="<?=$this->Url->build(["controller" => "pages", "action" => "galleryread", $work->id]);?>">
+                    <?php $url_exploded = explode('watch?v=',$work['medias'][0]['url']);
+                    $thumbURL = 'http://img.youtube.com/vi/'.$url_exploded[1].'/maxresdefault.jpg';
+                    echo $this->Html->image($thumbURL);?>
+                    <div class="textInfo">
+                        <h3><?=$work->sheet->production_company?></h3>
+                        <p><?=substr($work->description,0,115)?></p>
+                    </div>
+                </a>
+                <?php break;?>
+            <?php endif;?>
+
+        <?php endforeach;?>
     </section>
     <div class="viewMob"> 
         <section class="publicationsMob">

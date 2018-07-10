@@ -6,7 +6,7 @@
         <div class="featuredGalery">
         <p> <span>Cliente:</span><?=$work->sheet->advertiser;?></p>
         <p> <span>Agência:</span><?=$work->sheet->production_company;?></p>
-        <p> <span>Publicado em:</span>00/00/0000</p>
+        <!-- <p> <span>Publicado em:</span>00/00/0000</p> -->
         <ul class="featuredGalery__carousel">
             <?php foreach($work->files as $file):?>
               <div><?php echo $this->Html->image('../uploads/files/'.$file['filename']);?></div>

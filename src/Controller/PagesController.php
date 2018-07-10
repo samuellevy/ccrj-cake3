@@ -161,9 +161,22 @@ class PagesController extends AppController
         'medias'
       ],
       'limit' => 3,
-      'conditions'=>['status'=>1, 'feature'=>1]
+      'order' => ['Works.created' => 'DESC'],
+      'conditions'=>['Works.feature'=>1, 'Works.status'=>1]
     ]);
     $featured_works = $featured_works;
+    
+    $worksfull = $this->Works->find('all', [
+      'contain'=>[
+        'files',
+        'Sheets',
+        'medias'
+      ],
+      'limit' => 15,
+      'order' => ['Works.created' => 'DESC'],
+      'conditions'=>['Works.status'=>1]
+    ]);
+    $worksfull = $worksfull->all();
 
     $query = $this->request->query;
     if(isset($query['c'])){
@@ -177,10 +190,12 @@ class PagesController extends AppController
     $works = $this->Works->find('all', [
       'contain'=>[
         'files',
+        'medias',
         'Sheets.WorkCategories',
       ],
-      'limit' => 6,
-      'conditions'=>['status'=>1, 'feature'=>0, $conditions]
+      'limit' => 1,
+      'order' => ['Works.created' => 'DESC'],
+      'conditions'=>['Works.feature'=>1, 'Works.status'=>1]
     ]);
     if(isset($category_id)){
       $selected_category = $categories[$category_id];
@@ -188,7 +203,7 @@ class PagesController extends AppController
 
     $works = $works->all();
     // die(debug($categories));
-    $this->set(compact(['featured_works','works', 'selected_category']));
+    $this->set(compact(['featured_works','works', 'selected_category', 'worksfull']));
   }
   
   public function galleryread($id=null){
