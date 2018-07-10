@@ -22,8 +22,9 @@
           <p><?=$item->name?></p>
         <?php endforeach;?>
         <h2 class="titlePrimary">ARQUIVOS</h2>
-        <p>Baixe o Manual da marca</p><a href="#" id="dowloadManual"><i class="icon-dowload"></i>Download</a>
-        <p>Baixe o Manual da marca</p><a href="#" id="dowloadManual"><i class="icon-dowload"></i>Download</a>
+        <?php foreach($documents as $document):?>
+            <div class="item"><span><?=$document->name?></span><a class="dwn_link" download href="<?=$this->Url->build('/documents/'.$document['file']['filename'])?>">DOWNLOAD</a></div>
+        <?php endforeach;?>
       </div>
     </div>
   </section>

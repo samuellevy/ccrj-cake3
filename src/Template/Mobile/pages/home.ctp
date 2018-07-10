@@ -75,7 +75,7 @@
         <section class="publicationsMob">
             <div class="contentPublic">
                 <div class="wrapper">
-                    <h2>Opinião</h2><a href="<?=$this->Url->build(["controller" => "pages","action" => "testimonials"]);?>">Veja mais <span>[+]</span></a>
+                    <h2>Opinião</h2><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion"]);?>">Veja mais <span>[+]</span></a>
                 </div>
                 <?php foreach($testimonials as $key=>$testimonial):?>
                     <?php if($key==0):?>

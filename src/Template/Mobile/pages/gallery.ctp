@@ -45,6 +45,6 @@
     <?php endforeach;?> -->
   </section>
   <section class="sendFeatured">
-    <h3>Quer aparecer nos <span>destaques do CCRJ?</span></h3><a href="#">Envie sua peça</a>
+    <h3>Quer aparecer nos <span>destaques do CCRJ?</span></h3><a href="<?=$this->Url->build(["controller" => "works","action" => "add"]);?>">Envie sua peça</a>
   </section>
 </section>

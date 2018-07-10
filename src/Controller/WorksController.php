@@ -41,6 +41,7 @@ class WorksController extends AppController
 			}
 			if ($this->Works->save($work)) {
 				$this->Flash->success(__('Sua peça foi enviada com sucesso.'));
+				return $this->redirect(['action' => 'add']);
 			}else{
 				$this->Flash->error(__('Não foi possível enviar sua peça. Verifique os campos.'));
 			}

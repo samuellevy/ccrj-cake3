@@ -90,11 +90,29 @@ var global = {
 		global.menuMob();
 	}
 }
+var envie_peca = {
+	send: function() {
+		$('body').on('change', '.file-upload', function (e) {
+			e.preventDefault();
+			$(this).parents('.form_item').find('.file_text').text($(this).val());
+		});
+		$('.row_action .add_file').click(function (e) { 
+			e.preventDefault();
+			var clone = $('<div class="boxAnexo" style="margin-top:20px;"> <div class="anexo"><i class="icon-document"></i><span>Envie seu arquivo</span> <input name="files['+qtd_input_pecas+'][filename]" class="file-upload" type="file"> </div> <p>O arquivo deve ter no máximo 500kb e estar no formato jpeg.</p> <p> <span>ou</span></p> <div class="link"> <div class="link__box"> <input name="medias['+qtd_input_pecas+'][url]" class="input_link" type="text" placeholder="Link do Youtube"><i class="icon-attachment"></i> </div> </div> </div>');
+			clone.appendTo('.form_area .wrap');
+			qtd_input_pecas++;
+		});
+	},
+	init: function() {
+		envie_peca.send();
+	}
+};
 
 $(document).ready(function($) {
 
 	global.init();
-
+	envie_peca.init();
 	webdoor.init();
 	gallery_featured.init();
 });
+var qtd_input_pecas = 1;

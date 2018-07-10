@@ -1,10 +1,14 @@
 <section class="opniao">
     <section class="opinionTop">
-        <div class="opinionTop__image">
-        <div class="wrapper">
-            <h2 class="titlePrimary">Opnião</h2>
-        </div>
-        </div>
+            <?php if(isset($testimonials)):?>
+                <div class="media"><?=$this->Html->image('../uploads/files/'.$testimonials[0]['files'][0]['filename']);?></div>
+            <?php else: ?>
+                <div class="media"><?=$this->Html->image('../uploads/files/'.$opinion->files[0]['filename']);?></div>
+            <?php endif;?>
+            <div class="wrapper">
+                <h2 class="titlePrimary">Opnião</h2>
+            </div>
+        
         <div class="opinionTop__text">
         <div class="wrapper">
         <?php if(isset($testimonials)):?>
@@ -25,7 +29,9 @@
         <?php if(isset($testimonials)):?>
             <?php foreach($testimonials as $key=>$testimonial):?>
                 <?php if($key>0):?>
-                <a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->id]);?>"><div class="moreOpinion__box"><?php echo $this->Html->image('../mobile/images/image_user.png')?>
+                <a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->id]);?>">
+                <div class="moreOpinion__box">
+                    <div class="media"><?=$this->Html->image('../uploads/files/'.$testimonial->files[0]['filename']);?></div>
                     <h2><?=$testimonial->name;?></h2>
                     <h3><?=$testimonial->subtitle;?></h3>
                     <p><?=$testimonial->quote;?></p>
@@ -36,7 +42,8 @@
         <?php else: ?>
         <?php foreach($opinions as $key=>$opinion):?>
                 <a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $opinion->id]);?>">
-                <div class="moreOpinion__box"><?php echo $this->Html->image('../mobile/images/image_user.png')?>
+                <div class="moreOpinion__box">
+                    <div class="media"><?=$this->Html->image('../uploads/files/'.$opinion->files[0]['filename']);?></div>
                     <h2><?=$opinion->name;?></h2>
                     <h3><?=$opinion->subtitle;?></h3>
                     <p><?=$opinion->quote;?></p>
