@@ -1,7 +1,7 @@
-<?= $this->Flash->render() ?>
 <section id="envie">
     <div class="wrapper">
     <h1 class="page_title">ENVIE SUA PEÇA</h1>
+    <?= $this->Flash->render() ?>
         <?= $this->Form->create($work, ['type'=>'file', 'class'=>'form_area send']) ?>
         <div class="column">
         <h3 class="title">CONTATO</h3>

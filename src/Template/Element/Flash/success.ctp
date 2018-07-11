@@ -1,1 +1,1 @@
-<div class="alert alert-info" onclick="this.classList.add('hidden');"><span><?= $message ?></span></div>
+<div class="alert alert-info" onclick="this.classList.add('hidden');"><?=$this->Html->image('Site.../images/check-form.png');?><span><?= $message ?></span></div>

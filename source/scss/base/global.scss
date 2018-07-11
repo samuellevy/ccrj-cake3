@@ -203,25 +203,32 @@ figure {
 	margin: 0;
 }
 .alert-info{
-	position: absolute;
-    top: 0px;
+    position: relative;
+    top: 0;
     text-align: center;
-    width: 80%;
-    padding: 30px;
-    background: #d4edda;
+    width: 30%;
+    padding: 10px;
+    background: #c6a051;
     z-index: 100;
-    left: 10%;
-    color: #155724;
+	left: 0;
+	margin-bottom: 40px;
+    display: flex;
+    flex: 1;
+    flex-wrap: nowrap;
+    color: #fff;
     text-transform: uppercase;
-    border: 1px solid #c3e6cb;
-    border-radius: 0px 0px 5px 5px;
+    border-radius: 1px;
     font-family: 'Roboto', sans-serif;
-	font-size: 16px;
-	transition: all 3s linear;
+    font-size: 16px;
+    -webkit-transition: all 3s linear;
+    transition: all 3s linear;
 	&.hidden{
 		opacity: 0;
 		z-index: 1;
 		transition: all .2s linear;
+	}
+	span{
+		padding: 0 10px;
 	}
 }
 .alert-info-off{
