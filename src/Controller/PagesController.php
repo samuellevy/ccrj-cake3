@@ -189,20 +189,20 @@ class PagesController extends AppController
 
     $works = $this->Works->find('all', [
       'contain'=>[
-        'files',
+        'Files',
         'medias',
         'Sheets.WorkCategories',
       ],
-      'limit' => 1,
+      'limit' => 100,
       'order' => ['Works.created' => 'DESC'],
-      'conditions'=>['Works.feature'=>1, 'Works.status'=>1]
+      'conditions'=>['Works.feature'=>0, 'Works.status'=>1]
     ]);
     if(isset($category_id)){
       $selected_category = $categories[$category_id];
     }
 
     $works = $works->all();
-    // die(debug($categories));
+    // die(debug($works));
     $this->set(compact(['featured_works','works', 'selected_category', 'worksfull']));
   }
   
