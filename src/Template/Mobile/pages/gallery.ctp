@@ -16,7 +16,7 @@
         <a href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">
           <?php if(isset($work['files'][0])):?>
             <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
-          <?php elseif(isset($work['medias'][0])):?>
+            <?php elseif(isset($work['medias'][0])):?>
             <?php $url_exploded = explode('watch?v=',$work['medias'][0]['url']);
             $thumbURL = 'http://img.youtube.com/vi/'.$url_exploded[1].'/maxresdefault.jpg';
             echo $this->Html->image($thumbURL);?>
