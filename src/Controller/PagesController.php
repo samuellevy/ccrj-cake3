@@ -80,12 +80,13 @@ class PagesController extends AppController
         'files',
         'medias'
       ],
-      'order' => ('rand()'),
+      'limit'=>10,
+      'order' => ('Works.created DESC'),
       'conditions'=>['Works.feature'=>1, 'Works.status'=>1]
     ]);
 
     $randombanner = $randombanner->all()->toArray();
-
+    
     $this->loadModel('Testimonials');
     $testimonials = $this->Testimonials->find('all', [
       'contain'=>[
