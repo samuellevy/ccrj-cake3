@@ -67,7 +67,7 @@
             <span class="hint">O arquivo deve ter no máximo XXMB e estar no formato jpeg.</span>
             </div><span class="separator">Ou</span>
             <div class="form_item">
-                <input name="medias[0][url]" class="input_link" type="text" placeholder="Link do Youtube">
+                <input name="medias[0][url]" class="input_link" type="text" placeholder="Link do Youtube ou Vimeo">
             </div>
         </div>
         </div>

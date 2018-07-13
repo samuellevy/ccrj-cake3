@@ -34,9 +34,20 @@
 
             <?php if(isset($work['medias'][0])):?>
                 <a href="<?=$this->Url->build(["controller" => "pages", "action" => "galleryread", $work->id]);?>">
-                    <?php $url_exploded = explode('watch?v=',$work['medias'][0]['url']);
-                    $thumbURL = 'http://img.youtube.com/vi/'.$url_exploded[1].'/maxresdefault.jpg';
-                    echo $this->Html->image($thumbURL);?>
+                    <?php 
+                    $pos = strpos($work['medias'][0]['url'], 'youtube');
+                    if($pos==true){
+                        $url_exploded = explode('watch?v=',$work['medias'][0]['url']);
+                        $thumbURL = 'http://img.youtube.com/vi/'.$url_exploded[1].'/maxresdefault.jpg';
+                        echo $this->Html->image($thumbURL);
+                    }else{
+                        $url_exploded = explode('/',$work['medias'][0]['url']);
+                        $data = file_get_contents("http://vimeo.com/api/v2/video/".end($url_exploded).".json");
+                        $data = json_decode($data);
+                        $thumbURL = $data[0]->thumbnail_large;
+                        echo $this->Html->image($thumbURL);
+                    }
+                    ?>
                     <div class="textInfo">
                         <h3><?=$work->sheet->production_company?></h3>
                         <p><?=substr($work->description,0,115)?></p>

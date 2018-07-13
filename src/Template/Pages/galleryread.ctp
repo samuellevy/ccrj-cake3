@@ -43,7 +43,7 @@
           <li class="item"> <span>Direção de Criação:</span><span> <?=$work->sheet->creative_director;?></span></li>
           <li class="item"> <span>Direção de Arte:</span><span> <?=$work->sheet->art_director;?></span></li>
           <li class="item"> <span>Redação:</span><span> <?=$work->sheet->writer;?></span></li>
-          <li class="item"> <span>Ilustração:</span><span> <?=$work->sheet->illustator;?></span></li>
+          <li class="item"> <span>Ilustração:</span><span> <?=$work->sheet->illustrator;?></span></li>
           <li class="item"> <span>Fotografia:</span><span> <?=$work->sheet->photographer;?></span></li>
           <li class="item"> <span>Produtora de Áudio:</span><span> <?=$work->sheet->music_producer;?></span></li>
           <li class="item"> <span>Produtora de Vídeo:</span><span> <?=$work->sheet->video_producer;?></span></li>
@@ -60,11 +60,17 @@
               <?php endforeach;?>
             <?php endif;?>
             <?php if(isset($work->medias)):?>
-              <?php foreach($work->medias as $media):?>
-              <?php 
-                $url_exploded = explode('watch?v=',$media['url']);
-              ?>
-                <iframe src="https://www.youtube.com/embed/<?=$url_exploded[1];?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              <?php foreach($work->medias as $media):
+                $pos = strpos($media['url'], 'youtube');
+                if($pos==true){
+                  $url_exploded = explode('watch?v=',$media['url']);
+                  $videoURL = 'https://www.youtube.com/embed/'.$url_exploded[1];
+                }else{
+                  $url_exploded = explode('/',$media['url']);
+                  $videoURL = 'https://player.vimeo.com/video/'.end($url_exploded).'?title=0&byline=0&portrait=0';
+                }?>
+                <iframe src="<?=$videoURL;?>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
               <?php endforeach;?>
             <?php endif;?>
           </div>
@@ -77,9 +83,18 @@
             <?php endif;?>
             <?php if(isset($work->medias)):
               foreach($work->medias as $media):
-                $url_exploded = explode('watch?v=',$media['url']);
-                $thumbURL = 'http://img.youtube.com/vi/'.$url_exploded[1].'/hqdefault.jpg';
-                echo $this->Html->image($thumbURL);
+                $pos = strpos($media['url'], 'youtube');
+                if($pos==true){
+                  $url_exploded = explode('watch?v=',$media['url']);
+                  $thumbURL = 'http://img.youtube.com/vi/'.$url_exploded[1].'/maxresdefault.jpg';
+                  echo $this->Html->image($thumbURL);
+                }else{
+                  $url_exploded = explode('/',$media['url']);
+                  $data = file_get_contents("http://vimeo.com/api/v2/video/".end($url_exploded).".json");
+                  $data = json_decode($data);
+                  $thumbURL = $data[0]->thumbnail_large;
+                  echo $this->Html->image($thumbURL);
+                }
               endforeach;
             endif;?>
             

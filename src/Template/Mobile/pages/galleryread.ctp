@@ -8,9 +8,25 @@
         <p> <span>Agência:</span><?=$work->sheet->production_company;?></p>
         <!-- <p> <span>Publicado em:</span>00/00/0000</p> -->
         <ul class="featuredGalery__carousel">
-            <?php foreach($work->files as $file):?>
-              <div><?php echo $this->Html->image('../uploads/files/'.$file['filename']);?></div>
-            <?php endforeach;?>
+            <?php if(isset($work->files)):?>
+              <?php foreach($work->files as $file):?>
+                <div><?php echo $this->Html->image('../uploads/files/'.$file['filename']);?></div>
+              <?php endforeach;?>
+            <?php endif;?>
+            <?php if(isset($work->medias)):?>
+              <?php foreach($work->medias as $media):
+                $pos = strpos($media['url'], 'youtube');
+                if($pos==true){
+                  $url_exploded = explode('watch?v=',$media['url']);
+                  $videoURL = 'https://www.youtube.com/embed/'.$url_exploded[1];
+                }else{
+                  $url_exploded = explode('/',$media['url']);
+                  $videoURL = 'https://player.vimeo.com/video/'.end($url_exploded).'?title=0&byline=0&portrait=0';
+                }?>
+                <iframe src="<?=$videoURL;?>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+              <?php endforeach;?>
+            <?php endif;?>
         </ul>
         <div class="description">
             <h4>Descrição</h4>
