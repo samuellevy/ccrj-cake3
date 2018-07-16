@@ -44,15 +44,15 @@
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   iframe{
     margin: 10px;
-    width: 400px;
-    height: 300px;
+    width: 740px;
+    height: 420px;
   }
   img{
     margin: 10px;
-    width: 400px;
+    width: 740px;
     height: 100%;
   }
   @media screen and (max-width: 768px) {
