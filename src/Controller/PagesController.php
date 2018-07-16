@@ -37,18 +37,6 @@ class PagesController extends AppController
       ]
     ]);
     $page = $page->first();
-      
-    $this->loadModel('Banners');
-    $banners = $this->Banners->find('all', [
-      'contain'=>[
-        'files'=>['conditions'=>['obs'=>'Banner']]
-      ],
-      'limit' => 1,
-      'order' => ['created' => 'DESC'],
-    ]);
-    
-    $banners = $banners->all();
-    $banners = $banners->toArray();
 
     $this->loadModel('Posts');
     $posts = $this->Posts->find('all', [
