@@ -1,7 +1,13 @@
 <div class="webdoor">
 	<div class="wrapper">
 	<div class="item">
-	
+	<?php
+	$rand = rand(0,9);
+	while(!isset($randombanner[$rand]['files'][0])){
+		$rand = rand(0,9);
+	}
+	echo $this->Html->image('../uploads/files/'.$randombanner[$rand]['files'][0]['filename']);
+	?>
 	</div>
 	<div class="webdoor_mask"></div>
 	<div class="webdoor_footer"><a class="arrow" href="#"><?=$this->Html->image('Site.../images/arrow_wd.png');?></a></div>
