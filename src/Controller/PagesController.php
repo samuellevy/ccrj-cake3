@@ -75,7 +75,7 @@ class PagesController extends AppController
 
     $randombanner = $randombanner->all()->toArray();
 
-    die(debug($randombanner));
+    // die(debug($randombanner));
     
     $this->loadModel('Testimonials');
     $testimonials = $this->Testimonials->find('all', [
