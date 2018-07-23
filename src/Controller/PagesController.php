@@ -70,7 +70,7 @@ class PagesController extends AppController
       ],
       'limit'=>10,
       'order' => ('Works.created DESC'),
-      'conditions'=>['Works.feature'=>1, 'Works.status'=>1]
+      'conditions'=>['Works.status'=>1]
     ]);
 
     $randombanner = $randombanner->all()->toArray();
