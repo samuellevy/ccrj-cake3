@@ -74,6 +74,8 @@ class PagesController extends AppController
     ]);
 
     $randombanner = $randombanner->all()->toArray();
+
+    die(debug($randombanner));
     
     $this->loadModel('Testimonials');
     $testimonials = $this->Testimonials->find('all', [
@@ -85,7 +87,6 @@ class PagesController extends AppController
     ]);
     $testimonials = $testimonials->all();
 
-    // die(debug($works));
     $this->set(compact(['page', 'banners', 'posts', 'works', 'testimonials', 'randombanner']));
   }
   

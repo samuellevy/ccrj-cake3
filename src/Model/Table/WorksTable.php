@@ -52,8 +52,6 @@ class WorksTable extends Table
         $this->hasMany('Files', [
             'className' => 'Files',
             'foreignKey' => 'model_id',
-            'conditions' => [
-                'entity' => 'Work']
         ]);
 
         $this->hasMany('Medias', [
