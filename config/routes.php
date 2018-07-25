@@ -14,12 +14,28 @@ Router::prefix('admin', function ($routes) {
 Router::scope('/m', ['m'=>true], function ($routes) {
     $routes->fallbacks('InflectedRoute');
     $routes->connect('/', ['controller' => 'pages', 'action' => 'home']);
+    $routes->connect('/galeria', ['controller' => 'Pages', 'action' => 'gallery']);
+    $routes->connect('/galeria/:type', ['controller' => 'Pages', 'action' => 'galleryread'],['pass' => ['type']]);
+    $routes->connect('/oclube', ['controller' => 'Pages', 'action' => 'club']);
+    $routes->connect('/novidades', ['controller' => 'Pages', 'action' => 'news']);
+    $routes->connect('/novidades/:type', ['controller' => 'Pages', 'action' => 'newsread'],['pass' => ['type']]);
+    $routes->connect('/opiniao', ['controller' => 'Pages', 'action' => 'opinion']);
+    $routes->connect('/opiniao/:type', ['controller' => 'Pages', 'action' => 'opinion'],['pass' => ['type']]);
+    $routes->connect('/envie', ['controller' => 'Works', 'action' => 'add']);
+    $routes->connect('/contato', ['controller' => 'Pages', 'action' => 'contact']);
 });
 
 Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'home']);
-    $routes->connect('/posts/:type', ['controller' => 'posts', 'action' => 'index'],['pass' => ['type']]);
-    $routes->connect('/page/:slug', ['controller' => 'pages', 'action' => 'view'],['pass' => ['slug']]);
+    $routes->connect('/galeria', ['controller' => 'Pages', 'action' => 'gallery']);
+    $routes->connect('/galeria/:type', ['controller' => 'Pages', 'action' => 'galleryread'],['pass' => ['type']]);
+    $routes->connect('/oclube', ['controller' => 'Pages', 'action' => 'club']);
+    $routes->connect('/novidades', ['controller' => 'Pages', 'action' => 'news']);
+    $routes->connect('/novidades/:type', ['controller' => 'Pages', 'action' => 'newsread'],['pass' => ['type']]);
+    $routes->connect('/opiniao', ['controller' => 'Pages', 'action' => 'opinion']);
+    $routes->connect('/opiniao/:type', ['controller' => 'Pages', 'action' => 'opinion'],['pass' => ['type']]);
+    $routes->connect('/envie', ['controller' => 'Works', 'action' => 'add']);
+    $routes->connect('/contato', ['controller' => 'Pages', 'action' => 'contact']);
     $routes->fallbacks(DashedRoute::class);
 });
 

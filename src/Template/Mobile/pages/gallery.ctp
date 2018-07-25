@@ -37,22 +37,7 @@
       </div>
     <?php endforeach;?>
 
-    <!-- <?php foreach($works as $work):?>
-      <div class="featured__half">
-        <div class="featured__half--50">
-          <a href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">
-            <?php if(isset($work['files'][0])):?>
-              <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
-            <?php endif;?>
-            <?php if(isset($work['medias'][0])):?>
-            <?php $url_exploded = explode('watch?v=',$work['medias'][0]['url']);
-                    $thumbURL = 'http://img.youtube.com/vi/'.$url_exploded[1].'/maxresdefault.jpg';
-                    echo $this->Html->image($thumbURL);?>
-            <?php endif;?>
-          </a>
-        </div>
-      </div>
-    <?php endforeach;?> -->
+    
   </section>
   <section class="sendFeatured">
     <h3>Quer aparecer nos <span>destaques do CCRJ?</span></h3><a href="<?=$this->Url->build(["controller" => "works","action" => "add"]);?>">Envie sua peça</a>
