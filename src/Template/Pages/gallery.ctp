@@ -85,11 +85,21 @@
                 <div class="media">
                   <?php if(isset($work['files'][0])):?>
                     <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
-                  <?php elseif(isset($work['medias'][0])):?>
-                    <?php $url_exploded = explode('watch?v=',$work['medias'][0]['url']);
+
+                  <?php elseif(isset($work['medias'][0])):
+                    $pos = strpos($work['medias'][0]['url'], 'youtube');
+                    if($pos==true){
+                      $url_exploded = explode('watch?v=',$work['medias'][0]['url']);
                       $thumbURL = 'http://img.youtube.com/vi/'.$url_exploded[1].'/maxresdefault.jpg';
-                      echo $this->Html->image($thumbURL);?>
-                  <?php endif;?>
+                      echo $this->Html->image($thumbURL);
+                    }else{
+                      $url_exploded = explode('/',$work['medias'][0]['url']);
+                      $data = file_get_contents("http://vimeo.com/api/v2/video/".end($url_exploded).".json");
+                      $data = json_decode($data);
+                      $thumbURL = $data[0]->thumbnail_large;
+                      echo $this->Html->image($thumbURL);
+                    }
+                  endif;?>
                   <p><strong><?=$work->sheet->avertiser?>// </strong><span><?=$work->sheet->project_title?></span></p>
                 </div>
                 
