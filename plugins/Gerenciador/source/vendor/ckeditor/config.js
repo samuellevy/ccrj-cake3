@@ -38,10 +38,11 @@ CKEDITOR.editorConfig = function( config ) {
 	config.removeDialogTabs = 'link:advanced';
 	config.filebrowserBrowseUrl = baseHref + '../kcfinder-3.12/browse.php?type=files';
 	config.filebrowserImageBrowseUrl = baseHref + '../kcfinder-3.12/browse.php?type=files';
-	config.filebrowserUploadUrl = baseHref + '../kcfinder-3.12/core/connector/php/connector.php?command=QuickUpload&type=Files';
-	config.filebrowserImageUploadUrl = baseHref + '../kcfinder-3.12/core/connector/php/connector.php?command=QuickUpload&type=Images';
+	// config.filebrowserUploadUrl = baseHref + '../kcfinder-3.12/core/connector/php/connector.php?command=QuickUpload&type=Files';
+	// config.filebrowserImageUploadUrl = baseHref + '../kcfinder-3.12/core/connector/php/connector.php?command=QuickUpload&type=Images';
 
 	config.allowedContent = true;
 	config.extraAllowedContent = 'div(*)';
 	config.height = '550px';
+	config.removeDialogTabs = 'link:upload';
 };
