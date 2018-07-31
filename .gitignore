@@ -26,3 +26,8 @@
 #DYNAMIC CONTENT
 #webroot/*
 #webroot/**/*
+
+/webroot/files/*.jpg
+/webroot/files/*.png
+/webroot/files/*.JPEG
+/webroot/files/*.PNG
