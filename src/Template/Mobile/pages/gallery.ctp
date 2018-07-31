@@ -22,7 +22,7 @@
 
                   if($pos==true){
                     $url_exploded = explode('watch?v=',$work['medias'][0]['url']);
-                    $thumbURL = 'http://img.youtube.com/vi/'.$url_exploded[1].'/maxresdefault.jpg';
+                    $thumbURL = 'http://img.youtube.com/vi/'.$url_exploded[1].'/hqdefault.jpg';
                     echo $this->Html->image($thumbURL);
                   }else{
                     $url_exploded = explode('/',$work['medias'][0]['url']);

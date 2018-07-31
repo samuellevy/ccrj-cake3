@@ -86,7 +86,7 @@
                 $pos = strpos($media['url'], 'youtube');
                 if($pos==true){
                   $url_exploded = explode('watch?v=',$media['url']);
-                  $thumbURL = 'http://img.youtube.com/vi/'.$url_exploded[1].'/maxresdefault.jpg';
+                  $thumbURL = 'http://img.youtube.com/vi/'.$url_exploded[1].'/hqdefault.jpg';
                   echo $this->Html->image($thumbURL);
                 }else{
                   $url_exploded = explode('/',$media['url']);
