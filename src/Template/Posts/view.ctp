@@ -28,8 +28,8 @@
 							<?php endif;?>
 							<div class="col-md-6 col-sm-6 no-padding">
 								<div class="data">
-									<div class="dia"><span><?=$this->FormatDate->formatDate($post->publish_date, 'just_day');?></span></div>
-									<div class="mesAno"><?=$this->FormatDate->formatDate($post->publish_date, 'pt-numbers');?></div> <!--colocar sempre nesse padrão-->
+									<div class="dia"><span><?=$this->FormatDate->formatDate($post->created, 'just_day');?></span></div>
+									<div class="mesAno"><?=$this->FormatDate->formatDate($post->created, 'pt-numbers');?></div> <!--colocar sempre nesse padrão-->
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-6 no-padding">

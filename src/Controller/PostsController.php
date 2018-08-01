@@ -72,11 +72,11 @@ class PostsController extends AppController
     if(isset($tag)){
       $_SESSION['condition_tag'] = ['BlogTags.name'=>$tag];
     }else{
-       $_SESSION['condition_tag'] = [];
+      $_SESSION['condition_tag'] = [];
     }
 
     $posts = $this->paginate(
-      $this->Posts->find('all',['conditions'=>$conditions, 'order'=>['publish_date DESC']])
+      $this->Posts->find('all',['conditions'=>$conditions, 'order'=>['created DESC']])
         ->contain(['BlogCategories','BlogPostTags.BlogTags','Capas', 'Miniaturas','Authors'])
         // ->matching('BlogPostTags.BlogTags', function(\Cake\ORM\Query $q) {
         //   // return $q->where($_SESSION['condition_tag']);

@@ -9,7 +9,7 @@
           <p class="category"><strong>Categoria: </strong><?=$post->blog_category->category?></p>
           <p class="category"><strong>Importância: </strong><?=$post->important?></p>
           <p class="category"><strong>Author_id: </strong><?=$post->author_id?></p>
-          <p class="category"><strong>Publish date: </strong><?=$post->publish_date?></p>
+          <p class="category"><strong>Publish date: </strong><?=$post->created?></p>
           <p class="category"><strong>Tags: </strong>
             <?php foreach($post->blog_post_tags as $post_tag):
               echo($post_tag->tag->name . " | ");

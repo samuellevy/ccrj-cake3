@@ -22,11 +22,11 @@
                 <?php echo $this->Form->control('category_id', ['class'=>'form-control', 'label'=>'Categoria']);?>
               </div>
             </div>
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
               <div class="form-group">
                 <div class="input text"><label for="publish-date">Data de publicação</label><input type="date" name="publish_date" class="form-control" id="publish-date" value="<?= date("Y-m-d")?>"></div>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <div class="row">

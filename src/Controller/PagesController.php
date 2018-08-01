@@ -44,7 +44,9 @@ class PagesController extends AppController
         'files'=>['conditions'=>['obs'=>'Capa']]
       ],
       'limit' => 4,
-      'order' => ['publish_date' => 'DESC'],
+      'order'=>[
+        'Posts.created'=>'DESC'
+      ]
     ]);
     
     $posts = $posts->all();
@@ -70,7 +72,7 @@ class PagesController extends AppController
       ],
       'limit'=>10,
       'order' => ('Works.created DESC'),
-      'conditions'=>['Works.status'=>1]
+      'conditions'=>['Works.status'=>1, 'Works.feature'=>1]
     ]);
 
     $randombanner = $randombanner->all()->toArray();
@@ -230,7 +232,7 @@ class PagesController extends AppController
       ],
       'limit' => 3,
       'order'=>[
-        'publish_date'=>'DESC'
+        'Posts.created'=>'DESC'
       ]
     ]);
 
@@ -241,7 +243,7 @@ class PagesController extends AppController
       ],
       'limit' => 15,
       'order'=>[
-        'publish_date'=>'DESC'
+        'Posts.created'=>'DESC'
       ]
     ]);
 
@@ -269,7 +271,7 @@ class PagesController extends AppController
       'limit' => 15,
       'conditions'=>['Posts.id !='=>$id],
       'order'=>[
-        'publish_date'=>'DESC'
+        'created'=>'DESC'
       ]
     ]);
     $posts = $posts->all();

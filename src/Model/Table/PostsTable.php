@@ -40,6 +40,8 @@ class PostsTable extends Table
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
 
+        $this->addBehavior('Timestamp');
+
         $this->belongsTo('BlogCategories', [
           'foreignKey' => 'category_id',
         ]);

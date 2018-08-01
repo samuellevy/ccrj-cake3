@@ -34,8 +34,8 @@
 						<?php endif;?>
 						<div class="col-md-2">
 							<div class="data">
-								<div class="dia"><span><?= $this->FormatDate->formatDate($post->publish_date,'just_day');?></span></div>
-								<div class="mesAno"><?= $this->FormatDate->formatDate($post->publish_date,'de_mes_ano');?></div> <!--manter esse padrão-->
+								<div class="dia"><span><?= $this->FormatDate->formatDate($post->created,'just_day');?></span></div>
+								<div class="mesAno"><?= $this->FormatDate->formatDate($post->created,'de_mes_ano');?></div> <!--manter esse padrão-->
 							</div>
 						</div>
 						<div class="col-md-9 bordaLeft">

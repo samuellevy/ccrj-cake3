@@ -13,8 +13,7 @@
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('category', ['label'=>'Categoria']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('titulo', ['label'=>'Título']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('publish_date', ['label'=>'Data de Publicação']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created', ['label'=>'Data de Criação']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('created', ['label'=>'Data de Publicação']) ?></th>
                 <th scope="col" class="actions"><?= __('Opções') ?></th>
               </tr>
             </thead>
@@ -24,7 +23,6 @@
                   <td><?= $this->Number->format($post->id) ?></td>
                   <td><?= $post->blog_category->category; ?></td>
                   <td><?= h($post->title) ?></td>
-                  <td><?= h($this->FormatDate->formatDate($post->publish_date, 'pt-numbers')) ?></td>
                   <td><?= h($post->created) ?></td>
                   <td class="actions">
                     <?php //= $this->Html->link(__('Ver'), ['action' => 'view', $post->id]) ?>

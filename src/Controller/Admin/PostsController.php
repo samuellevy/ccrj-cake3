@@ -34,8 +34,7 @@ class PostsController extends AppController
     if ($this->request->is('post')) {
       $data = $this->request->getData();
       $data['author_id']=$this->Auth->user('id');
-      $data['created'] = date("Y-m-d H:i:s");  ;
-     
+
       $post = $this->Posts->patchEntity($post, $data,[
         'associated' => [
           'BlogCategories',
