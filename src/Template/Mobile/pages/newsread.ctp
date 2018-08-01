@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="wrapper">
-        <p class="date"><span><?= h($this->FormatDate->formatDate($post->created, 'blog-date')); ?></span></p>
+        <p class="date"><span><?= $post->created; ?></span></p>
         <?=$post->content;?>
         <div class="relatedNews">
             <!-- <h3>Relacionadas</h3>

@@ -30,7 +30,7 @@
     <div class="wrapper">
       <div class="content">
         <div class="head">
-          <span><?= h($this->FormatDate->formatDate($work->created, 'blog-date')); ?></span>
+          <span><?= $work->created; ?></span>
           <!-- <span class="share">Compartilhe:</span><a href="#"><?=$this->Html->image('Site.../images/fb.png', ['alt'=>'']);?></a><a href="#"><?=$this->Html->image('Site.../images/tw.png', ['alt'=>'']);?></a> -->
         </div>
         <h2 class="name"><?=$work->sheet->project_title;?></h2>
