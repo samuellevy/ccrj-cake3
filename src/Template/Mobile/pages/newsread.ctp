@@ -5,7 +5,7 @@
         <h4><?=$post->description;?></h4>
     </div>
     <div class="imageInfo">
-        <?php echo $this->Html->image('../mobile/images/image_user.png')?>
+        <?php echo $this->Html->image('../uploads/files/'.$post['files'][0]['filename']);?>
         <div class="wrapper">
         <!-- <ul> 
             <li><a href="" id="sharesFace"> <i class="icon-facebook"></i></a></li>

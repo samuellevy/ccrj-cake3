@@ -6,7 +6,7 @@
         <?php foreach($posts as $key=>$post):?>
           <div class="item">
             <div class="head">
-              <span><?= h($this->FormatDate->formatDate($post->created, 'pt-numbers-hours')); ?></span>
+              <span><?= h($this->FormatDate->formatDate($post->created, 'blog-date')); ?></span>
               <!-- <a href="#"><?=$this->Html->image('Site.../images/fb.png', ['alt'=>'']);?></a><a href="#"><?=$this->Html->image('Site.../images/tw.png', ['alt'=>'']);?></a> -->
             </div>
             <h3 class="title"><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread", $post->id]);?>"><?=$post->title;?> </a></h3>
@@ -31,7 +31,7 @@
       <div class="cards type2">
         <?php foreach($posts as $key=>$post):?>
           <?php if($key > 2):?>
-            <div class="card_item"><span class="date"><?= h($this->FormatDate->formatDate($post->created, 'pt-numbers-hours')); ?></span>
+            <div class="card_item"><span class="date"><?= h($this->FormatDate->formatDate($post->created, 'blog-date')); ?></span>
               <h4 class="title"><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->id]);?>"><?=$post->title;?></a></h4>
               <p class="desc"><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->id]);?>"><?=$post->description;?></a></p>
               <div class="media">

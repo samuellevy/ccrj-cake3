@@ -159,8 +159,10 @@
 	}
 
 	.textInfo {
-	    background: #1c1c1c;
-	    padding: 30px 36px;
+    background: rgba(28,28,28,0.7);
+    padding: 30px 36px;
+    position: absolute;
+    bottom: 0;
 	    h3 {
 	    	font-family: $font1;
 	    	text-transform: uppercase;

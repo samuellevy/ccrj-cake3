@@ -10,7 +10,6 @@
             <a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread", $post->id]);?>" alt="title news">Veja mais [+]</a>
         </div>
         <?php endforeach;?>
-       
         <!-- <div class="loading__post"><a href="#" alt="Carregar mais post">Carregar mais notícias</a></div> -->
     </div>
 </section>

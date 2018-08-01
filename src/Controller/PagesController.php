@@ -64,7 +64,7 @@ class PagesController extends AppController
       'conditions'=>['Works.feature'=>1, 'Works.status'=>1]
     ]);
     $works = $works->all();
-
+    
     $randombanner = $this->Works->find('all', [
       'contain'=>[
         'files',

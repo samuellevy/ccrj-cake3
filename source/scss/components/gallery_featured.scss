@@ -122,6 +122,9 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
+			@media screen and (max-width: 1300px){
+				padding: 10px 50px 10px;
+			}
 			.name {
 				color: $color4;
 				font-weight: bold;
@@ -134,7 +137,6 @@
 				line-height: 22px;
 				font-size: 16px;
 				overflow: hidden;
-				height: 48px;
 			}
 		}
 		img {
@@ -158,6 +160,9 @@
 			font-weight: 300;
 			transition: all ease-in 0.3s;
 			background: rgba($color1, 0.7);
+			@media screen and (max-width: 1300px){
+				padding: 10px 0 10px 100px;
+			}
 		}
 	}
 	.item-3{
@@ -172,6 +177,9 @@
 			font-weight: 300;
 			transition: all ease-in 0.3s;
 			background: rgba($color1, 0.7);
+			@media screen and (max-width: 1300px){
+				padding: 10px 100px 10px 0;
+			}
 		}
 	}
 }

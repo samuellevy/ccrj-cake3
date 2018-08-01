@@ -30,10 +30,9 @@
 		top: 45px;
 		left: 60px;
 		z-index: 1;
-		padding-bottom: 85px;
-		padding-right: 136px;
-		@include break-max(1440px) {
-			top: 90px;
+		width: 12vw;
+		@media screen and (max-width: 1440px){
+			left: 3vw;
 		}
 	}
 }

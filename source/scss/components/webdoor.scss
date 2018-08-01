@@ -61,6 +61,9 @@
 		top: 0;
 		background: url('../images/home_full.png') no-repeat center;
 		background-size: cover;
+		@media screen and (max-width: 1440px){
+			width: 100vw;
+		}
 	}
 	.item {
 		height: 100vh;
