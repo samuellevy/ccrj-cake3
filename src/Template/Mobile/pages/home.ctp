@@ -92,7 +92,7 @@
                 <?php foreach($testimonials as $key=>$testimonial):?>
                     <?php if($key==0):?>
                         <div class="bgNovidades">
-                            <?php echo $this->Html->image('../uploads/files/'.$testimonial['files'][0]['filename'], ['class'=>'image']);?>
+                            <?php echo $this->Html->image('../uploads/files/'.$testimonial['files'][1]['filename'], ['class'=>'image']);?>
                             <?php echo $this->Html->image('Site.../mobile/images/home_vazado.png', ['class'=>'mask']);?>
                         </div>
                         <a href="<?=$this->Url->build(["controller" => "pages", "action" => "opinion", $testimonial->id]);?>">

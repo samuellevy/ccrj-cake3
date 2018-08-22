@@ -60,25 +60,23 @@
         }
         .writer {
             height: 100vh;
+            width: 100vw;
             display: flex;
             overflow: hidden;
             justify-content: center;
             align-items: center;
             img {
                 object-position: center;
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
             }
         }
         .mask_opiniao{
             background: url('../images/bg_opiniao.png') no-repeat center;
             position: absolute;
             width: 100vw;
-            height: 100vh;;
-        }
-        .mask_opiniao{
-            background: url('../images/bg_opiniao.png') no-repeat center;
-            position: absolute;
-            width: 100vw;
-            height: 100vh;;
+            height: 100vh;
         }
     }
 }

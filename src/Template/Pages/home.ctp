@@ -85,7 +85,9 @@
 <?php foreach($testimonials as $testimonial):?>
 <section class="opinion_featured">
 	<div class="media">
-		<div class="writer"><?php echo $this->Html->image('../uploads/files/'.$testimonial['files'][0]['filename']);?></div>
+		<div class="writer">
+			<?php echo $this->Html->image('../uploads/files/'.$testimonial['files'][0]['filename']);?>
+		</div>
 		<div class="mask_opiniao"></div>
 	</div>
 	<div class="wrapper">

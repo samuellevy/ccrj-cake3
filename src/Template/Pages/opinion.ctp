@@ -3,7 +3,7 @@
     <?php if(isset($testimonials)):?>
       <div class="wrapper">
         <div class="writer">
-          <div class="media"><?=$this->Html->image('../uploads/files/'.$testimonials[0]['files'][0]['filename']);?></div>
+          <div class="media"><?=$this->Html->image('../uploads/files/'.$testimonials[0]['files'][2]['filename']);?></div>
           <div class="text">
             <p><?=$testimonials[0]['quote']?></p>
           </div>
@@ -25,7 +25,7 @@
     <?php else: ?>
       <div class="wrapper">
         <div class="writer">
-          <div class="media"><?=$this->Html->image('../uploads/files/'.$opinion->files[0]['filename']);?></div>
+          <div class="media"><?=$this->Html->image('../uploads/files/'.$opinion->files[2]['filename']);?></div>
           <div class="text">
             <p><?=$opinion->quote;?></p>
           </div>
@@ -53,7 +53,7 @@
           <?php foreach($testimonials as $key=>$testimonial):?>
             <?php if($key>0):?>
               <div class="card_item">
-                <div class="media"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->id]);?>"><?=$this->Html->image('../uploads/files/'.$testimonial['files'][0]['filename']);?></a></div>
+                <div class="media"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->id]);?>"><?=$this->Html->image('../uploads/files/'.$testimonial['files'][1]['filename']);?></a></div>
                 <h4 class="title"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->id]);?>"><?=$testimonial->name;?></a></h4>
                 <p class="desc"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->id]);?>"><?=$testimonial->subtitle?></a></p><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->id]);?>" class="view_more">VEJA MAIS [+]</a>
               </div>
@@ -68,7 +68,7 @@
         <div class="cards">
           <?php foreach($opinions as $key=>$opinion):?>
             <div class="card_item">
-              <div class="media"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $opinion->id]);?>"><?=$this->Html->image('../uploads/files/'.$opinion['files'][0]['filename']);?></a></div>
+              <div class="media"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $opinion->id]);?>"><?=$this->Html->image('../uploads/files/'.$opinion['files'][1]['filename']);?></a></div>
               <h4 class="title"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $opinion->id]);?>"><?=$opinion->name;?></a></h4>
               <p class="desc"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $opinion->id]);?>"><?=$opinion->subtitle?></a></p><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $opinion->id]);?>" class="view_more">VEJA MAIS [+]</a>
             </div>
