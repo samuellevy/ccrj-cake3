@@ -39,7 +39,7 @@
                     <button type="button" class="btn btn-danger btn-fill remove" data-uid="<?=$testimonial['files'][0]['id'];?>">Remover</button>
                     <?php echo $this->Html->image('../uploads/files/'.$testimonial['files'][0]['filename'], ['class'=>'form-img', 'data-uid'=>$testimonial['files'][0]['id']]);?>
                   <?php else:?>
-                    <img class="img-rounded form-img" src="http://via.placeholder.com/270x270">
+                    <img class="img-rounded form-img" src="http://via.placeholder.com/1920x1080">
                   <?php endif;?>
                   <?php echo $this->Form->file('files.0.filename', ['class'=>'form-file']);?>
                   <?php echo $this->Form->hidden('files.0.entity', ['class'=>'form-file', 'value'=>'Testimonial']);?>
@@ -58,7 +58,7 @@
                     <button type="button" class="btn btn-danger btn-fill remove" data-uid="<?=$testimonial['files'][1]['id'];?>">Remover</button>
                     <?php echo $this->Html->image('../uploads/files/'.$testimonial['files'][1]['filename'], ['class'=>'form-img', 'data-uid'=>$testimonial['files'][1]['id']]);?>
                   <?php else:?>
-                    <img class="img-rounded form-img" src="http://via.placeholder.com/270x270">
+                    <img class="img-rounded form-img" src="http://via.placeholder.com/414x400">
                   <?php endif;?>
                   <?php echo $this->Form->file('files.1.filename', ['class'=>'form-file']);?>
                   <?php echo $this->Form->hidden('files.1.entity', ['class'=>'form-file', 'value'=>'Testimonial']);?>
@@ -76,12 +76,12 @@
                     <button type="button" class="btn btn-danger btn-fill remove" data-uid="<?=$testimonial['files'][2]['id'];?>">Remover</button>
                     <?php echo $this->Html->image('../uploads/files/'.$testimonial['files'][2]['filename'], ['class'=>'form-img', 'data-uid'=>$testimonial['files'][2]['id']]);?>
                   <?php else:?>
-                    <img class="img-rounded form-img" src="http://via.placeholder.com/270x270">
+                    <img class="img-rounded form-img" src="http://via.placeholder.com/550x310">
                   <?php endif;?>
-                  <?php echo $this->Form->file('files.0.filename', ['class'=>'form-file']);?>
-                  <?php echo $this->Form->hidden('files.0.entity', ['class'=>'form-file', 'value'=>'Testimonial']);?>
-                  <?php echo $this->Form->hidden('files.0.obs', ['class'=>'form-file', 'value'=>'Marca']);?>
-                  <?php echo $this->Form->hidden('files.0.model_id', ['class'=>'form-file', 'value'=>$testimonial->id]);?>
+                  <?php echo $this->Form->file('files.2.filename', ['class'=>'form-file']);?>
+                  <?php echo $this->Form->hidden('files.2.entity', ['class'=>'form-file', 'value'=>'Testimonial']);?>
+                  <?php echo $this->Form->hidden('files.2.obs', ['class'=>'form-file', 'value'=>'Marca']);?>
+                  <?php echo $this->Form->hidden('files.2.model_id', ['class'=>'form-file', 'value'=>$testimonial->id]);?>
                 </figure>
               </div>
             </div>
