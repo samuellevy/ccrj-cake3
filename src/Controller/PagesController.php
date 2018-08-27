@@ -174,9 +174,13 @@ class PagesController extends AppController
     if(isset($query['c'])){
       $category_id = array_search(strtolower($query['c']), array_map('strtolower', $categories));
       $conditions = ['category_id'=>$category_id];
+    }else{
+      $conditions = "";
     }
     if(isset($query['s'])){
       $search = $query['s'];
+    } else{
+      $search = "";
     }
 
     $works = $this->Works->find('all', [
@@ -187,7 +191,7 @@ class PagesController extends AppController
       ],
       'limit' => 100,
       'order' => ['Works.created' => 'DESC'],
-      'conditions'=>['Works.feature'=>0, 'Works.status'=>1]
+      'conditions'=>['Works.feature'=>0, 'Works.status'=>1, $conditions ]
     ]);
     if(isset($category_id)){
       $selected_category = $categories[$category_id];

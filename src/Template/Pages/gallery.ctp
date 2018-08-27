@@ -79,7 +79,7 @@
         <h4 class="title"><?=$selected_category!=null?$selected_category:'Recentes'?>//</h4>
         <div class="cards_galleries">
           <?php foreach($works as $work):?>
-            <a href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">
+            <a href="<?=$this->Url->build(["controller" => "Pages","action" => "galleryread", $work->id]);?>">
               <div class="card_item">
               
                 <div class="media">
