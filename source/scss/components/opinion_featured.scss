@@ -1,19 +1,7 @@
 .opinion_featured {
     position: relative;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
-    // .wrapper {
-    //     position: absolute;
-    //     max-width: 1200px;
-    //     margin: 0 auto;
-    //     top: 0;
-    //     left: 50%;
-    //     transform: translateX(-50%);
-    //     width: 100%;
-    //     display: flex;
-    //     padding: 0 10px;
-        
-    // }
     .section_title {
         display: flex;
         .wrap {
@@ -55,11 +43,11 @@
             z-index: 1;
             width: 100%;
             background: url('../images/mask_black.svg') no-repeat center;
-            height: 100vh;;
+            height: 100%;
             background-size: cover;
         }
         .writer {
-            height: 100vh;
+            height: 100%;
             width: 100vw;
             display: flex;
             overflow: hidden;
@@ -68,15 +56,15 @@
             img {
                 object-position: center;
                 width: 100vw;
-                height: 100vh;
+                height: 100%;
                 object-fit: cover;
             }
         }
         .mask_opiniao{
-            background: url('../images/bg_opiniao.png') no-repeat center;
+            background: url('../images/bg_opiniao.png') no-repeat center/100%;
             position: absolute;
             width: 100vw;
-            height: 100vh;
+            height: 100%;
         }
     }
 }

@@ -94,8 +94,10 @@
 		<div class="section_title">
 			<div class="wrap">
 				<h2 class="title"> <span>opinião</span></h2><a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "opinion",$testimonial->id]);?>">VEJA MAIS <span>[+]</span></a>
-				<p class="name"><strong class="name"><?=$testimonial->name;?></strong><small class="info"><?=$testimonial->subtitle?></small></p>
-				<p class="desc">"<?=substr(strip_tags($testimonial->quote),0,100)?>..."</p>
+				<a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion",$testimonial->id]);?>">
+					<p class="name"><strong class="name"><?=$testimonial->name;?></strong><small class="info"><?=$testimonial->subtitle?></small></p>
+					<p class="desc">"<?=substr(strip_tags($testimonial->quote),0,100)?>..."</p>
+				</a>
 			</div>
 		</div>
 	</div>
