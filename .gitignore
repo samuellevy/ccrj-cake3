@@ -27,7 +27,7 @@
 #webroot/*
 #webroot/**/*
 
-/webroot/files/*.jpg
-/webroot/files/*.png
-/webroot/files/*.JPEG
-/webroot/files/*.PNG
+/webroot/uploads/files/*.jpg
+/webroot/uploads/files/*.png
+/webroot/uploads/files/*.JPEG
+/webroot/uploads/files/*.PNG
