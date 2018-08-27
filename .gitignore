@@ -31,3 +31,5 @@
 /webroot/uploads/files/*.png
 /webroot/uploads/files/*.JPEG
 /webroot/uploads/files/*.PNG
+webroot/uploads/.htaccess
+webroot/uploads/.thumbs/*
