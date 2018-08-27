@@ -218,8 +218,8 @@ class PagesController extends AppController
     ]);
     $works = $works->all();
     $this->set(compact(['work', 'works']));
-    $this->set('_serialize', ['work', 'works']);
-    // die(debug($post));
+    // $this->set('_serialize', ['work', 'works']);
+    // die(debug($work));
   }
 
   public function news(){
