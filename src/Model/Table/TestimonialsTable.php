@@ -44,5 +44,14 @@ class TestimonialsTable extends Table
     return $validator;
   }
 
+  function getBySlug($slug){
+    $testimonial = $this->find('all',[
+      'conditions'=>['slug'=>$slug],
+      'contain' => ['files']
+    ])->first();
+    
+    return $testimonial;
+  }
+
 
 }

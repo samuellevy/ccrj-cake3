@@ -53,9 +53,9 @@
           <?php foreach($testimonials as $key=>$testimonial):?>
             <?php if($key>0):?>
               <div class="card_item">
-                <div class="media"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->id]);?>"><?=$this->Html->image('../uploads/files/'.$testimonial['files'][1]['filename']);?></a></div>
-                <h4 class="title"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->id]);?>"><?=$testimonial->name;?></a></h4>
-                <p class="desc"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->id]);?>"><?=$testimonial->subtitle?></a></p><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->id]);?>" class="view_more">VEJA MAIS [+]</a>
+                <div class="media"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->slug]);?>"><?=$this->Html->image('../uploads/files/'.$testimonial['files'][1]['filename']);?></a></div>
+                <h4 class="title"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->slug]);?>"><?=$testimonial->name;?></a></h4>
+                <p class="desc"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->slug]);?>"><?=$testimonial->subtitle?></a></p><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->slug]);?>" class="view_more">VEJA MAIS [+]</a>
               </div>
             <?php endif;?>
           <?php endforeach;?>
@@ -68,9 +68,9 @@
         <div class="cards">
           <?php foreach($opinions as $key=>$opinion):?>
             <div class="card_item">
-              <div class="media"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $opinion->id]);?>"><?=$this->Html->image('../uploads/files/'.$opinion['files'][1]['filename']);?></a></div>
-              <h4 class="title"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $opinion->id]);?>"><?=$opinion->name;?></a></h4>
-              <p class="desc"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $opinion->id]);?>"><?=$opinion->subtitle?></a></p><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $opinion->id]);?>" class="view_more">VEJA MAIS [+]</a>
+              <div class="media"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $opinion->slug]);?>"><?=$this->Html->image('../uploads/files/'.$opinion['files'][1]['filename']);?></a></div>
+              <h4 class="title"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $opinion->slug]);?>"><?=$opinion->name;?></a></h4>
+              <p class="desc"><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $opinion->slug]);?>"><?=$opinion->subtitle?></a></p><a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $opinion->slug]);?>" class="view_more">VEJA MAIS [+]</a>
             </div>
           <?php endforeach;?>
         </div>

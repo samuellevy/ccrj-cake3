@@ -284,9 +284,9 @@ class PagesController extends AppController
     // die(debug($post));
   }
 
-  public function opinion($id=null){
+  public function opinion($slug=null){
     $this->loadModel('Testimonials');
-    if($id==null){
+    if($slug==null){
       $testimonials = $this->Testimonials->find('all', [
         'contain'=>[
           'files',
@@ -296,23 +296,19 @@ class PagesController extends AppController
       $testimonials = $testimonials->all();
       $testimonials = $testimonials->toArray();
     } else {
-      $opinion = $this->Testimonials->get($id, [
-        'contain' => [
-          'files'
-          ]
+      $opinion = $this->Testimonials->getBySlug($slug);
+      $opinions = $this->Testimonials->find('all', [
+        'contain'=>[
+          'files',
+        ],
+        'conditions'=>[
+          'Testimonials.slug !='=>$slug,
+        ],
+        'limit' => 15
         ]);
-        $opinions = $this->Testimonials->find('all', [
-          'contain'=>[
-            'files',
-          ],
-          'conditions'=>[
-            'Testimonials.id !='=>$id,
-          ],
-          'limit' => 15
-          ]);
-          $opinions = $opinions->all();
-          $opinions = $opinions->toArray();
-        }
+        $opinions = $opinions->all();
+        $opinions = $opinions->toArray();
+      }
         
     // die(debug($testimonials));
     $this->set(compact(['testimonials', 'opinion', 'opinions']));
