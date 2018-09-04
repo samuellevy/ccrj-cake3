@@ -29,13 +29,13 @@
             <?php if(isset($testimonials)):?>
                 <?php foreach($testimonials as $key=>$testimonial):?>
                     <?php if($key>0):?>
-                    <a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->id]);?>">
+                    <a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->slug]);?>">
                     <div class="moreOpinion__box">
                         <div class="media"><?=$this->Html->image('../uploads/files/'.$testimonial->files[1]['filename']);?></div>
                         <h2><?=$testimonial->name;?></h2>
                         <h3><?=$testimonial->subtitle;?></h3>
                         <p><?=$testimonial->quote;?></p>
-                        <a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->id]);?>" alt="Opnião de Bruno Oppido">Veja mais <span>[+]</span></a>
+                        <a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion", $testimonial->slug]);?>" alt="Opnião de Bruno Oppido">Veja mais <span>[+]</span></a>
                     </div></a>
                     <?php endif;?>
                 <?php endforeach;?>

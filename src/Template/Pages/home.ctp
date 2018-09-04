@@ -93,8 +93,8 @@
 	<div class="wrapper">
 		<div class="section_title">
 			<div class="wrap">
-				<h2 class="title"> <span>opinião</span></h2><a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "opinion",$testimonial->id]);?>">VEJA MAIS <span>[+]</span></a>
-				<a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion",$testimonial->id]);?>">
+				<h2 class="title"> <span>opinião</span></h2><a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "opinion",$testimonial->slug]);?>">VEJA MAIS <span>[+]</span></a>
+				<a href="<?=$this->Url->build(["controller" => "pages","action" => "opinion",$testimonial->slug]);?>">
 					<p class="name"><strong class="name"><?=$testimonial->name;?></strong><small class="info"><?=$testimonial->subtitle?></small></p>
 					<p class="desc">"<?=substr(strip_tags($testimonial->quote),0,100)?>..."</p>
 				</a>

@@ -95,7 +95,7 @@
                             <?php echo $this->Html->image('../uploads/files/'.$testimonial['files'][1]['filename'], ['class'=>'image']);?>
                             <?php echo $this->Html->image('Site.../mobile/images/home_vazado.png', ['class'=>'mask']);?>
                         </div>
-                        <a href="<?=$this->Url->build(["controller" => "pages", "action" => "opinion", $testimonial->id]);?>">
+                        <a href="<?=$this->Url->build(["controller" => "pages", "action" => "opinion", $testimonial->slug]);?>">
                             <div class="wrapper">
                                 <div class="item"> 
                                     <h3><?=$testimonial->name;?><span><?=$testimonial->subtitle;?></span></h3>
