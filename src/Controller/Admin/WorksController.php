@@ -24,11 +24,6 @@ class WorksController extends AppController
 			'contain' => ['Sheets']
 		];
 		$works = $this->paginate($this->Works);
-
-		foreach ($works as $work){
-			$work->slug = $this->Fix->toSlug($work->sheet->project_title);
-			$this->Works->save($work);
-		}
 		
     $this->set(compact(['works']));
     $this->set('_serialize', ['works']);

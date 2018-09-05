@@ -25,11 +25,6 @@ class PostsController extends AppController
       ]
     ]);
 
-    foreach ($posts as $post){
-			$post->slug = $this->Fix->toSlug($post->title);
-			$this->Posts->save($post);
-		}
-
     $this->set(compact('posts'));
     $this->set('_serialize', ['posts']);
   }

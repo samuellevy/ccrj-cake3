@@ -20,7 +20,7 @@
 		</div>
 		<?php foreach($works as $key=>$work):?>
 			<div class="gallery_item item-<?=$key+1?>">
-				<a href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">
+				<a href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->slug]);?>">
 					<div class="media">
 						<?php if(isset($work['files'][0])):?>
 							<?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
@@ -62,7 +62,7 @@
 		</div>
 		<div class="publications">
 			<div class="wrapper">
-				<a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$posts[0]->id]);?>">
+				<a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$posts[0]->slug]);?>">
 					<div class="featured_new">
 						<h4 class="title"><?=$posts[0]->title;?></h4>
 						<p><?=$posts[0]->description;?></p>
@@ -72,8 +72,8 @@
 					<?php foreach($posts as $key=>$post):?>
 					<?php if($key!=0):?>
 					<li class="item"> 
-					<a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->id]);?>"><p><strong>DESTAQUE // </strong><span> <?=$post->title;?></span></p></a>
-						<a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->id]);?>">VEJA MAIS [+]</a>
+					<a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->slug]);?>"><p><strong>DESTAQUE // </strong><span> <?=$post->title;?></span></p></a>
+						<a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->slug]);?>">VEJA MAIS [+]</a>
 					</li>
 					<?php endif;?>
 					<?php endforeach;?>
