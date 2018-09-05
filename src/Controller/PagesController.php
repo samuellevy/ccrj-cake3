@@ -132,7 +132,9 @@ class PagesController extends AppController
     ]);
     $documents = $documents->all();
 
-    $this->set(compact(['page', 'team_top', 'team_bottom', 'documents']));
+    $title = 'O Clube';
+
+    $this->set(compact(['page', 'team_top', 'team_bottom', 'documents', 'title']));
 
 
     // die(debug($page));
@@ -198,8 +200,9 @@ class PagesController extends AppController
     }
 
     $works = $works->all();
+    $title = 'Galeria';
     // die(debug($works));
-    $this->set(compact(['featured_works','works', 'selected_category', 'worksfull']));
+    $this->set(compact(['featured_works','works', 'selected_category', 'worksfull', 'title']));
   }
   
   public function galleryread($slug=null){
@@ -215,9 +218,11 @@ class PagesController extends AppController
       'conditions'=>['Works.slug !='=>$slug]
     ]);
     $works = $works->all();
-    $this->set(compact(['work', 'works']));
+    $title = $work->sheet->project_title;
+    $this->set(compact(['work', 'works', 'title']));
     // $this->set('_serialize', ['work', 'works']);
     // die(debug($work));
+    
   }
 
   public function news(){
@@ -249,7 +254,9 @@ class PagesController extends AppController
     $posts = $posts->all();
 
     // die(debug($posts));
-    $this->set(compact(['posts', 'lastposts']));
+
+    $title = 'Novidades';
+    $this->set(compact(['posts', 'lastposts', 'title']));
   }
 
   public function newsread($slug=null){
@@ -268,8 +275,9 @@ class PagesController extends AppController
       ]
     ]);
     $posts = $posts->all();
-    $this->set(compact(['post', 'posts']));
-    $this->set('_serialize', ['post', 'posts']);
+    $title = $post->title;
+    $this->set(compact(['post', 'posts', 'title']));
+    // $this->set('_serialize', ['post', 'posts']);
     // die(debug($post));
   }
 
@@ -300,7 +308,8 @@ class PagesController extends AppController
       }
         
     // die(debug($testimonials));
-    $this->set(compact(['testimonials', 'opinion', 'opinions']));
+    $title = 'Opinião';
+    $this->set(compact(['testimonials', 'opinion', 'opinions', 'title']));
   }
 
   public function contact(){
@@ -309,8 +318,8 @@ class PagesController extends AppController
     $contacts = $contacts->all();
 
     $this->set(compact(['posts','works','testimonials','contacts']));
-
-    $this->set(compact(['contacts']));
+    $title = 'Contato';
+    $this->set(compact(['contacts', 'title']));
   }
 
 }

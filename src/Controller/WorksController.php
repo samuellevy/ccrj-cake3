@@ -66,8 +66,8 @@ class WorksController extends AppController
 		}
 		
 		$categories = $this->Works->Sheets->WorkCategories->find('list');
-		$this->set(compact(['work','categories']));
-		$this->set('_serialize', ['work']);
+		$title = 'Envie sua peça';
+		$this->set(compact(['work','categories', 'title']));
 	}
 	
 	public function index(){

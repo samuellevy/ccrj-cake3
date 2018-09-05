@@ -1,4 +1,7 @@
+
+
 <section class="galery information internal">
+
 
     <div class="wrapper">
         <h2 class="titlePrimary">Galeria</h2>
