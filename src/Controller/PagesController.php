@@ -202,15 +202,9 @@ class PagesController extends AppController
     $this->set(compact(['featured_works','works', 'selected_category', 'worksfull']));
   }
   
-  public function galleryread($id=null){
+  public function galleryread($slug=null){
     $this->loadModel('Works');
-    $work = $this->Works->get($id, [
-      'contain' => [
-        'Files',
-        'Sheets.WorkCategories',
-        'medias'
-      ]
-    ]);
+    $work = $this->Works->getBySlug($slug);
 
     $works = $this->Works->find('all', [
       'contain'=>[
@@ -218,7 +212,7 @@ class PagesController extends AppController
         'Sheets.WorkCategories',
       ],
       'limit' => 15,
-      'conditions'=>['Works.id !='=>$id]
+      'conditions'=>['Works.slug !='=>$slug]
     ]);
     $works = $works->all();
     $this->set(compact(['work', 'works']));
@@ -258,14 +252,9 @@ class PagesController extends AppController
     $this->set(compact(['posts', 'lastposts']));
   }
 
-  public function newsread($id=null){
+  public function newsread($slug=null){
     $this->loadModel('Posts');
-    $post = $this->Posts->get($id, [
-      'contain' => [
-        'Files',
-        'Capas'
-      ]
-    ]);
+    $post = $this->Posts->getBySlug($slug);
 
     $posts = $this->Posts->find('all', [
       'contain'=>[
@@ -273,7 +262,7 @@ class PagesController extends AppController
         'Miniaturas'
       ],
       'limit' => 15,
-      'conditions'=>['Posts.id !='=>$id],
+      'conditions'=>['Posts.slug !='=>$slug],
       'order'=>[
         'created'=>'DESC'
       ]

@@ -25,7 +25,10 @@ class WorksController extends AppController
 
 	public function add()
 	{
+
 		$work = $this->Works->newEntity();
+		$works = $this->Works->find('all')->all()->toArray();
+
 		if ($this->request->is('post')) {
 			$work = $this->Works->patchEntity($work, $this->request->getData());
 			foreach($work->files as $key=>$file){
@@ -39,6 +42,21 @@ class WorksController extends AppController
 					unset($work->medias[$key]);
 				}
 			}
+
+			$slug = $this->Fix->toSlug($work->sheet->project_title);
+			$count = 1;
+			foreach ($works as $item){
+				if ($this->Fix->toSlug($item->title) == $slug){
+				$count++;
+				}
+			}
+			
+			if ($count > 1){
+				$work->slug = $slug.$count;
+			} else{
+				$work->slug = $slug;
+			}
+
 			if ($this->Works->save($work)) {
 				$this->Flash->success(__('Sua peça foi enviada com sucesso.'));
 				return $this->redirect(['action' => 'add']);

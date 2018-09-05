@@ -9,6 +9,11 @@ use App\Controller\AppControllerAdmin;
 */
 class PostsController extends AppController
 {
+  public function initialize(){
+    parent::initialize();
+    $this->loadComponent('Fix');
+  }
+
   public function index()
   {
     $posts = $this->paginate($this->Posts, [
@@ -20,7 +25,10 @@ class PostsController extends AppController
       ]
     ]);
 
-    //die(debug($posts));
+    foreach ($posts as $post){
+			$post->slug = $this->Fix->toSlug($post->title);
+			$this->Posts->save($post);
+		}
 
     $this->set(compact('posts'));
     $this->set('_serialize', ['posts']);
@@ -28,21 +36,34 @@ class PostsController extends AppController
 
   public function add()
   {
+
     $post = $this->Posts->newEntity();
+    $posts = $this->Posts->find('all')->all()->toArray();
     $categories = $this->Posts->BlogCategories->find('list', ['limit' => 200, 'order'=>['id'=>'ASC']]);
-
+    
     if ($this->request->is('post')) {
-      $data = $this->request->getData();
-      $data['author_id']=$this->Auth->user('id');
-
-      $post = $this->Posts->patchEntity($post, $data,[
+      
+      $post = $this->Posts->patchEntity($post, $this->request->getData(),[
         'associated' => [
           'BlogCategories',
           'BlogPostTags.Tags',
           'Files'
         ]
-      ]);
+      ]); 
 
+      $slug = $this->Fix->toSlug($post->title);
+      $count = 1;
+      foreach ($posts as $item){
+        if ($this->Fix->toSlug($item->title) == $slug){
+          $count++;
+        }
+      }
+      if ($count > 1){
+        $post->slug = $slug.$count;
+      } else{
+        $post->slug = $slug;
+      }
+      
       if ($this->Posts->save($post)) {
         $this->Flash->success(__('Salvo com sucesso.'));
 

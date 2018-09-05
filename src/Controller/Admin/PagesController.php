@@ -71,7 +71,7 @@ class PagesController extends AppController
     $page = $this->Pages->get($id, [
       'contain' => [
         'PagesComponents'=>[
-           'sort'=>['sort'=>'asc']
+          'sort'=>['sort'=>'asc']
         ]
       ]
     ]);

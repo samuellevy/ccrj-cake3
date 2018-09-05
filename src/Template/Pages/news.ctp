@@ -9,8 +9,8 @@
               <span><?= $post->created; ?></span>
               <!-- <a href="#"><?=$this->Html->image('Site.../images/fb.png', ['alt'=>'']);?></a><a href="#"><?=$this->Html->image('Site.../images/tw.png', ['alt'=>'']);?></a> -->
             </div>
-            <h3 class="title"><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread", $post->id]);?>"><?=$post->title;?> </a></h3>
-            <p class="desc"><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread", $post->id]);?>"><?=$post->description;?> </a></p><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread", $post->id]);?>" class="view_more">VEJA MAIS [+]</a>
+            <h3 class="title"><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread", $post->slug]);?>"><?=$post->title;?> </a></h3>
+            <p class="desc"><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread", $post->slug]);?>"><?=$post->description;?> </a></p><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread", $post->slug]);?>" class="view_more">VEJA MAIS [+]</a>
           </div>
           <?php if($key==2) break; ?>
         <?php endforeach;?>
@@ -19,7 +19,7 @@
     <div class="media">
       <div class="slider">
         <?php foreach($lastposts as $key=>$lastpost):?>
-        <a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$lastpost->id]);?>">
+        <a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$lastpost->slug]);?>">
           <?php echo $this->Html->image('../uploads/files/'.$lastpost['capas'][0]['filename']);?>
         </a>
         <?php endforeach;?>
@@ -32,12 +32,12 @@
         <?php foreach($posts as $key=>$post):?>
           <?php if($key > 2):?>
             <div class="card_item"><span class="date"><?= $post->created; ?></span>
-              <h4 class="title"><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->id]);?>"><?=$post->title;?></a></h4>
-              <p class="desc"><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->id]);?>"><?=$post->description;?></a></p>
+              <h4 class="title"><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->slug]);?>"><?=$post->title;?></a></h4>
+              <p class="desc"><a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->slug]);?>"><?=$post->description;?></a></p>
               <div class="media">
-                <a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->id]);?>"><?php echo $this->Html->image('../uploads/files/'.$post['miniaturas'][0]['filename']);?></a>
+                <a href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->slug]);?>"><?php echo $this->Html->image('../uploads/files/'.$post['miniaturas'][0]['filename']);?></a>
               </div>
-              <a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->id]);?>">VEJA MAIS [+]</a>
+              <a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "newsread",$post->slug]);?>">VEJA MAIS [+]</a>
             </div>
           <?php endif;?>
         <?php endforeach;?>

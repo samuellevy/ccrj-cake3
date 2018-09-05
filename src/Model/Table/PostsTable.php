@@ -99,4 +99,15 @@ class PostsTable extends Table
 
         return $validator;
     }
+    function getBySlug($slug){
+      $post = $this->find('all',[
+        'conditions'=>['slug'=>$slug],
+        'contain' => [
+          'Files',
+          'Capas'
+        ]
+      ])->first();
+      
+      return $post;
+    }
 }

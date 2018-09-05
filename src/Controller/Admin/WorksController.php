@@ -13,12 +13,22 @@ class WorksController extends AppController
 	public function beforeFilter(Event $event){
 		parent::beforeFilter($event);
 	}
+
+	public function initialize(){
+		parent::initialize();
+		$this->loadComponent('Fix');
+	}
 	
 	public function index(){
 		$this->paginate = [
-			//'contain' => ['Sheets']
+			'contain' => ['Sheets']
 		];
 		$works = $this->paginate($this->Works);
+
+		foreach ($works as $work){
+			$work->slug = $this->Fix->toSlug($work->sheet->project_title);
+			$this->Works->save($work);
+		}
 		
     $this->set(compact(['works']));
     $this->set('_serialize', ['works']);

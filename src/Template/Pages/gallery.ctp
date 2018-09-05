@@ -34,7 +34,7 @@
             <div class="item"><span class="tag">DESTAQUE// IMPRESSO</span>
               <h3 class="title"><?=$work->sheet->project_title?></h3>
               <p class="hint"><?=$work->sheet->advertiser?></p>
-              <p class="hint"><?=$work->sheet->production_company?></p><a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">VEJA MAIS [+]</a>
+              <p class="hint"><?=$work->sheet->production_company?></p><a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->slug]);?>">VEJA MAIS [+]</a>
             </div>
             <?php endforeach;?>
           </div>
@@ -42,7 +42,7 @@
         <div class="media">
           <div class="slider">
             <?php foreach($featured_works as $work):?>
-              <a href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">
+              <a href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->slug]);?>">
 
                 <?php if(isset($work['files'][0])):?>
                   <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
@@ -79,7 +79,7 @@
         <h4 class="title"><?=$selected_category!=null?$selected_category:'Recentes'?>//</h4>
         <div class="cards_galleries">
           <?php foreach($works as $work):?>
-            <a href="<?=$this->Url->build(["controller" => "Pages","action" => "galleryread", $work->id]);?>">
+            <a href="<?=$this->Url->build(["controller" => "Pages","action" => "galleryread", $work->slug]);?>">
               <div class="card_item">
               
                 <div class="media">
@@ -103,7 +103,7 @@
                   <p><strong><?=$work->sheet->avertiser?>// </strong><span><?=$work->sheet->project_title?></span></p>
                 </div>
                 
-                <a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">VEJA MAIS [+]</a>
+                <a class="view_more" href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->slug]);?>">VEJA MAIS [+]</a>
               </div>
 
             </a>

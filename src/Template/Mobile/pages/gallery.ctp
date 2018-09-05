@@ -13,7 +13,7 @@
 
     <?php foreach($worksfull as $work):?>
       <div class="featured__full">
-        <a href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->id]);?>">
+        <a href="<?=$this->Url->build(["controller" => "pages","action" => "galleryread", $work->slug]);?>">
           <?php if(isset($work['files'][0])):?>
             <?php echo $this->Html->image('../uploads/files/'.$work['files'][0]['filename']);?>
             

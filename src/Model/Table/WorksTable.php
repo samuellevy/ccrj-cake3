@@ -84,4 +84,16 @@ class WorksTable extends Table
 
         return $validator;
     }
+    function getBySlug($slug){
+        $work = $this->find('all',[
+            'conditions'=>['slug'=>$slug],
+            'contain' => [
+                'Files',
+                'Sheets.WorkCategories',
+                'medias'
+            ]
+        ])->first();
+        
+        return $work;
+    }
 }
