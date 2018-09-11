@@ -15,10 +15,12 @@
             <h2 class="titlePrimary"><?=$testimonials[0]['name']?></h2>
             <h3><?=$testimonials[0]['subtitle']?></h3>
             <p><?=$testimonials[0]['quote']?></p>
+            <p><?=$testimonials[0]['testimony']?></p>
         <?php else: ?>
             <h2 class="titlePrimary"><?=$opinion->name;?></h2>
             <h3><?=$opinion->subtitle;?></h3>
             <p><?=$opinion->quote;?></p>
+            <p><?=$opinion->testimony;?></p>
         <?php endif;?>
 
         </div>
