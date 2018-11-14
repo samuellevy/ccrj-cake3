@@ -9,6 +9,12 @@ use Cake\Event\Event;
 
 class WorksController extends AppController
 {
+	public function initialize(){
+		parent::initialize();
+		
+		$this->loadComponent('Fix');
+	}
+
 	public function beforeFilter(Event $event){
 		parent::beforeFilter($event);
 		$this->viewBuilder()->setLayout('pages');
