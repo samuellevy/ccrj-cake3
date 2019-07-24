@@ -1,0 +1,335 @@
+.bar {
+    margin: 35px auto 65px;
+    &.jury {
+        margin: 20px auto 50px;
+    }
+}
+.anuario {
+    .weebdoor-anuario {
+        height: auto;
+    }
+    section.jury {
+        background: url("../images/bgjury.jpg");
+        padding-bottom: 100px;
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+            .juryTitleBox {
+                background-size: 40px;
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    background: url("../images/halftoneTexture.png");
+                    background-repeat: no-repeat;
+                    width: 100%;
+                    background-position: center;
+                    height: 5px;
+                }
+                h2 {
+                    text-transform: uppercase;
+                    color: #fff;
+                }
+            }
+            .juryContainer {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                width: 80%;
+                .juryItem {
+                    width: 270px;
+                    background: transparent;
+                    height: 335px;
+                    margin-right: 2px;
+                    margin-top: 80px;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    flex-direction: column;
+                    img {
+                        border: solid 10px #3e321a;
+                        border-radius: 50%;
+                    }
+                    .juryContent {
+                        p {
+                            text-transform: uppercase;
+                            font-size: 30px;
+                            width: 100%;
+                            text-align: center;
+                            font-weight: 600;
+                            &.name {
+                                color: #251e10;
+                                background: url("../images/jurynamebg.png");
+                                background-position: center;
+                                background-size: 100%;
+                                background-repeat: no-repeat;
+                                padding: 20px 25px;
+                            }
+                            &.description {
+                                color: #fff;
+                                background: transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    section.HowtoApply {
+        background: url("../images/texturebg.jpg");
+        background-repeat: no-repeat;
+        background-position: bottom;
+        padding-bottom: 90px;
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 90px;
+
+            .titleBox {
+                text-transform: uppercase;
+                margin-bottom: 50px;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    background: url("../images/subtexture.png");
+                    background-repeat: no-repeat;
+                    width: 100%;
+                    background-position: center;
+                    height: 5px;
+                }
+            }
+            .stepByStepContainer {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                .step {
+                    width: 350px;
+                    height: 350px;
+                    padding: 30px 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-right: 50px;
+                    margin-top: 80px;
+                    .media {
+                        height: 175px;
+                        img {
+                            margin-right: 15px;
+                        }
+                    }
+                    .text {
+                        display: flex;
+                        p {
+                            font-size: 17px;
+                            align-self: flex-start;
+                            padding: 30px;
+                            color: #000;
+                            text-align: center;
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    section.bankData {
+        background: #bb9f58;
+        background-image: url("../images/texturebg2.jpg");
+        background-repeat: no-repeat;
+        background-position: bottom;
+        padding-bottom: 100px;
+        .titleBox {
+            &::after {
+                content: "";
+                position: absolute;
+                background: url("../images/bankbar.png");
+                background-repeat: no-repeat;
+                width: 100%;
+                left: 0;
+                background-position: center;
+                height: 5px;
+            }
+        }
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 80px;
+            .infoBox {
+                margin-top: 80px;
+                p {
+                    font-size: 42px;
+                    font-weight: 500;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    section.form {
+        background: url("../images//bgform.jpg");
+        padding-bottom: 225px;
+        background-size: cover;
+        background-position: top;
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            .titleBox {
+                h2 {
+                    color: #fff;
+                    margin-top: 100px;
+                }
+            }
+            .description {
+                p {
+                    color: #fff;
+                    font-family: "Raleway";
+                    font-size: 18px;
+                    text-transform: none;
+                    font-weight: 500;
+                    text-align: center;
+                    padding: 0px 125px;
+                }
+            }
+            .formBox {
+                width: 100%;
+                .formTitle {
+                    width: 100%;
+                    background: #bb9f58;
+                    margin-top: 75px;
+                    margin-bottom: 25px;
+                    h2 {
+                        color: #2b2212;
+                        font-size: 56px;
+                        font-weight: 600;
+                        padding: 10px 50px;
+                    }
+                }
+                .form {
+                    padding: 0 50px;
+                    form {
+                        .alert-info {
+                            width: 100% !important;
+                        }
+                        .inputContainer {
+                            display: flex;
+                            width: 100%;
+                            .inputBox {
+                                width: 100%;
+                                .inputLabel {
+                                    font-family: "Raleway";
+                                    color: #fff;
+                                    font-size: 18px;
+                                    margin-bottom: 20px;
+                                }
+                                &.email {
+                                    width: 60%;
+                                }
+                                &.phone {
+                                    width: 40%;
+                                }
+                                &.agency {
+                                    width: 40%;
+                                }
+                                &.jobTitle {
+                                    width: 60%;
+                                }
+                                &.file {
+                                    display: flex;
+                                    justify-content: center;
+                                    width: 100%;
+                                }
+                            }
+                            .inputElement {
+                                &.file {
+                                    width: 30%;
+                                    margin-right: 20px;
+                                }
+                                input {
+                                    padding: 10px 10px;
+                                    font-family: "Raleway";
+                                    font-size: 16px;
+                                    border: solid 2px #bb9f58;
+                                    box-sizing: border-box;
+                                    margin-bottom: 20px;
+                                    width: 100%;
+                                    &.name {
+                                        width: 100%;
+                                    }
+                                    &.email {
+                                        width: 90%;
+                                    }
+                                    &.phone {
+                                        width: 100%;
+                                    }
+                                    &.agency {
+                                        width: 85%;
+                                    }
+                                    &.jobTitle {
+                                        width: 100%;
+                                    }
+                                    &.fileName {
+                                        width: 100%;
+                                        background: transparent;
+                                        color: #fff;
+                                    }
+                                }
+                            }
+                        }
+                        .searchFile {
+                            width: 10%;
+                            background: #b99d57;
+                            height: 45px;
+                            button {
+                                width: 100%;
+                                background: url("../images/glass.png");
+                                background-repeat: no-repeat;
+                                background-position: 90px;
+                                color: #282011;
+                                padding: 10px 35px 10px 15px;
+                                border: none;
+                                font-family: "Signika", sans-serif;
+                                font-size: 16px;
+                                font-style: italic;
+                            }
+                        }
+                    }
+                    .submitBox {
+                        width: 20%;
+                        margin: 50px auto;
+                        display: flex;
+                        justify-content: center;
+                        button {
+                            background: url("../images/buttonbg.png");
+                            background-position: center;
+                            border: none;
+                            background-repeat: no-repeat;
+                            cursor: pointer;
+                            padding: 15px 40px;
+                            color: #251e10;
+                            font-family: "Rajdhani";
+                            font-weight: 600;
+                            font-size: 32px;
+                            text-transform: uppercase;
+                            font-style: italic;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
