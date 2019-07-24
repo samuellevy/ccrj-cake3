@@ -23,6 +23,7 @@ Router::scope('/m', ['m'=>true], function ($routes) {
     $routes->connect('/opiniao/:type', ['controller' => 'Pages', 'action' => 'opinion'],['pass' => ['type']]);
     $routes->connect('/envie', ['controller' => 'Works', 'action' => 'add']);
     $routes->connect('/contato', ['controller' => 'Pages', 'action' => 'contact']);
+    $routes->connect('/anuario', ['controller' => 'Pages', 'action' => 'anuario']);
 });
 
 Router::scope('/', function (RouteBuilder $routes) {
@@ -36,6 +37,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/opiniao/:type', ['controller' => 'Pages', 'action' => 'opinion'],['pass' => ['type']]);
     $routes->connect('/envie', ['controller' => 'Works', 'action' => 'add']);
     $routes->connect('/contato', ['controller' => 'Pages', 'action' => 'contact']);
+    $routes->connect('/anuario', ['controller' => 'Pages', 'action' => 'anuario']);
     $routes->fallbacks(DashedRoute::class);
 });
 

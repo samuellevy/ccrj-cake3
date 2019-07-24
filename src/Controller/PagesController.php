@@ -6,6 +6,7 @@ use Cake\Network\Exception\ForbiddenException;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
 use Cake\Event\Event;
+use Cake\Mailer\Email;
 
 class PagesController extends AppController
 {
@@ -321,5 +322,46 @@ class PagesController extends AppController
     $title = 'Contato';
     $this->set(compact(['contacts', 'title']));
   }
+
+  public function anuario($message=null){
+    // die(debug($message['assunto']));
+
+    if ($this->request->is('post')) {
+      // die(debug($this->request->data));
+      $content = "<h1>Email de</h1>".$this->request->data['name'];;
+      $content .= "<h2>Emai:l</h2>".$this->request->data['email'];
+      $content .= "<h2>Telefone:</h2>".$this->request->data['phone'];
+      $content .= "<h2>Agência:</h2>".$this->request->data['agency'];
+      $content .= "<h2>Cargo</h2>".$this->request->data['jobTitle'];
+      $content .= "<h2>Link do Wetransfer</h2>".$this->request->data['link'];
+      
+
+      try {
+        $email = new Email('default');
+        $email->from(['pedro@clubedecriacao.rio' => 'Anuário'])
+          ->template('contact')
+          ->emailFormat('html')
+          ->to('vinicius.machado@3aworldwide.com.br')
+          ->subject('Anuário - '.$this->request->data['name'] )
+          ->viewVars([
+            'nome'=>$this->request->data['name'],
+            'email'=>$this->request->data['email'],
+            'phone'=>$this->request->data['phone'],
+            'agency'=>$this->request->data['agency'],
+            'jobTitle'=>$this->request->data['jobTitle'],
+            'link'=>$this->request->data['link']
+            ])
+          ->send();
+      } catch (Exception $e) {
+        
+      }
+
+      die(debug('foi'));
+    }
+    
+    $email = new Email('default');
+    
+		// die(debug($message));
+	}
 
 }
