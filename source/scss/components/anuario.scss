@@ -41,40 +41,50 @@
             .juryContainer {
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-between;
-                width: 80%;
+                justify-content: center;
+                width: 100%;
                 .juryItem {
-                    width: 270px;
+                    min-width: 270px;
                     background: transparent;
-                    height: 335px;
                     margin-right: 2px;
                     margin-top: 80px;
                     display: flex;
-                    justify-content: space-around;
+                    justify-content: space-between;
                     align-items: center;
                     flex-direction: column;
+                    margin-left: 25px;
+                    &:first-child {
+                        margin-left: 0;
+                    }
                     img {
                         border: solid 10px #3e321a;
                         border-radius: 50%;
                     }
                     .juryContent {
-                        p {
-                            text-transform: uppercase;
-                            font-size: 30px;
-                            width: 100%;
-                            text-align: center;
-                            font-weight: 600;
-                            &.name {
-                                color: #251e10;
-                                background: url("../images/jurynamebg.png");
-                                background-position: center;
-                                background-size: 100%;
-                                background-repeat: no-repeat;
-                                padding: 20px 25px;
+                        width: 100%;
+                        margin-top: 20px;
+                        .name {
+                            color: #251e10;
+                            background: url("../images/jurynamebg.png");
+                            background-position: center;
+                            background-size: 100%;
+                            background-repeat: no-repeat;
+                            padding: 30px 25px;
+                            line-height: 25px;
+                            p {
+                                text-transform: uppercase;
+                                font-size: 30px;
+                                text-align: center;
+                                font-weight: 600;
                             }
-                            &.description {
+                        }
+                        .description {
+                            p {
                                 color: #fff;
-                                background: transparent;
+                                text-transform: uppercase;
+                                font-size: 30px;
+                                text-align: center;
+                                font-weight: 600;
                             }
                         }
                     }
@@ -125,7 +135,7 @@
                     .media {
                         height: 175px;
                         img {
-                            margin-right: 15px;
+                            margin-right: 30px;
                         }
                     }
                     .text {
@@ -133,7 +143,7 @@
                         p {
                             font-size: 17px;
                             align-self: flex-start;
-                            padding: 30px;
+                            padding: 25px;
                             color: #000;
                             text-align: center;
                             font-weight: 500;
@@ -150,29 +160,41 @@
         background-repeat: no-repeat;
         background-position: bottom;
         padding-bottom: 100px;
-        .titleBox {
-            &::after {
-                content: "";
-                position: absolute;
-                background: url("../images/bankbar.png");
-                background-repeat: no-repeat;
-                width: 100%;
-                left: 0;
-                background-position: center;
-                height: 5px;
-            }
-        }
         .wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
             padding-top: 80px;
-            .infoBox {
-                margin-top: 80px;
-                p {
-                    font-size: 42px;
-                    font-weight: 500;
-                    text-align: center;
+            .picpaycontainer {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 140px;
+                .infoBox {
+                    margin-top: 30px;
+                    p {
+                        font-size: 23px;
+                        font-weight: 500;
+                    }
+                }
+                .picpayappstore {
+                    display: flex;
+                    margin-top: 100px;
+                    img {
+                        margin-right: 25px;
+                    }
+                }
+            }
+            .titleBox {
+                &::after {
+                    content: "";
+                    position: absolute;
+                    background: url("../images/bankbar.png");
+                    background-repeat: no-repeat;
+                    width: 100%;
+                    left: 0;
+                    background-position: center;
+                    height: 5px;
                 }
             }
         }
