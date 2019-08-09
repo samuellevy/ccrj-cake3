@@ -1,4 +1,4 @@
-
+<!-- AAAAA CACHE -->
  <div class="anuario">
         <div class="webdoor-anuario">
             <?=$this->Html->image('Site.../images/header.jpg', ['alt'=>'Anuário']);?>    
