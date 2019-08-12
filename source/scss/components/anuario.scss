@@ -7,6 +7,9 @@
 .anuario {
     .weebdoor-anuario {
         height: auto;
+        img {
+            width: 100%;
+        }
     }
     section.jury {
         background: url("../images/bgjury.jpg");
@@ -96,7 +99,8 @@
     section.HowtoApply {
         background: url("../images/texturebg.jpg");
         background-repeat: no-repeat;
-        background-position: bottom;
+        background-position: 50% 100%;
+        background-size: 100%;
         padding-bottom: 90px;
         .wrapper {
             display: flex;
@@ -158,7 +162,8 @@
         background: #bb9f58;
         background-image: url("../images/texturebg2.jpg");
         background-repeat: no-repeat;
-        background-position: bottom;
+        background-position: 50% 100%;
+        background-size: 100%;
         padding-bottom: 100px;
         .wrapper {
             display: flex;
@@ -353,5 +358,11 @@
                 }
             }
         }
+    }
+}
+
+.annuarywbdfoo {
+    img {
+        width: 100%;
     }
 }

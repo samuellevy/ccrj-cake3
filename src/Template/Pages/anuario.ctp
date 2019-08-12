@@ -113,9 +113,9 @@
                             </div>
                         </div>
                         <div class="step">
-                            <div class="media"><?=$this->Html->image('Site.../images/fifth.png', ['alt'=>'Anuário']);?> </div>
+                            <div class="media"><?=$this->Html->image('Site.../images/seloo-exp.png', ['alt'=>'Anuário']);?> </div>
                             <div class="text">
-                            <p>Multiplique o número de peças por 100 e faça o pagamento procurando o @ccrj no aplicativo picpay.</p>
+                            <p>Multiplique o número de peças por <strong>R$ 100,00</strong> e faça o pagamento procurando o @ccrj no aplicativo picpay.</p>
                             </div>
                         </div>
                     </div>
@@ -206,7 +206,7 @@
                             <div class="inputContainer">
                                 <div class="inputBox file">
                                     <div class="inputElement file">
-                                        <input class="fileName" type="text" name="link" value="" placeholder="Link do wetransfer" />
+                                        <input class="fileName" type="text" required="required" name="link" value="" placeholder="Link do wetransfer" />
                                     </div>
                                 </div>
                             </div>
