@@ -113,7 +113,7 @@
                             </div>
                         </div>
                         <div class="step">
-                            <div class="media"><?=$this->Html->image('Site.../images/seloo-exp.png', ['alt'=>'Anuário']);?> </div>
+                            <div class="media no_npm"><?=$this->Html->image('Site.../images/seloo-exp.png', ['alt'=>'Anuário']);?> </div>
                             <div class="text">
                             <p>Multiplique o número de peças por <strong>R$ 100,00</strong> e faça o pagamento procurando o @ccrj no aplicativo picpay.</p>
                             </div>
