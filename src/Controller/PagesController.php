@@ -333,7 +333,7 @@ class PagesController extends AppController
         $email->from(['noreply@clubedecriacao.rio' => 'Anuário'])
           ->template('contact')
           ->emailFormat('html')
-          ->to('pedro@clubedecriacao.rio')
+          ->to('vinicius.machado@3aworldwide.com.br')
           ->subject('Anuário - '.$this->request->data['name'] )
           ->viewVars([
             'nome'=>$this->request->data['name'],
