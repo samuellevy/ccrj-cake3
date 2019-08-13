@@ -349,7 +349,7 @@ class PagesController extends AppController
         
       }
 
-      //die(debug('foi'));
+      die(debug('foi'));
     }
     
     $email = new Email('default');
