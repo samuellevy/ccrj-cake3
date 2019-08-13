@@ -330,7 +330,7 @@ class PagesController extends AppController
       // die(debug($this->request->data));
       try {
         $email = new Email('default');
-        $email->from(['noreply@clubedecriacao.rio' => 'Anuário'])
+        $email->from(['pedro@clubedecriacao.rio' => 'Anuário'])
           ->template('contact')
           ->emailFormat('html')
           ->to('vinicius.machado@3aworldwide.com.br')
