@@ -349,7 +349,7 @@ class PagesController extends AppController
         
       }
       if($email){
-        die(debug('foi'));
+        die(debug('email fé'));
       }
       
     }
