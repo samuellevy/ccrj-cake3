@@ -348,8 +348,10 @@ class PagesController extends AppController
       } catch (Exception $e) {
         
       }
-
-      die(debug('foi'));
+      if($email){
+        die(debug('foi'));
+      }
+      
     }
     
     $email = new Email('default');
