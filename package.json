@@ -20,7 +20,7 @@
   "homepage": "https://bitbucket.org/3aworldwide/3aglobal-backend#readme",
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",
-    "browser-sync": "^2.18.13",
+    "browser-sync": "^2.27.10",
     "gulp": "^3.9.1",
     "gulp-cache": "^1.0.1",
     "gulp-imagemin": "^4.0.0",
