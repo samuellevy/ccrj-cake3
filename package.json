@@ -21,7 +21,7 @@
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",
     "browser-sync": "^2.18.13",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-cache": "^1.0.1",
     "gulp-imagemin": "^4.0.0",
     "gulp-inject": "^4.3.0",
